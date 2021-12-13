@@ -21,7 +21,7 @@ class App {
             }
             unset($arr[1]);
         }
-
+        
         $this->params = $arr ? array_values($arr) : [];
 
         call_user_func_array([$this->controller, $this->action], $this->params);

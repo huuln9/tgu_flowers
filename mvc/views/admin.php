@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>TGU Flowers</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="./public/assets/images/favicon.png">
-    <link href="./public/main/css/style.css" rel="stylesheet">
-    <!-- <script src="../../public/js/modernizr-3.6.0.min.js"></script> -->
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $appRootURL ?>/public/assets/images/favicon.png">
+    <link href="<?php echo $appRootURL ?>/public/main/css/style.css" rel="stylesheet">
+    <link href="<?php echo $appRootURL ?>/public/assets/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="<?php echo $appRootURL ?>/public/js/modernizr-3.6.0.min.js"></script>
 </head>
 
 <body class="v-light vertical-nav fix-header fix-sidebar">
@@ -22,7 +23,7 @@
         <!-- header -->
         <div class="header">
             <div class="nav-header">
-                <div class="brand-logo"><a href="index.html"><b><img src="./public/assets/images/logo.png" alt=""> </b><span class="brand-title"><img src="./public/assets/images/logo-text.png" alt=""></span></a>
+                <div class="brand-logo"><a href="index.html"><b><img src="<?php echo $appRootURL ?>/public/assets/images/logo.png" alt=""> </b><span class="brand-title"><img src="<?php echo $appRootURL ?>/public/assets/images/logo-text.png" alt=""></span></a>
                 </div>
                 <div class="nav-control">
                     <div class="hamburger"><span class="line"></span> <span class="line"></span> <span class="line"></span>
@@ -79,7 +80,7 @@
                     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-settings-variant"></i> <span class="nav-text">Quản lý tài khoản</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-account-multiple"></i> Danh sách tài khoản</a>
+                                <a href="<?php echo $appRootURL ?>/admin/accountlist"><i class="mdi mdi-account-multiple"></i> Danh sách tài khoản</a>
                             </li>
                             <li>
                                 <a href="table-dt-basic.html"><i class="mdi mdi-account-plus"></i> Thêm tài khoản</a>
@@ -132,13 +133,17 @@
         <!-- #/ footer -->
     </div>
     <!-- Common JS -->
-    <script src="./public/assets/plugins/common/common.min.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/common/common.min.js"></script>
     <!-- Custom script -->
-    <script src="./public/main/js/custom.min.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/main/js/custom.min.js"></script>
     <!-- Chartjs chart -->
-    <!-- <script src="../../public/assets/plugins/chartjs/Chart.bundle.js"></script> -->
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/chartjs/Chart.bundle.js"></script>
     <!-- Custom dashboard script -->
-    <!-- <script src="../../public/js/dashboard-1.js"></script>   -->
+    <script src="<?php echo $appRootURL ?>/public/js/dashboard-1.js"></script>  
+
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
 </body>
 
 </html>

@@ -52,21 +52,21 @@
                     <div class="card-body">
                         <h4 class="card-title">Ý kiến khách hàng</h4>
                         <div class="media border-bottom-1 p-t-15 p-b-15">
-                            <img src="./public/assets/images/avatar/1.jpg" class="mr-3 rounded-circle" alt="">
+                            <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/1.jpg" class="mr-3 rounded-circle" alt="">
                             <div class="media-body">
                                 <h5>John Tomas</h5>
                                 <p class="m-b-0">I shared this on my fb wall a few months back,</p>
                             </div><span class="text-muted f-s-12">April 24, 2018</span>
                         </div>
                         <div class="media border-bottom-1 p-t-15 p-b-15">
-                            <img src="./public/assets/images/avatar/2.jpg" class="mr-3 rounded-circle" alt="">
+                            <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/2.jpg" class="mr-3 rounded-circle" alt="">
                             <div class="media-body">
                                 <h5>John Tomas</h5>
                                 <p class="m-b-0">I shared this on my fb wall a few months back,</p>
                             </div><span class="text-muted f-s-12">April 24, 2018</span>
                         </div>
                         <div class="media p-t-15 p-b-15">
-                            <img src="./public/assets/images/avatar/3.jpg" class="mr-3 rounded-circle" alt="">
+                            <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/3.jpg" class="mr-3 rounded-circle" alt="">
                             <div class="media-body">
                                 <h5>John Tomas</h5>
                                 <p class="m-b-0">I shared this on my fb wall a few months back,</p>
@@ -95,7 +95,7 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <img src="./public/assets/images/avatar/1.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
+                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/1.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
                                             </td>
                                             <td><span>125</span>
                                             </td>
@@ -105,7 +105,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src="./public/assets/images/avatar/2.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
+                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/2.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
                                             </td>
                                             <td><span>547</span>
                                             </td>
@@ -115,7 +115,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src="./public/assets/images/avatar/3.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
+                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/3.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
                                             </td>
                                             <td><span>557</span>
                                             </td>
@@ -125,7 +125,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src="./public/assets/images/avatar/4.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
+                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/4.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
                                             </td>
                                             <td><span>753</span>
                                             </td>
@@ -135,7 +135,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src="./public/assets/images/avatar/5.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
+                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/5.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
                                             </td>
                                             <td><span>453</span>
                                             </td>
@@ -145,7 +145,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <img src="./public/assets/images/avatar/6.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
+                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/6.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
                                             </td>
                                             <td><span>658</span>
                                             </td>

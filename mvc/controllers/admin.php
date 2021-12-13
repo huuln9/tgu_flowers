@@ -6,14 +6,18 @@ class Admin extends Controller {
         ]);
     }
 
-    function Shows() {
-        $md = $this->model("SinhVienModel");
-        $sv = $md->GetSV();
-
-        $this->view("aodep", [
-            "sv" => $sv,
-            "pages" => "page2"
+    function AccountList() {
+        $this->view("admin", [
+            "pages" => "account_list"
         ]);
+
+        // $md = $this->model("SinhVienModel");
+        // $sv = $md->GetSV();
+
+        // $this->view("aodep", [
+        //     "sv" => $sv,
+        //     "pages" => "page2"
+        // ]);
     }
 }
 ?>
