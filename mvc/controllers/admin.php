@@ -1,8 +1,8 @@
 <?php
 class Admin extends Controller {
     function Show() {
-        $this->view("dashboard", [
-            "pages" => "page1"
+        $this->view("admin", [
+            "pages" => "dashboard"
         ]);
     }
 
