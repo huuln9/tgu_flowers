@@ -1,0 +1,60 @@
+@import "variable.scss";
+
+.tagsinput {
+    overflow-y           : auto;
+    display              : block;
+    width                : 100%;
+    height               : 34px;
+    padding              : 6px 12px;
+    font-size            : 14px;
+    line-height          : 1.42857143;
+    background-image     : none;
+    -webkit-border-radius: 4px;
+    border-radius        : 4px;
+
+    span.tag {
+        display              : block;
+        float                : left;
+        padding              : 3px 8px;
+        text-decoration      : none;
+        margin-right         : 5px;
+        margin-bottom        : 5px;
+        font-size            : 13px;
+        -webkit-border-radius: 3px;
+        border-radius        : 3px;
+
+        a {
+            font-weight    : bold;
+            text-decoration: none;
+            font-size      : 11px;
+        }
+    }
+
+    input {
+        width        : 80px;
+        margin       : 0;
+        font-size    : 13px;
+        border       : 1px solid transparent;
+        padding      : 5px;
+        background   : transparent;
+        outline      : 0;
+        margin-right : 5px;
+        margin-bottom: 5px;
+    }
+
+    div {
+        display: block;
+        float  : left;
+    }
+}
+
+.tags_clear {
+    clear : both;
+    width : 100%;
+    height: 0;
+}
+
+.not_valid {
+    background: #FBD8DB !important;
+    color     : #90111A !important;
+}

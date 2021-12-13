@@ -1,0 +1,173 @@
+@import "variable.scss";
+
+
+.email-left-box {
+    width: 240px;
+    float: left;
+    padding: 0 20px 20px 10px;
+}
+
+.email-right-box {
+    margin-left: 250px;
+}
+
+.email-list {
+    display: block;
+    padding-left: 0;
+
+    .message {
+        position: relative;
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        cursor: default;
+        transition-duration: 0.3s;
+
+
+        &:hover {
+            transition-duration: 0.05s;
+        }
+
+        .col-mail {
+            float: left;
+            position: relative;
+        }
+
+        .col-mail-1 {
+            width: 90px;
+
+            .star-toggle {
+                display: block;
+                float: left;
+                margin-top: 18px;
+                font-size: 16px;
+                margin-left: 5px;
+            }
+
+            .email-checkbox {
+                display: block;
+                float: left;
+                margin: 15px 10px 0 20px;
+            }
+
+            .dot {
+                display: block;
+                float: left;
+                border: 4px solid transparent;
+                border-radius: 100px;
+                margin: 22px 26px 0;
+                height: 0;
+                width: 0;
+                line-height: 0;
+                font-size: 0;
+            }
+        }
+
+        .col-mail-2 {
+            position: absolute;
+            top: 0;
+            left: 90px;
+            right: 0;
+            bottom: 0;
+
+            .subject {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 200px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .date {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 170px;
+                padding-left: 80px;
+            }
+        }
+    }
+}
+
+.email-checkbox {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    position: relative;
+    display: inline-block;
+    border-radius: 1px;
+    position: relative;
+    top: 5px;
+
+    input {
+        opacity: 0;
+        cursor: pointer;
+
+        &:checked {
+            label {
+                opacity: 1;
+            }
+        }
+    }
+
+    label {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        cursor: pointer;
+        opacity: 0;
+        margin-bottom: 0 !important;
+        transition-duration: 0.05s;
+    }
+}
+
+.mail-list {
+    a {
+        vertical-align: middle;
+        padding: 10px 15px;
+        display: block;
+        background: transparent;
+    }
+}
+
+@media (max-width: 648px) {
+    .email-left-box {
+        width: 100%;
+    }
+
+    .email-right-box {
+        margin-left: 0;
+    }
+}
+@media (max-width: 520px) {
+    .email-list {
+        .message {
+            .col-mail-1 {
+                width: 900px;
+
+                .title {
+                    left: 80px;
+                }
+            }
+
+            .col-mail-2 {
+                left: 90px;
+                .subject {
+                    right: 0;
+                  }
+
+                .date {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+
+//

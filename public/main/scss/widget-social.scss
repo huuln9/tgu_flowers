@@ -1,0 +1,51 @@
+@import "variable.scss";
+
+
+.social-icon1{
+    ul{
+        li{
+            display: inline-block;
+            a{
+                display: block;
+                i{
+                    font-size: 14px;
+                    padding: 10px 7px;
+                }
+            }
+        }
+    }
+}
+
+
+.social-icon2{
+    a{
+        border: 1px solid $primary;
+        display: block;
+        padding: 10px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        border-radius: 3px;
+    }
+}
+
+.social-icon3{
+    ul{
+        li{
+            display: inline-block;
+            a{
+                display: block;
+                i{
+                    font-size: 14px;
+                    padding: 10px 7px;
+                    color: $l-ctd;
+                    transform: all 0.4s ease-in-out;
+                }
+                &:hover{
+                    i{
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}

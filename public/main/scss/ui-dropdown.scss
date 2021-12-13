@@ -1,0 +1,32 @@
+@import "variable.scss";
+
+
+
+.dropdown-toggle:focus {
+    box-shadow: none!important;
+  }
+
+  .dropdown-outline{
+      border:1px solid $primary;
+  }
+
+  .dropdown-menu{
+      font-size: inherit;
+  }
+
+////////////////////
+// Custom Dropdown
+///////////////////
+
+.custom-dropdown{
+    display: inline-block;
+    margin-bottom: 10px;
+    .dropdown-menu{
+        border: 1px solid $l-border;
+        min-width: auto;
+        .dropdown-item{
+            padding: 5px 15px;
+            color: $l-ctl;
+        }
+    }
+}

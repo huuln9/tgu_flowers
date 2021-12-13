@@ -1,0 +1,143 @@
+@import "variable.scss";
+
+.switch {
+    -moz-user-select: none;
+
+    * {
+        -moz-user-select: none;
+    }
+
+    label {
+        cursor: pointer;
+
+        input[type="checkbox"] {
+            height : 0;
+            opacity: 0;
+            width  : 0;
+
+            &:checked {
+                + {
+                    .lever {
+                        background-color: #84c7c1;
+
+                        &::after {
+                            background-color: #26a69a;
+                            left            : 24px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .lever {
+            background-color: #818181;
+            border-radius   : 15px;
+            content         : "";
+            display         : inline-block;
+            height          : 15px;
+            margin          : 0 16px;
+            position        : relative;
+            transition      : background 0.3s ease 0s;
+            vertical-align  : middle;
+            width           : 40px;
+
+            &::after {
+                background-color: #f1f1f1;
+                border-radius   : 21px;
+                box-shadow      : 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+                content         : "";
+                display         : inline-block;
+                height          : 21px;
+                left            : -5px;
+                position        : absolute;
+                top             : -3px;
+                transition      : left 0.3s ease 0s, background 0.3s ease 0s, box-shadow 0.1s ease 0s, -webkit-box-shadow 0.1s ease 0s;
+                width           : 21px;
+            }
+        }
+
+        input[type="checkbox"][disabled] {
+            + {
+                .lever {
+                    &::after {
+                        background-color: #bdbdbd;
+                    }
+                }
+            }
+
+            &:checked {
+                + {
+                    .lever {
+                        &::after {
+                            background-color: #bdbdbd;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    input[type="checkbox"][disabled] {
+        + {
+            .lever {
+                cursor: default;
+            }
+        }
+    }
+}
+
+input.tabbed[type="checkbox"] {
+    &:checked {
+        &:focus {
+            &:not(:disabled) {
+                ~ {
+                    .lever {
+                        &::after {
+                            box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(38, 166, 154, 0.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &:focus {
+        &:not(:disabled) {
+            ~ {
+                .lever {
+                    &::after {
+                        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.08);
+                    }
+                }
+            }
+        }
+    }
+}
+
+input[type="checkbox"] {
+    &:checked {
+        &:not(:disabled) {
+            ~ {
+                .lever {
+                    &:active {
+                        &::after {
+                            box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(38, 166, 154, 0.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &:not(:disabled) {
+        ~ {
+            .lever {
+                &:active {
+                    &::after {
+                        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.08);
+                    }
+                }
+            }
+        }
+    }
+}

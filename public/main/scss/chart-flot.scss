@@ -1,0 +1,20 @@
+@import "variable.scss";
+
+.flot-chart{
+    height: 350px;
+}
+
+.tooltipflot {
+    background-color: #000;
+    font-size: 14px;
+    padding: 5px 10px;
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 2px; }
+  
+  .legendColorBox > div {
+    border: 0 !important;
+    padding: 0 !important; }
+  
+  .legendLabel {
+    font-size: 11px;
+    padding-left: 5px; }

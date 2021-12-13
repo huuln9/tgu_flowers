@@ -1,0 +1,108 @@
+@import "variable.scss";
+
+
+
+#loading,
+		.error {
+			position: absolute;
+top: 50%;
+left: 0;
+right: 0;
+text-align: center;
+transform: translateY(-50%);
+		}
+
+		.error {
+			color: red;
+		}
+
+		#loading {
+			display: none;
+		}
+
+		#ChartContainer {
+			height: 600px;
+		}
+
+		.top {
+			margin-top: 8px;
+		}
+
+		#relation-selection {
+			margin-left: 18px;
+		}
+
+		.top2 {
+			margin-top: 8px;
+		}
+
+		.buttons {
+			display: inline-block;
+		}
+
+		.buttons>a,
+		.help-button {
+			display: inline-block;
+			padding-top: 4px;
+			padding-bottom: 3px;
+			padding-left: 4px;
+			padding-right: 4px;
+			margin-left: 7px;
+			margin-right: 3px;
+			border: 1px solid transparent;
+			border-radius: 4px;
+			transition: all ease-out 0.2s;
+			text-decoration: none;
+			min-width: 25px;
+		}
+
+		.buttons>a:hover {
+			border-color: #D6D6D6;
+		}
+
+		.buttons>a.active {
+			color: #DDDF0D;
+			border-color: #DDDF0D;
+		}
+
+		#average-button.active {
+			color: #5494D3;
+			border-color: #5494D3;
+		}
+
+		.help-button {
+			margin-left: 35px;
+		}
+
+		#average-button {
+			margin-left: 10px;
+		}
+
+		#about {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			display: none;
+			background: rgba(22, 22, 22, 0.75);
+		}
+
+		#about-inner {
+			margin-top: 200px;
+			display: inline-block;
+			border: 1px solid #D6D6D6;
+			border-radius: 4px;
+			padding: 25px;
+			padding-top: 17px;
+			padding-bottom: 17px;
+			text-align: left;
+			line-height: 130%;
+			box-shadow: 0px 0px 20px #0C0C0C;
+		}
+
+		#about-inner>h1 {
+			text-align: center;
+			font-size: 1.7em;
+			margin: 15px;
+			margin-bottom: 25px;
+		}

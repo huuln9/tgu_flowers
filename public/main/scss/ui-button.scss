@@ -1,0 +1,571 @@
+@import "variable.scss"; //
+
+.btn-page{
+    .btn{
+        margin-bottom: 10px;
+        margin-right: 5px;
+    }
+}
+
+.btn {
+    padding      : 7px 18px;
+    // margin-bottom: 5px;
+    // margin-right : 5px;
+
+    &:active,
+    &:focus,
+    &:hover {
+        box-shadow: none!important;
+    }
+}
+
+.btn-xs {
+    font-size: 10px;
+    padding  : 0.25rem 0.5rem;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem !important;
+}
+
+.btn-flat {
+    border-radius: 0;
+}
+
+.btn-rounded {
+    border-radius: 60px;
+}
+
+.btn-icon-right {
+    border-left: 1px solid $d-border;
+    display    : inline-block;
+    margin     : -8px 0 -8px 13px;
+    padding    : 10px 0 10px 13px;
+}
+
+.btn-icon-left {
+    background   : $white;
+    border-radius: 100px;
+    display      : inline-block;
+    margin       : -5px 13px -5px -15px;
+    padding      : 5px 10px 6px;
+}
+
+.toggle-dropdown::after {
+    margin-left: 0.755em;
+}
+
+.social-btn-icon {
+    .btn {
+        min-width    : 75px;
+        margin-bottom: 15px;
+    }
+}
+
+.social-icon {
+    .btn {
+        padding: 7px 14px;
+    }
+}
+
+.icon-circle {
+    height       : 50px;
+    width        : 50px;
+    border-radius: 100%;
+}
+
+
+
+//  Outline Button
+////////////////////////////
+// General Button Color
+//////////////////////////
+
+.btn-primary {
+    background  : $primary;
+    border-color: $primary;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($primary, 10%);
+        color       : $white;
+        border-color: darken($primary, 10%);
+    }
+}
+
+.btn-secondary {
+    background  : $secondary;
+    border-color: $secondary;
+    color       : $white;
+    
+    
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($secondary, 10%);
+        color       : $white;
+        border-color: darken($secondary, 10%);
+    }
+}
+
+.btn-success {
+    background  : $success;
+    border-color: $success;
+    color       : $white;
+    
+    
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($success, 10%);
+        color       : $white;
+        border-color: darken($success, 10%);
+    }
+}
+
+.btn-warning {
+    background  : $warning;
+    border-color: $warning;
+    color       : $white;
+    
+    
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($warning, 10%);
+        color       : $white;
+        border-color: darken($warning, 10%);
+    }
+}
+
+.btn-danger {
+    background  : $danger;
+    border-color: $danger;
+    color       : $white;
+    
+    
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($danger, 10%);
+        color       : $white;
+        border-color: darken($danger, 10%);
+    }
+}
+
+.btn-info {
+    background  : $info;
+    border-color: $info;
+    color       : $white;
+    
+    
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($info, 10%);
+        color       : $white;
+        border-color: darken($info, 10%);
+    }
+}
+
+.btn-light {
+    background  : darken($light, 30%);
+    border-color: darken($light, 30%);
+    color       : $black;
+    
+    
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($light, 10%);
+        color       : $white;
+        border-color: darken($light, 10%);
+    }
+}
+
+.btn-dark {
+    background  : $dark;
+    border-color: $dark;
+    color       : $white;
+    
+    
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($dark, 10%);
+        color       : $white;
+        border-color: darken($dark, 10%);
+    }
+}
+////////////////////////////
+// Outline Button Color
+//////////////////////////
+
+.btn-outline-primary {
+    background  : transparent;
+    border-color: $primary;
+    color       : $primary;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($primary, 10%);
+        color       : $white;
+        border-color: darken($primary, 10%);
+    }
+}
+
+.btn-outline-secondary {
+    background  : transparent;
+    border-color: $secondary;
+    color       : $secondary;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($secondary, 10%);
+        color       : $white;
+        border-color: darken($secondary, 10%);
+    }
+}
+
+.btn-outline-success {
+    background  : transparent;
+    border-color: $success;
+    color       : $success;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($success, 10%);
+        color       : $white;
+        border-color: darken($success, 10%);
+    }
+}
+
+.btn-outline-warning {
+    background  : transparent;
+    border-color: $warning;
+    color       : $warning;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($warning, 10%);
+        color       : $white;
+        border-color: darken($warning, 10%);
+    }
+}
+
+.btn-outline-danger {
+    background  : transparent;
+    border-color: $danger;
+    color       : $danger;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($danger, 10%);
+        color       : $white;
+        border-color: darken($danger, 10%);
+    }
+}
+
+.btn-outline-info {
+    background  : transparent;
+    border-color: $info;
+    color       : $info;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($info, 10%);
+        color       : $white;
+        border-color: darken($info, 10%);
+    }
+}
+
+.btn-outline-light {
+    background  : transparent;
+    border-color: $light;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($light, 10%);
+        color       : $white;
+        border-color: darken($light, 10%);
+    }
+}
+
+.btn-outline-dark {
+    background  : transparent;
+    border-color: $dark;
+    color       : $dark;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($dark, 10%);
+        color       : $white;
+        border-color: darken($dark, 10%);
+    }
+}
+///////////////////
+// Social Buttons
+///////////////////
+
+.btn-facebook {
+    background  : $facebook;
+    border-color: $facebook;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($facebook, 10%);
+        color       : $white;
+        border-color: darken($facebook, 10%);
+    }
+}
+
+.btn-twitter {
+    background  : $twitter;
+    border-color: $twitter;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($twitter, 10%);
+        color       : $white;
+        border-color: darken($twitter, 10%);
+    }
+}
+
+.btn-youtube {
+    background  : $youtube;
+    border-color: $youtube;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($youtube, 10%);
+        color       : $white;
+        border-color: darken($youtube, 10%);
+    }
+}
+
+.btn-instagram {
+    background  : $instagram;
+    border-color: $instagram;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($instagram, 10%);
+        color       : $white;
+        border-color: darken($instagram, 10%);
+    }
+}
+
+.btn-pinterest {
+    background  : $pinterest;
+    border-color: $pinterest;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($pinterest, 10%);
+        color       : $white;
+        border-color: darken($pinterest, 10%);
+    }
+}
+
+.btn-linkedin {
+    background  : $linkedin;
+    border-color: $linkedin;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($linkedin, 10%);
+        color       : $white;
+        border-color: darken($linkedin, 10%);
+    }
+}
+
+.btn-google-plus {
+    background  : $google-plus;
+    border-color: $google-plus;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($google-plus, 10%);
+        color       : $white;
+        border-color: darken($google-plus, 10%);
+    }
+}
+
+.btn-google {
+    background  : $google;
+    border-color: $google;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($google, 10%);
+        color       : $white;
+        border-color: darken($google, 10%);
+    }
+}
+
+.btn-snapchat {
+    background  : $snapchat;
+    border-color: $snapchat;
+    color       : $black;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($snapchat, 10%);
+        color       : $black;
+        border-color: darken($snapchat, 10%);
+    }
+}
+
+.btn-whatsapp {
+    background  : $whatsapp;
+    border-color: $whatsapp;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($whatsapp, 10%);
+        color       : $white;
+        border-color: darken($whatsapp, 10%);
+    }
+}
+
+.btn-tumblr {
+    background  : $tumblr;
+    border-color: $tumblr;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($tumblr, 10%);
+        color       : $white;
+        border-color: darken($tumblr, 10%);
+    }
+}
+
+.btn-reddit {
+    background  : $reddit;
+    border-color: $reddit;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($reddit, 10%);
+        color       : $white;
+        border-color: darken($reddit, 10%);
+    }
+}
+
+.btn-spotify {
+    background  : $spotify;
+    border-color: $spotify;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($spotify, 10%);
+        color       : $white;
+        border-color: darken($spotify, 10%);
+    }
+}
+
+.btn-yahoo {
+    background  : $yahoo;
+    border-color: $yahoo;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($yahoo, 10%);
+        color       : $white;
+        border-color: darken($yahoo, 10%);
+    }
+}
+
+.btn-dribbble {
+    background  : $dribbble;
+    border-color: $dribbble;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($dribbble, 10%);
+        color       : $white;
+        border-color: darken($dribbble, 10%);
+    }
+}
+
+.btn-skype {
+    background  : $skype;
+    border-color: $skype;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($skype, 10%);
+        color       : $white;
+        border-color: darken($skype, 10%);
+    }
+}
+
+.btn-quora {
+    background  : $quora;
+    border-color: $quora;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($quora, 10%);
+        color       : $white;
+        border-color: darken($quora, 10%);
+    }
+}
+
+.btn-vimeo {
+    background  : $vimeo;
+    border-color: $vimeo;
+    color       : $white;
+
+    &:active,
+    &:focus,
+    &:hover {
+        background  : darken($vimeo, 10%);
+        color       : $white;
+        border-color: darken($vimeo, 10%);
+    }
+}

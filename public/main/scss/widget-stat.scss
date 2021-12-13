@@ -1,0 +1,59 @@
+@import "variable.scss"; // Variable.less
+
+/*    Widget Two
+---------------------------*/
+.stat-widget-one {
+    padding: 20px;
+    text-align: center;
+
+    .stat-digit {
+        font-size  : 40px;
+        font-weight: 700;
+    }
+
+    .stat-text {
+        font-size    : 20px;
+        margin-bottom: 5px;
+    }
+
+    .progress {
+        height       : 8px;
+        margin-bottom: 0;
+        margin-top   : 20px;
+        box-shadow   : none;
+    }
+
+    .progress-bar {
+        box-shadow: none;
+    }
+}
+
+
+.avatar-group{
+    .avatar{
+        border-radius: 50px;
+        box-shadow: 0 0 0 5px #fff;
+        display: inline-block;
+        margin-left: -5px;
+    }
+    a.btn{
+        margin-left: -5px;
+    }
+}
+
+
+
+// #canvas{
+//     height:300px!important;
+// }
+
+
+
+// #canvas1{
+//     height:300px!important;
+// }
+
+
+
+
+

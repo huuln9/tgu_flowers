@@ -1,0 +1,117 @@
+@import "variable.scss";
+
+/* =============
+   Calendar
+============= */
+
+.calendar {
+    float: left;
+    margin-bottom: 0;
+}
+
+.fc-view {
+    margin-top: 30px;
+}
+
+.none-border .modal-footer {
+    border-top: none;
+}
+
+.fc-toolbar {
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.fc-toolbar h2 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.fc-toolbar .fc-state-active,
+.fc-toolbar .ui-state-active,
+.fc-toolbar .ui-state-hover,
+.fc-toolbar button:focus,
+.fc-toolbar button:hover {
+    z-index: 0;
+}
+
+.fc-widget-header {
+    border: 1px solid $d-border!important;
+}
+
+.fc-widget-content {
+    border: 1px solid $d-border!important;
+}
+
+.fc th.fc-widget-header {
+    background: $d-border!important;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+
+.fc-button {
+    border: 1px solid $d-border!important;
+    text-transform: capitalize;
+}
+
+.fc-text-arrow {
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.fc-event {
+    border-radius: 2px;
+    border: none;
+    cursor: move;
+    font-size: 13px;
+    margin: 5px 7px;
+    padding: 5px;
+    text-align: center;
+}
+
+.external-event {
+    cursor: move;
+    margin: 10px 0;
+    padding: 6px 10px;
+}
+
+.fc-basic-view td.fc-week-number span {
+    padding-right: 5px;
+}
+
+.fc-basic-view td.fc-day-number {
+    padding-right: 5px;
+}
+
+#drop-remove {
+    margin: 0;
+    top: 3px;
+}
+
+#add-category,
+#event-modal {
+    .modal-header {
+        border-bottom: 1px solid $d-border;
+    }
+    .modal-dialog {
+        max-width: 600px;
+    }
+}
+
+.fc-view.fc-month-view.fc-basic-view,
+.fc-view.fc-agendaWeek-view.fc-agenda-view,
+.fc-view.fc-agendaDay-view.fc-agenda-view {
+    overflow-y: scroll;
+}
+
+.fc-view-container {
+    .fc-view {
+        table {
+            min-width: 450px;
+        }
+    }
+}

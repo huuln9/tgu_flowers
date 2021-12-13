@@ -1,0 +1,744 @@
+
+
+@import "variable.scss";
+
+
+
+    .table td {
+            line-height: 36px;
+    }
+    
+    .verticle-middle {
+        tr {
+            td {
+                vertical-align: middle;
+            }
+        }
+    }
+    
+
+    
+    .header-border {
+        thead {
+            tr {
+                th {
+                    border     : 0 solid $l-border;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+    
+    
+    .table-bordered {
+        thead {
+            td {
+                border-bottom-width: 1px;
+            }
+        }
+    }
+    
+    .table-bordered {
+        thead {
+            th {
+                border-bottom-width: 1px;
+            }
+        }
+    }
+    
+
+    //////////////////
+    // Table Color
+    //////////////////
+    
+    .table-primary {
+        background-color: lighten($primary, 25%);
+        color           : $black;
+    }
+    
+    .table-secondary {
+        background-color: lighten($secondary, 25%);
+        color           : $black;
+    }
+    
+    .table-success {
+        background-color: lighten($success, 25%);
+        color           : $black;
+    }
+    
+    .table-warning {
+        background-color: lighten($warning, 25%);
+        color           : $black;
+    }
+    
+    .table-danger {
+        background-color: lighten($danger, 25%);
+        color           : $black;
+    }
+    
+    .table-info {
+        background-color: lighten($info, 25%);
+        color           : $black;
+    }
+    
+    .table-dark {
+        background-color: lighten($dark, 25%);
+        color           : $black;
+    }
+    
+    .table-active {
+        background-color: lighten($white, 50%);
+        color           : $black;
+    }
+    ////////////////////
+    // Table Head Color
+    ///////////////////
+    
+    .thead-primary {
+        tr {
+            th {
+                background-color: $primary;
+                color           : $white;
+                border-bottom   : 0;
+            }
+        }
+    }
+    
+    .thead-secondary {
+        tr {
+            th {
+                background-color: $secondary;
+                color           : $white;
+                border-bottom   : 0;
+            }
+        }
+    }
+    
+    .thead-success {
+        tr {
+            th {
+                background-color: $success;
+                color           : $white;
+                border-bottom   : 0;
+            }
+        }
+    }
+    
+    .thead-info {
+        tr {
+            th {
+                background-color: $info;
+                color           : $white;
+                border-bottom   : 0;
+            }
+        }
+    }
+    
+    .thead-warning {
+        tr {
+            th {
+                background-color: $warning;
+                color           : $white;
+                border-bottom   : 0;
+            }
+        }
+    }
+    
+    .thead-danger {
+        tr {
+            th {
+                background-color: $danger;
+                color           : $white;
+                border-bottom   : 0;
+            }
+        }
+    }
+    
+    .thead-dark {
+        tr {
+            th {
+                background-color: $dark;
+                color           : $white;
+                border-bottom   : 0;
+            }
+        }
+    }
+    
+    .thead-muted {
+        tr {
+            th {
+                background-color: $muted;
+                color           : $white;
+                border-bottom   : 0;
+            }
+        }
+    }
+    //////////////////////
+    // Table Border Color
+    //////////////////////
+    
+    .primary-table-bordered {
+        border: 2px solid $primary;
+    }
+    
+    .secondary-table-bordered {
+        border: 2px solid $secondary;
+    }
+    
+    .success-table-bordered {
+        border: 2px solid $success;
+    }
+    
+    .info-table-bordered {
+        border: 2px solid $info;
+    }
+    
+    .danger-table-bordered {
+        border: 2px solid $danger;
+    }
+    
+    .warning-table-bordered {
+        border: 2px solid $warning;
+    }
+    
+    .dark-table-bordered {
+        border: 2px solid $dark;
+    }
+    
+    .muted-table-bordered {
+        border: 2px solid $muted;
+    }
+    /////////////////////
+    // Table Background
+    /////////////////////
+    
+    .primary-table-bg {
+        background: lighten($primary, 10%);
+        color     : $white;
+    
+        thead {
+            tr {
+                th {
+                    background-color: $primary;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($primary, 30%);
+                }
+            }
+        }
+    }
+    
+    .secondary-table-bg {
+        background: lighten($secondary, 10%);
+        color     : $white;
+    
+        thead {
+            tr {
+                th {
+                    background-color: $secondary;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($secondary, 30%);
+                }
+            }
+        }
+    }
+    
+    .success-table-bg {
+        background: lighten($success, 10%);
+        color     : $white;
+    
+        thead {
+            tr {
+                th {
+                    background-color: $success;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($success, 30%);
+                }
+            }
+        }
+    }
+    
+    .info-table-bg {
+        background: lighten($info, 10%);
+        color     : $white;
+    
+        thead {
+            tr {
+                th {
+                    background-color: $info;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($info, 30%);
+                }
+            }
+        }
+    }
+    
+    .warning-table-bg {
+        background: lighten($warning, 10%);
+        color     : $white;
+    
+        thead {
+            tr {
+                th {
+                    background-color: $warning;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($warning, 30%);
+                }
+            }
+        }
+    }
+    
+    .danger-table-bg {
+        background: lighten($danger, 10%);
+        color     : $white;
+    
+        thead {
+            tr {
+                th {
+                    background-color: $danger;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($danger, 30%);
+                }
+            }
+        }
+    }
+    
+    .dark-table-bg {
+        background: lighten($dark, 10%);
+        color     : $white;
+    
+        thead {
+            tr {
+                th {
+                    background-color: $dark;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($dark, 30%);
+                }
+            }
+        }
+    }
+    
+    .muted-table-bg {
+        background: lighten($muted, 10%);
+        color     : $white;
+    
+        thead {
+            tr {
+                th {
+                    background-color: $muted;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($muted, 30%);
+                }
+            }
+        }
+    }
+    //////////////////////////
+    // Table Background Hover
+    //////////////////////////
+    
+    .primary-table-bg-hover {
+        thead {
+            tr {
+                th {
+                    background-color: $primary;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                background: lighten($primary, 10%);
+                color     : $white;
+    
+                &:hover {
+                    background: lighten($primary, 5%);
+                }
+    
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($primary, 30%);
+                }
+            }
+        }
+    }
+    
+    .secondary-table-bg-hover {
+        thead {
+            tr {
+                th {
+                    background-color: $secondary;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                background: lighten($secondary, 10%);
+                color     : $white;
+    
+                &:hover {
+                    background: lighten($secondary, 5%);
+                }
+    
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($secondary, 30%);
+                }
+            }
+        }
+    }
+    
+    .success-table-bg-hover {
+        thead {
+            tr {
+                th {
+                    background-color: $success;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                background: lighten($success, 10%);
+                color     : $white;
+    
+                &:hover {
+                    background: lighten($success, 5%);
+                }
+    
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($success, 30%);
+                }
+            }
+        }
+    }
+    
+    .info-table-bg-hover {
+        thead {
+            tr {
+                th {
+                    background-color: $info;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                background: lighten($info, 10%);
+                color     : $white;
+    
+                &:hover {
+                    background: lighten($info, 5%);
+                }
+    
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($info, 30%);
+                }
+            }
+        }
+    }
+    
+    .warning-table-bg-hover {
+        thead {
+            tr {
+                th {
+                    background-color: $warning;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                background: lighten($warning, 10%);
+                color     : $white;
+    
+                &:hover {
+                    background: lighten($warning, 5%);
+                }
+    
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($warning, 30%);
+                }
+            }
+        }
+    }
+    
+    .danger-table-bg-hover {
+        thead {
+            tr {
+                th {
+                    background-color: $danger;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                background: lighten($danger, 10%);
+                color     : $white;
+    
+                &:hover {
+                    background: lighten($danger, 5%);
+                }
+    
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($danger, 30%);
+                }
+            }
+        }
+    }
+    
+    .dark-table-bg-hover {
+        thead {
+            tr {
+                th {
+                    background-color: $dark;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                background: lighten($dark, 10%);
+                color     : $white;
+    
+                &:hover {
+                    background: lighten($dark, 5%);
+                }
+    
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($dark, 30%);
+                }
+            }
+        }
+    }
+    
+    .muted-table-bg-hover {
+        thead {
+            tr {
+                th {
+                    background-color: $muted;
+                    color           : $white;
+                    border-bottom   : 0;
+                }
+            }
+        }
+    
+        tbody {
+            tr {
+                background: lighten($muted, 10%);
+                color     : $white;
+    
+                &:hover {
+                    background: lighten($muted, 5%);
+                }
+    
+                &:first-child {
+                    td,
+                    th {
+                        border-top: 0;
+                    }
+                }
+    
+                td,
+                th {
+                    border-top: 1px solid lighten($muted, 30%);
+                }
+            }
+        }
+    }

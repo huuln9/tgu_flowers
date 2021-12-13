@@ -1,0 +1,201 @@
+@import "variable.scss"; /*    
+
+
+Input Style
+------------------------*/
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-radius: 0;
+    box-shadow   : none;
+    font-family  : $pf;
+    height: 45px;
+
+    &:hover {
+        box-shadow: none;
+    }
+
+    &.active,
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.input-default {
+    border-radius: 4px;
+}
+
+.input-flat {
+    border-radius: 0;
+}
+
+.input-rounded {
+    border-radius: 100px;
+}
+
+
+
+
+// 
+/*****************************************
+  Input Size
+******************************************/
+.form-control{
+    min-height: 40px;
+}
+.form-control-sm{
+    min-height: 36px;
+}
+.form-control-lg{
+    min-height: 52px;
+}
+
+
+
+
+
+
+
+
+// File input
+/*****************************************
+  upload button styles
+******************************************/
+.file-upload {
+    position: relative;
+    display : inline-block;
+
+    .file-upload__label {
+        display           : block;
+        padding           : 0.5em 1.5em;
+        border-radius     : 0.4em;
+        -webkit-transition: background 0.3s;
+        transition        : background 0.3s;
+
+        &:hover {
+            cursor    : pointer;
+        }
+    }
+
+    .file-upload__input {
+        position : absolute;
+        left     : 0;
+        top      : 0;
+        right    : 0;
+        bottom   : 0;
+        font-size: 1;
+        width    : 0;
+        height   : 100%;
+        opacity  : 0;
+    }
+}
+
+///////////////////////////////
+// Styling Selectbox 
+//////////////////////////////
+.drop-menu {
+    width             : 100%;
+    display           : inline-block;
+    border-radius     : 5px;
+    -webkit-transition: all 0.5s ease;
+    transition        : all 0.5s ease;
+    position          : relative;
+    font-size         : 16px;
+    height            : 100%;
+    text-align        : left;
+
+    .select {
+        cursor : pointer;
+        display: block;
+        padding: 10px;
+
+        i {
+            font-size         : 16px;
+            margin-top        : 5px;
+            cursor            : pointer;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition        : all 0.3s ease-in-out;
+            float             : right;
+        }
+
+        .currency {
+            font-size         : 13px;
+            cursor            : pointer;
+            -webkit-transition: all 0.3s ease-in-out;
+            transition        : all 0.3s ease-in-out;
+            float             : right;
+        }
+    }
+
+
+    &.active {
+        &:hover {
+            border-radius     : 5px 5px 0 0;
+        }
+        border-radius     : 5px 5px 0 0;
+
+        .select i {
+            -webkit-transform: rotate(180deg);
+            transform        : rotate(180deg);
+        }
+    }
+
+    .dropeddown {
+        position          : absolute;
+        width             : 100%;
+        left              : 0;
+        margin-top        : 1px;
+        border-radius     : 0 1px 5px 5px;
+        overflow          : hidden;
+        display           : none;
+        max-height        : 144px;
+        overflow-y        : auto;
+        z-index           : 9;
+
+        li {
+            padding           : 10px;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition        : all 0.2s ease-in-out;
+            cursor            : pointer;
+        }
+        padding           : 0;
+        list-style        : none;
+    }
+}
+
+
+
+/////////////////////////
+// wysihtml5
+/////////////////////////
+
+.wysihtml5-toolbar{
+    height: 50px;
+}
+
+.textarea_editor{
+    min-height: 300px;
+}
+
+
+
+
+/////////////////////////
+// TouchPin
+/////////////////////////
+
+.bootstrap-touchspin{
+    .input-group-btn,
+    .input-group-prepend,
+    .input-group-append,
+    .form-control{
+        margin: 10px 0px 0px;
+    }
+}
+
+
+
+

@@ -1,0 +1,268 @@
+@import "variable.scss";
+
+
+/*  1 - media screen and (max-width: 1750px)
+---------------------------------------------------------------------- */
+
+@media (min-width: 1680px) and (max-width:1750px) {}
+
+
+
+
+/*  2 - media screen and (max-width: 1680px)
+---------------------------------------------------------------------- */
+
+@media (min-width: 1680px) and (max-width:1679px) {}
+
+
+
+
+/*  3 - media screen and (max-width: 1280px)
+---------------------------------------------------------------------- */
+
+@media (min-width: 1280px) and (max-width:1679px) {}
+
+
+
+
+/*  4 - media screen and (max-width: 1199px)
+---------------------------------------------------------------------- */
+
+@media (min-width: 1200px) and (max-width: 1279px) {
+    .photo-content {
+        .profile-photo {
+            bottom: auto;
+            left: 0;
+            margin: 0 auto;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .profile-info{    
+        .prf-col{
+            min-width: auto;
+            padding: 0px 15px;
+        }
+    }
+}
+
+
+
+/*  5 - media screen and (max-width: 1024px)
+---------------------------------------------------------------------- */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .photo-content {
+        .profile-photo {
+            bottom: auto;
+            left: 0;
+            margin: 0 auto;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .profile-info{    
+        .prf-col{
+            min-width: auto;
+            padding: 0px 15px;
+        }
+    }
+}
+
+/*  6 - media screen and (max-width: 991px)
+---------------------------------------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .photo-content {
+        .profile-photo {
+            bottom: auto;
+            left: 0;
+            margin: 0 auto;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    // .profile-info{
+    //     .border-right-1{
+    //         border-right: 0px;
+    //     }
+    // }
+
+    .profile-info{    
+        .prf-col{
+            min-width: auto;
+            padding: 0px 15px;
+        }
+    }
+}
+
+
+/*  7 - media screen and (max-width: 767px)
+---------------------------------------------------------------------- */
+
+@media (min-width: 680px) and (max-width: 767px) {
+    .photo-content {
+        .profile-photo {
+            bottom: auto;
+            left: 0;
+            margin: 0 auto;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    // .profile-info{
+    //     .border-right-1{
+    //         border-right: 0px;
+    //     }
+    // }
+
+    .profile-info{    
+        .prf-col{
+            min-width: auto;
+            padding: 0px 15px;
+        }
+    }
+
+    
+}
+
+
+
+/*  8 - media screen and (max-width: 680px)
+---------------------------------------------------------------------- */
+
+@media (min-width: 480px) and (max-width: 679px) {
+    .photo-content {
+        .profile-photo {
+            bottom: auto;
+            left: 0;
+            margin: 0 auto;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .profile-info{
+        .border-right-1{
+            border-right: 0px;
+        }
+    }
+
+
+
+    // .profile-tab{
+    //     .nav.nav-tabs{
+    //         display: block;
+    //         border: 0px;
+    //         .nav-item{
+    //             .nav-link{
+    //                 margin-right: 0px;
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+
+/*  9 - media screen and (max-width: 480px)
+---------------------------------------------------------------------- */
+
+@media (min-width: 360px) and (max-width: 479px) {
+    .photo-content {
+        .profile-photo {
+            bottom: auto;
+            left: 0;
+            margin: 0 auto;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .profile-info{
+        .border-right-1{
+            border-right: 0px;
+        }
+    }
+
+    .profile-tab{
+        .nav.nav-tabs{
+            display: block;
+            border: 0px;
+            .nav-item{
+                .nav-link{
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+    .post-input{
+        a{
+            i{
+                margin-right: 10px;
+                padding: 7px 10px;
+            }
+        }
+        .btn{
+            margin-top: -10px;
+        }
+    }
+}
+
+
+/*  10 - media screen and (max-width: 320px)
+---------------------------------------------------------------------- */
+
+@media (min-width: 320px) and (max-width: 359px) {
+    .photo-content {
+        .profile-photo {
+            bottom: auto;
+            left: 0;
+            margin: 0 auto;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .profile-info{
+        .border-right-1{
+            border-right: 0px;
+        }
+    }
+
+    .profile-tab{
+        .nav.nav-tabs{
+            display: block;
+            border: 0px;
+            .nav-item{
+                .nav-link{
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+
+    .post-input{
+        a{
+            i{
+                margin-right: 10px;
+                padding: 7px 10px;
+            }
+        }
+        .btn{
+            margin-top: -12px;
+        }
+    }
+
+    
+}
+
+

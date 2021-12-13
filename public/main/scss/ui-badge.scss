@@ -1,0 +1,114 @@
+@import "variable.scss";
+
+.badge {
+    font-weight: 400;
+}
+
+
+.badge-xs {
+    font-size        : 9px;
+    -webkit-transform: translate(0, -2px);
+    -ms-transform    : translate(0, -2px);
+    -o-transform     : translate(0, -2px);
+    transform        : translate(0, -2px);
+}
+
+.badge-sm {
+    font-size: 12px;
+    -webkit-transform: translate(0, -2px);
+    -ms-transform    : translate(0, -2px);
+    -o-transform     : translate(0, -2px);
+    transform        : translate(0, -2px);
+}
+
+.badge-success {
+    background-color: $success;
+}
+
+.badge-info {
+    background-color: $info;
+}
+
+.badge-primary {
+    background-color: $primary;
+}
+
+.badge-warning {
+    background-color: $warning;
+}
+
+.badge-danger {
+    background-color: $danger;
+}
+
+.badge-dark {
+    background-color: $dark;
+}
+
+.badge-light {
+    background-color: $light;
+}
+
+.label {
+    padding      : 7px 10px;
+    line-height  : 15px;
+    font-weight  : 600;
+    border-radius: 4px;
+    font-size    : 85%;
+}
+
+.label-pill {
+    border-radius: 10rem;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+  }
+
+.label-rounded {
+    border-radius: 60px;
+}
+
+.label-secondary {
+    background-color: $primary;
+}
+
+.label-primary {
+    background-color: $secondary;
+}
+
+.label-success {
+    background-color: $success;
+}
+
+.label-info {
+    background-color: $info;
+}
+
+.label-warning {
+    background-color: $warning;
+}
+
+.label-danger {
+    background-color: $danger;
+}
+
+.label-dark {
+    background-color: $dark;
+}
+
+.label-light {
+    background-color:darken( $light, 30%);
+}
+
+
+
+
+
+
+//
+
+.bootstrap-label{
+    .label{
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+}

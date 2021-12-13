@@ -1,0 +1,61 @@
+@import "variable.scss"; // Variable.scss
+
+
+.accordion{
+    .card{
+        margin-bottom: 7px;
+    }
+    .card-header{
+        cursor: pointer;
+        background: $white;
+    }
+
+}
+
+#accordion-one{
+    .fa{
+        float: right;
+    }
+
+    [data-toggle="collapse"] .fa:before {  
+        content: "\f068";
+    }
+      
+    [data-toggle="collapse"].collapsed .fa:before {
+    content: "\f067";
+    }
+}
+
+
+#accordion-two{
+    .fa{
+        float: right;
+    }
+
+    [data-toggle="collapse"] .fa:before {  
+        content: "\f106";
+    }
+      
+    [data-toggle="collapse"].collapsed .fa:before {
+    content: "\f107";
+    }
+}
+
+#accordion-three{
+    .fa{
+        float: right;
+    }
+
+    [data-toggle="collapse"] .fa:before {  
+        content: "\f107";
+    }
+      
+    [data-toggle="collapse"].collapsed .fa:before {
+    content: "\f105";
+    }
+}
+
+
+
+
+  

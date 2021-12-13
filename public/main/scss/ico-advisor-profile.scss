@@ -1,0 +1,90 @@
+@import "variable.scss";
+
+
+.user-profile-name {
+    display: inline-block;
+    font-size: 28px;
+    font-weight: 500;
+    padding: 0px 15px;
+}
+
+.user-Location {
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 10px;
+    i {
+        font-size: 14px;
+    }
+}
+
+.user-job-title {
+    font-size: 14px;
+    padding-bottom: 5px;
+    padding-left:15px;
+}
+
+.ratings {
+    h4 {
+        font-size: 16px;
+        text-transform: uppercase;
+        padding-top: 10px;
+        padding-bottom: 2px;
+        padding-left:15px;
+    }
+    span {
+        margin-right: 10px;
+    }
+}
+
+.rating-star {
+    margin-bottom: 10px;
+    padding-left:15px;
+}
+
+.user-send-message {
+    margin-top: 15px;
+    padding-left:15px;
+}
+
+
+
+.contact-information,
+.basic-information{
+    margin: 15px;
+    h4 {
+        font-size: 16px;
+        text-transform: uppercase;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        // font-family: $mol;
+        
+    }
+}
+
+.contact-title {
+    display: inline-block;
+    padding-bottom: 15px;
+    width: 170px;
+    font-size: 16px;
+}
+
+
+.phone-number,
+.mail-address,
+.contact-email,
+.contact-website,
+.contact-skype,
+.birth-date,
+.gender{
+    font-size: 16px;
+}
+
+
+
+.profile-widget {
+    margin: 8px 0;
+    text-align: center;
+    .stat-text {
+        padding-bottom: 6px;
+    }
+}

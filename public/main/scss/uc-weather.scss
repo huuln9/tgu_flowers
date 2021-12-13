@@ -1,0 +1,28 @@
+@import "variable.scss"; // Variable.scss
+.weather-one {
+    i {
+        font-size: 80px;
+        position: relative;
+        top: 5px;
+    }
+    h2 {
+        display: inline-block;
+        float: right;
+        font-size: 48px;
+    }
+    .city {
+        position: relative;
+        text-align: right;
+        top: -25px;
+    }
+    .currently {
+        font-size: 16px;
+        font-weight: 400;
+        position: relative;
+        top: 25px;
+    }
+    .celcious {
+        text-align: right;
+        font-size: 20px;
+    }
+}

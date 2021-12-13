@@ -1,0 +1,68 @@
+@import "variable.scss";
+
+.asColorPicker-dropdown {
+    max-width: 260px;
+}
+
+.asColorPicker-trigger {
+    border  : 0 none;
+    height  : 38px;
+    position: absolute;
+    right   : -35px;
+    top     : 0;
+    width   : 37px;
+}
+
+.asColorPicker-clear {
+    display        : none;
+    position       : absolute;
+    right          : 10px;
+    text-decoration: none;
+    top            : 5px;
+}
+
+
+
+.daterangepicker {
+    td.active {
+        background-color: #1976d2;
+
+        &:hover {
+            background-color: #1976d2;
+        }
+    }
+}
+
+.datepicker {
+    table {
+        tr {
+            td.today {
+                background: #1976d2 none repeat scroll 0 0;
+                color     : #ffffff;
+
+                &:hover {
+                    background: #1976d2 none repeat scroll 0 0;
+                    color     : #ffffff;
+                }
+            }
+
+            td.today.disabled {
+                background: #1976d2 none repeat scroll 0 0;
+                color     : #ffffff;
+
+                &:hover {
+                    background: #1976d2 none repeat scroll 0 0;
+                    color     : #ffffff;
+                }
+            }
+        }
+    }
+
+    td {
+        padding: 5px 10px;
+    }
+
+    th {
+        padding: 5px 10px;
+    }
+}

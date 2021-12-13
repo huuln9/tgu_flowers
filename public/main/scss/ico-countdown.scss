@@ -1,0 +1,75 @@
+@import "variable.scss";
+
+
+// .ico-countdown {
+//     background-image: url(../../assets/images/cat.jpg);
+//     min-height: 650px;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     background-size: cover;
+//     position: relative;
+//     z-index: 1;
+//     padding: 30px;
+//     &::after{
+//         content: "";
+//         position: absolute;
+//         left: 0;
+//         right: 0;
+//         top: 0;
+//         bottom: 0;
+//         background: linear-gradient(to right, rgba(5, 8, 101, 0.8), rgba(0, 24, 49, 0)) ;
+//         z-index:-1;
+//     }
+//   }
+
+  .countdown-content{
+    padding: 100px 0;
+    h1{
+        font-weight: 600;
+        font-size: 48px;
+        margin-bottom: 50px;
+    }
+    p{
+        font-size: 18px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        line-height: 30px;
+    }
+  }
+
+  .timer{
+    .days,
+    .hours,
+    .minutes,
+    .seconds{
+        font-weight: 600;
+        font-size: 40px;
+        span{
+            font-size: 18px;
+            font-weight: 400;
+        }
+    }
+  }
+
+  .countdown-right-content{
+      margin-top: 50px;
+      h6{
+          margin: 15px 0px;
+      }
+      .progress{
+          height: 20px;
+      }
+  }
+
+  .countdown-token-card {
+    margin-top: 30px;
+    .card{
+        border: 0px!important;
+        padding-top: 10px;
+        text-align: center;
+        h2{
+            font-weight: 700;
+        }
+
+    }
+  }

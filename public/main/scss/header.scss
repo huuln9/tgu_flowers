@@ -1,0 +1,261 @@
+@import "variable.scss"; // Variable.less
+/*    Header
+---------------*/
+
+
+.icons{
+    a{
+        position: relative;
+    }
+}
+
+.icons.active {
+    .drop-down {
+        display: block;
+    }
+}
+
+
+.drop-down {
+    display   : none;
+    z-index   : 9999;
+    width     : 275px;
+    position  : absolute;
+    right     : 0;
+    top       : 60px;
+    transform : translateY(50px);
+    transition: all 0.4s ease-in-out;
+    border-top: 0;
+    border    : 1px solid $d-border;
+}
+
+
+.dropdown-content-heading {
+    padding    : 15px 15px;
+    line-height: 1.25;
+    
+    span {
+        font-size  : 16px;
+        font-family: $pf;
+    }
+}
+
+.dropdown-content-body {
+    ul > li {
+        float      : none;
+        padding    : 10px 15px;
+        line-height: 1.25;
+        padding    : 10px 15px;
+
+        
+
+        &:last-child {
+            padding    : 10px 15px;
+            line-height: 1.25;
+        }
+    }
+}
+
+.notification-heading {
+    font-size  : 14px;
+    font-weight: 500;
+    line-height: 1.25;
+    // color: $l-ctd!important;
+}
+
+.avatar-img {
+    border-radius: 100px;
+    width        : 40px;
+    position     : relative;
+    top          : -3px;
+}
+
+.user-avatar {
+    margin-left: 10px;
+    font-size  : 14px;
+    font-weight: 700;
+    //    position: relative;
+    //    top: -3px;
+}
+
+.notification-text {
+    font-size    : 14px;
+    font-family  : $pf;
+    max-width    : 100%;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+    padding-top  : 3px;
+    line-height  : 1.25;
+    font-weight: 400;
+}
+
+.notification-timestamp {
+    font-size: 12px;
+}
+
+.notification-percentage {
+    font-size: 12px;
+    position : relative;
+    top      : 12px;
+}
+
+
+
+.more-link {
+    // font-size: 1px!important;
+    display  : inline-block;
+}
+
+.dropdown-profile {
+    width: 160px;
+
+    li {
+        padding: 7px 15px;
+
+        a {
+            display: block;
+            i {
+                margin-right: 5px;
+                font-size   : 16px;
+                position: relative;
+                top: 2px;
+            }
+
+            span {
+                font-family: $pf;
+                // font-size  : 16px;
+            }
+
+            
+        }
+
+        &:last-child {
+            padding: 7px 15px;
+        }
+    }
+}
+
+
+.dropdown-task {
+    .progress {
+        box-shadow: none;
+        height: 5px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+
+    .progress-bar {
+        box-shadow: none;
+    }
+}
+
+
+
+////////////////////////
+// CSS Pulse Effect
+////////////////////////
+
+@mixin circle($circleSize) {
+    width        : $circleSize;
+    height       : $circleSize;
+    border-radius: $circleSize/2;
+}
+
+/* pulse in SVG */
+
+svg.pulse-svg {
+    overflow: visible;
+
+    .first-circle {
+        -webkit-transform       : scale(0.3);
+        transform               : scale(0.3);
+        -webkit-transform-origin: center center;
+        transform-origin        : center center;
+        -webkit-animation       : pulse-me 3s linear infinite;
+        animation               : pulse-me 3s linear infinite;
+    }
+
+    .second-circle {
+        @extend .first-circle;
+        -webkit-animation-delay: 1s;
+        animation-delay        : 1s;
+    }
+
+    .third-circle {
+        @extend .first-circle;
+        -webkit-animation-delay: 2s;
+        animation-delay        : 2s;
+    }
+}
+/* pulse in CSS */
+
+
+.pulse-css {
+    @include circle(10px);
+    border-radius: 25px;
+    height: 5px;
+    position: absolute;
+    right: 0px;
+    top: -4px;
+    width: 5px;
+
+    &:after,
+    &:before {
+        content                 : '';
+        @include circle(10px);
+        position                : absolute;
+        top                     : 0;
+        right                   : 0;
+        bottom                  : 0;
+        left                    : -2px;
+        margin                  : auto;
+        -webkit-transform       : scale(0.3);
+        transform               : scale(0.3);
+        -webkit-transform-origin: center center;
+        transform-origin        : center center;
+        -webkit-animation       : pulse-me 3s linear infinite;
+        animation               : pulse-me 3s linear infinite;
+    }
+}
+@-webkit-keyframes pulse-me {
+    0% {
+        -webkit-transform: scale(0.3);
+        transform        : scale(0.3);
+        opacity          : 0;
+    }
+
+    50% {
+        opacity: 0.1;
+    }
+
+    70% {
+        opacity: 0.09;
+    }
+
+    100% {
+        -webkit-transform: scale(3);
+        transform        : scale(3);
+        opacity          : 0;
+    }
+}
+@keyframes pulse-me {
+    0% {
+        -webkit-transform: scale(0.3);
+        transform        : scale(0.3);
+        opacity          : 0;
+    }
+
+    50% {
+        opacity: 0.1;
+    }
+
+    70% {
+        opacity: 0.09;
+    }
+
+    100% {
+        -webkit-transform: scale(3);
+        transform        : scale(3);
+        opacity          : 0;
+    }
+}

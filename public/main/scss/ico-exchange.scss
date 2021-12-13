@@ -1,0 +1,18 @@
+@import "variable.scss";
+
+.coin-exchange{
+    .input-group-prepend {
+        min-width: 100px;
+        .drop-menu{
+            border-radius: 0px;
+            .select{
+                padding: 15px 10px;
+            }
+        }
+      }
+}
+
+
+#morris-exchange-chart{
+    height: 300px;
+}
