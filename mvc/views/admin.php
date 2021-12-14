@@ -74,7 +74,7 @@
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">TRANG QUẢN TRỊ</li>
-                    <li><a href="<?php echo $appRootURL ?>/admin/"><i class="mdi mdi-view-dashboard"></i> <span class="nav-text">Dashboard</span></a>
+                    <li><a href="<?php echo $appRootURL ?>/admin/"><i class="mdi mdi-view-dashboard"></i> <span class="nav-text">Bảng chính</span></a>
                     </li>
                     
                     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-settings-variant"></i> <span class="nav-text">Quản lý tài khoản</span></a>

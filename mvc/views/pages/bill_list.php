@@ -39,8 +39,8 @@
                                         <td>Edinburgh</td>
                                         <td>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-success"><i class="mdi mdi-eye"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
+                                                <a href="<?php echo $appRootURL ?>/admin/billdetail" type="button" class="btn btn-success"><i class="mdi mdi-eye" style="color: white"></i></a>
+                                                <a type="button" class="btn btn-danger"><i class="mdi mdi-delete" style="color: white"></i></a>
                                             </div>
                                         </td>
                                     </tr>

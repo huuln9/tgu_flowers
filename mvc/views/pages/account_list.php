@@ -25,7 +25,6 @@
                                         <th>ID</th>
                                         <th>Họ tên</th>
                                         <th>Email</th>
-                                        <th>Mật khẩu</th>
                                         <th>Số điện thoại</th>
                                         <th>Địa chỉ</th>
                                         <th>Thao tác</th>
@@ -35,7 +34,6 @@
                                     <tr>
                                         <td>Tiger Nixon</td>
                                         <td>System Architect</td>
-                                        <td>Edinburgh</td>
                                         <td>61</td>
                                         <td>2011/04/25</td>
                                         <td>$320,800</td>
@@ -53,7 +51,6 @@
                                         <th>ID</th>
                                         <th>Họ tên</th>
                                         <th>Email</th>
-                                        <th>Mật khẩu</th>
                                         <th>Số điện thoại</th>
                                         <th>Địa chỉ</th>
                                         <th>Thao tác</th>

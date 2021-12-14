@@ -2,13 +2,13 @@
     <div class="container">
         <div class="row page-titles">
             <div class="col p-0">
-                <h4>TGU Flowers, <span>Dashboard</span></h4>
+                <h4>TGU Flowers, <span>Bảng chính</span></h4>
             </div>
             <div class="col p-0">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Trang quản trị</a>
                     </li>
-                    <li class="breadcrumb-item active">Dashboard</li>
+                    <li class="breadcrumb-item active">Bảng chính</li>
                 </ol>
             </div>
         </div>
@@ -34,14 +34,14 @@
                             <h4 class="f-w-600">2,365</h4>
                             <h6 class="m-t-10 text-muted">Mua hoa <span class="pull-right">80%</span></h6>
                             <div class="progress m-t-15 h-6px">
-                                <div class="progress-bar bg-primary wow animated progress-animated w-80pc h-6px" role="progressbar"></div>
+                                <div class="progress-bar bg-success wow animated progress-animated w-80pc h-6px" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="m-t-20 m-b-20">
                             <h4 class="f-w-600">1,250</h4>
                             <h6 class="m-t-10">Tặng hoa <span class="pull-right">20%</span></h6>
                             <div class="progress m-t-15 h-6px">
-                                <div class="progress-bar bg-success wow animated progress-animated w-20pc h-6px" role="progressbar"></div>
+                                <div class="progress-bar bg-danger wow animated progress-animated w-20pc h-6px" role="progressbar"></div>
                             </div>
                         </div>
                     </div>
