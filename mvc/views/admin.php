@@ -80,30 +80,30 @@
                     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-settings-variant"></i> <span class="nav-text">Quản lý tài khoản</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="<?php echo $appRootURL ?>/admin/accountlist"><i class="mdi mdi-account-multiple"></i> Danh sách tài khoản</a>
+                                <a href="<?php echo $appRootURL ?>/admin/accountlist"><i class="mdi mdi-account-multiple"></i> Danh sách</a>
                             </li>
                             <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-account-plus"></i> Thêm tài khoản</a>
+                                <a href="<?php echo $appRootURL ?>/admin/accountadd"><i class="mdi mdi-account-plus"></i> Thêm mới</a>
                             </li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-flower"></i> <span class="nav-text">Quản lý hoa</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-format-list-bulleted"></i> Danh sách hoa</a>
+                                <a href="table-dt-basic.html"><i class="mdi mdi-format-list-bulleted"></i> Danh sách</a>
                             </li>
                             <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-plus-circle-outline"></i> Thêm hoa</a>
+                                <a href="table-dt-basic.html"><i class="mdi mdi-plus-circle-outline"></i> Thêm mới</a>
                             </li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-cash-usd"></i> <span class="nav-text">Quản lý hóa đơn</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-format-list-bulleted"></i> Danh sách hóa đơn</a>
+                                <a href="table-dt-basic.html"><i class="mdi mdi-format-list-bulleted"></i> Danh sách</a>
                             </li>
                             <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-plus-circle-outline"></i> Thêm hóa đơn</a>
+                                <a href="table-dt-basic.html"><i class="mdi mdi-plus-circle-outline"></i> Thêm mới</a>
                             </li>
                         </ul>
                     </li>
@@ -144,6 +144,12 @@
     <script src="<?php echo $appRootURL ?>/public/assets/plugins/tables/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo $appRootURL ?>/public/assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
     <script src="<?php echo $appRootURL ?>/public/assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+
+    <!-- Form Validation -->
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/validation/jquery.validate.min.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/validation/jquery.validate-init.js"></script>
+
+
 </body>
 
 </html>

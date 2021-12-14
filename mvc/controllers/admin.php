@@ -19,5 +19,11 @@ class Admin extends Controller {
         //     "pages" => "page2"
         // ]);
     }
+
+    function AccountAdd() {
+        $this->view("admin", [
+            "pages" => "account_add"
+        ]);
+    }
 }
 ?>
