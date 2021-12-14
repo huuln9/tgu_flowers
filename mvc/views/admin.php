@@ -74,7 +74,7 @@
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">TRANG QUẢN TRỊ</li>
-                    <li><a href="index.html"><i class="mdi mdi-view-dashboard"></i> <span class="nav-text">Dashboard</span></a>
+                    <li><a href="<?php echo $appRootURL ?>/admin/"><i class="mdi mdi-view-dashboard"></i> <span class="nav-text">Dashboard</span></a>
                     </li>
                     
                     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-account-settings-variant"></i> <span class="nav-text">Quản lý tài khoản</span></a>
@@ -107,7 +107,7 @@
                     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-chart-line"></i> <span class="nav-text">Thống kê</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-image-filter-vintage"></i> Doanh thu hoa</a>
+                                <a href="<?php echo $appRootURL ?>/admin/chart"><i class="mdi mdi-image-filter-vintage"></i> Lượt mua hoa</a>
                             </li>
                             
                         </ul>
@@ -146,7 +146,12 @@
     <script src="<?php echo $appRootURL ?>/public/assets/plugins/validation/jquery.validate.min.js"></script>
     <script src="<?php echo $appRootURL ?>/public/assets/plugins/validation/jquery.validate-init.js"></script>
 
-
+    <!--  flot-chart js -->
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/flot/js/jquery.flot.min.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/flot/js/jquery.flot.pie.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/flot/js/jquery.flot.resize.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/flot/js/jquery.flot.spline.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/assets/plugins/flot/js/jquery.flot.init.js"></script>
 </body>
 
 </html>

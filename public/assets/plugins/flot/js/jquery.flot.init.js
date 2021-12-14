@@ -114,13 +114,13 @@ $(function() {
 
     var plot = $.plot($('#flotLine1'), [{
             data: newCust,
-            label: 'New Customer',
-            color: '#9068be'
+            label: 'Mua hoa',
+            color: '#4233FF'
         },
         {
             data: retCust,
-            label: 'Returning Customer',
-            color: '#6ed3cf'
+            label: 'Tặng hoa',
+            color: '#FF3333'
         }
     ], {
         series: {
@@ -147,7 +147,7 @@ $(function() {
         },
         yaxis: {
             min: 0,
-            max: 15,
+            max: 30,
             color: 'transparent',
             font: {
                 size: 10,
@@ -155,6 +155,8 @@ $(function() {
             }
         },
         xaxis: {
+            min: 1,
+            max: 12,
             color: 'transparent',
             font: {
                 size: 10,

@@ -41,5 +41,11 @@ class Admin extends Controller {
             "pages" => "bill_list"
         ]);
     }
+
+    function Chart() {
+        $this->view("admin", [
+            "pages" => "chart"
+        ]);
+    }
 }
 ?>
