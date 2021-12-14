@@ -90,20 +90,17 @@
                     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-flower"></i> <span class="nav-text">Quản lý hoa</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-format-list-bulleted"></i> Danh sách</a>
+                                <a href="<?php echo $appRootURL ?>/admin/flowerlist"><i class="mdi mdi-format-list-bulleted"></i> Danh sách</a>
                             </li>
                             <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-plus-circle-outline"></i> Thêm mới</a>
+                                <a href="<?php echo $appRootURL ?>/admin/floweradd"><i class="mdi mdi-plus-circle-outline"></i> Thêm mới</a>
                             </li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-cash-usd"></i> <span class="nav-text">Quản lý hóa đơn</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-format-list-bulleted"></i> Danh sách</a>
-                            </li>
-                            <li>
-                                <a href="table-dt-basic.html"><i class="mdi mdi-plus-circle-outline"></i> Thêm mới</a>
+                                <a href="<?php echo $appRootURL ?>/admin/billlist"><i class="mdi mdi-format-list-bulleted"></i> Danh sách</a>
                             </li>
                         </ul>
                     </li>

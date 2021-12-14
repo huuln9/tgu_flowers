@@ -19,10 +19,26 @@ class Admin extends Controller {
         //     "pages" => "page2"
         // ]);
     }
-
     function AccountAdd() {
         $this->view("admin", [
             "pages" => "account_add"
+        ]);
+    }
+
+    function FlowerList() {
+        $this->view("admin", [
+            "pages" => "flower_list"
+        ]);
+    }
+    function FlowerAdd() {
+        $this->view("admin", [
+            "pages" => "flower_add"
+        ]);
+    }
+
+    function BillList() {
+        $this->view("admin", [
+            "pages" => "bill_list"
         ]);
     }
 }
