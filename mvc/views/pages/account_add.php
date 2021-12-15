@@ -36,6 +36,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-lg-4">
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <div id="check-email" style="color: red;"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-email">Quyền <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">

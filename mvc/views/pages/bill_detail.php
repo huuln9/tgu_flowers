@@ -58,16 +58,22 @@ $customer = json_decode($data['customer']);
                             <div class="table-responsive">
                                 <table class="table">
                                     <tr class="tabletitle">
-                                        <td class="table-item">
+                                        <td>
                                             <h2>Sản phẩm</h2>
                                         </td>
-                                        <td class="Hours">
+                                        <td>
+                                            <h2>Trạng thái</h2>
+                                        </td>
+                                        <td>
+                                            <h2>Loại</h2>
+                                        </td>
+                                        <td>
                                             <h2>Số lượng</h2>
                                         </td>
-                                        <td class="Rate">
+                                        <td >
                                             <h2>Đơn giá</h2>
                                         </td>
-                                        <td class="subtotal">
+                                        <td>
                                             <h2>Thành tiền</h2>
                                         </td>
                                     </tr>
@@ -75,6 +81,26 @@ $customer = json_decode($data['customer']);
                                     <tr class="service">
                                         <td class="tableitem">
                                             <p class="itemtext"><?php echo $row->{'id_product'} ?></p>
+                                        </td>
+                                        <td class="tableitem">
+                                            <p class="itemtext">
+                                                <?php
+                                                switch ($row->{'status'}) {
+                                                    case 1:
+                                                        echo 'Đã đặt hàng';
+                                                        break;
+                                                    case 2:
+                                                        echo 'Đã nhận hàng';
+                                                        break;
+                                                    default:
+                                                        echo '';
+                                                        break;
+                                                }
+                                                ?>
+                                            </p>
+                                        </td>
+                                        <td class="tableitem">
+                                            <p class="itemtext"><?php  if ($row->{'gift'} == 1) echo 'Quà tặng'; else echo 'Mua' ?></p>
                                         </td>
                                         <td class="tableitem">
                                             <p class="itemtext"><?php echo $row->{'quantity'} ?></p>
@@ -88,6 +114,8 @@ $customer = json_decode($data['customer']);
                                     </tr>
                                     <?php } ?>
                                     <tr class="tabletitle">
+                                        <td></td>
+                                        <td></td>
                                         <td></td>
                                         <td></td>
                                         <td class="Rate">

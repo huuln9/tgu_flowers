@@ -17,8 +17,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Thống kê lượt mua hoa</h4>
-                        <p class="text-muted m-b-15 f-s-12">Trục X: 12 tháng</p>
-                        <p class="text-muted m-b-15 f-s-12">Trục Y: lượt mua</p>
+                        <p class="text-muted m-b-15 f-s-12">Lượt mua</p>
                         <div id="flotLine1" class="flot-chart"></div>
                     </div>
                 </div>

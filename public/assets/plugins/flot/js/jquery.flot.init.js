@@ -93,32 +93,42 @@ $(function() {
         }
     });
 
-    var newCust = [
-        [4, 1],
-        [5, 3],
-        [6, 6],
-        [7, 5],
-        [8, 7],
-        [9, 8],
-        [10, 10]
+    var buyCustomer = [
+        [1, 1],
+        [2, 3],
+        [3, 6],
+        [4, 5],
+        [5, 7],
+        [6, 8],
+        [7, 10],
+        [8, 10],
+        [9, 10],
+        [10, 10],
+        [11, 10],
+        [12, 10]
     ];
-    var retCust = [
-        [4, 1],
-        [5, 2],
-        [6, 5],
-        [7, 3],
-        [8, 5],
-        [9, 6],
-        [10, 9]
+    var giftCustomer = [
+        [1, 1],
+        [2, 2],
+        [3, 5],
+        [4, 3],
+        [5, 5],
+        [6, 6],
+        [7, 9],
+        [8, 9],
+        [9, 9],
+        [10, 12],
+        [11, 18],
+        [12, 20]
     ];
 
     var plot = $.plot($('#flotLine1'), [{
-            data: newCust,
+            data: buyCustomer,
             label: 'Mua hoa',
             color: '#4233FF'
         },
         {
-            data: retCust,
+            data: giftCustomer,
             label: 'Tặng hoa',
             color: '#FF3333'
         }

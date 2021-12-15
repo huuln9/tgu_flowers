@@ -27,6 +27,17 @@ class AccountModel extends Database {
         return json_encode($arr);
     }
 
+    public function CheckEmail($email) {
+        $qr = "SELECT `id` FROM `account` WHERE `email`='$email';";
+        $rs = $this->conn->query($qr);
+        
+        $result = false;
+        if ($rs->num_rows > 0) {
+            $result = true;
+        }
+        return json_encode($result);    
+    }
+
     public function UpdateAccount($id, $fullname, $email, $password, $admin, $phone, $address) {
         $qr = "UPDATE `account` SET `fullname`='$fullname',`email`='$email',`password`='$password',`admin`=$admin,`phone`='$phone',`address`='$address' WHERE `id`=$id;";
         $this->conn->query($qr);

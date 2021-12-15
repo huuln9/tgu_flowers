@@ -148,6 +148,7 @@
     </div>
 
     <!-- My JS -->
+    <script src="<?php echo $appRootURL ?>/public/main/js/jquery-3.6.0.min.js"></script>
     <script src="<?php echo $appRootURL ?>/public/main/js/myjs.js"></script>
 
     <!-- Common JS -->
@@ -173,6 +174,6 @@
     <script src="<?php echo $appRootURL ?>/public/assets/plugins/flot/js/jquery.flot.resize.js"></script>
     <script src="<?php echo $appRootURL ?>/public/assets/plugins/flot/js/jquery.flot.spline.js"></script>
     <script src="<?php echo $appRootURL ?>/public/assets/plugins/flot/js/jquery.flot.init.js"></script>
+    
 </body>
-
 </html>
