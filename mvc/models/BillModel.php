@@ -22,6 +22,17 @@ class BillModel extends Database {
         return json_encode($arr);
     }
 
+    public function GetBillIdByMonth($month) {
+        $qr = "SELECT `id` FROM `bill` WHERE month(date)=$month;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row['id'];
+        }
+        return json_encode($arr);
+    }
+
     public function DeleteBill($id) {
         $qr = "DELETE FROM `bill` WHERE id=$id;";
         $this->conn->query($qr);

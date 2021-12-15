@@ -1,4 +1,6 @@
-$(function() {
+$(async function() {
+    const appRootURL = "http://localhost/github/tgu_flowers";
+
     'use strict';
 
     $.plot("#flotBar1", [{
@@ -93,45 +95,34 @@ $(function() {
         }
     });
 
-    var buyCustomer = [
-        [1, 1],
-        [2, 3],
-        [3, 6],
-        [4, 5],
-        [5, 7],
-        [6, 8],
-        [7, 10],
-        [8, 10],
-        [9, 10],
-        [10, 10],
-        [11, 10],
-        [12, 10]
-    ];
-    var giftCustomer = [
-        [1, 1],
-        [2, 2],
-        [3, 5],
-        [4, 3],
-        [5, 5],
-        [6, 6],
-        [7, 9],
-        [8, 9],
-        [9, 9],
-        [10, 12],
-        [11, 18],
-        [12, 20]
-    ];
+    var giftCustomer = [];
+    var buyCustomer = [];
+
+    await $.post(appRootURL + "/ajax/sumquantitygiftbymonth", {}, function(data) {
+        var arr = JSON.parse(data);
+
+        for (var i = 0; i < arr.length; i++) {
+            giftCustomer[i] = arr[i];
+        }
+    });
+    await $.post(appRootURL + "/ajax/sumquantitybuybymonth", {}, function(data) {
+        var arr = JSON.parse(data);
+
+        for (var i = 0; i < arr.length; i++) {
+            buyCustomer[i] = arr[i];
+        }
+    });
 
     var plot = $.plot($('#flotLine1'), [{
-            data: buyCustomer,
-            label: 'Mua hoa',
-            color: '#4233FF'
-        },
-        {
-            data: giftCustomer,
-            label: 'Tặng hoa',
-            color: '#FF3333'
-        }
+        data: buyCustomer,
+        label: 'Mua hoa',
+        color: '#4233FF'
+    },
+    {
+        data: giftCustomer,
+        label: 'Tặng hoa',
+        color: '#FF3333'
+    }
     ], {
         series: {
             lines: {
@@ -175,61 +166,61 @@ $(function() {
         }
     });
 
-    var plot = $.plot($('#flotLine2'), [{
-            data: newCust,
-            label: 'New Customer',
-            color: '#9068be'
-        },
-        {
-            data: retCust,
-            label: 'Returning Customer',
-            color: '#6ed3cf'
-        }
-    ], {
-        series: {
-            lines: {
-                show: false
-            },
-            splines: {
-                show: true,
-                tension: 0.4,
-                lineWidth: 1,
-                //fill: 0.4
-            },
-            shadowSize: 0
-        },
-        points: {
-            show: false,
-        },
-        legend: {
-            noColumns: 1,
-            position: 'nw'
-        },
-        grid: {
-            hoverable: true,
-            clickable: true,
-            borderColor: '#ddd',
-            borderWidth: 0,
-            labelMargin: 5,
-            backgroundColor: 'transparent'
-        },
-        yaxis: {
-            min: 0,
-            max: 15,
-            color: 'transparent',
-            font: {
-                size: 10,
-                color: '#fff'
-            }
-        },
-        xaxis: {
-            color: 'transparent',
-            font: {
-                size: 10,
-                color: '#fff'
-            }
-        }
-    });
+    // var plot = $.plot($('#flotLine2'), [{
+    //         data: newCust,
+    //         label: 'New Customer',
+    //         color: '#9068be'
+    //     },
+    //     {
+    //         data: retCust,
+    //         label: 'Returning Customer',
+    //         color: '#6ed3cf'
+    //     }
+    // ], {
+    //     series: {
+    //         lines: {
+    //             show: false
+    //         },
+    //         splines: {
+    //             show: true,
+    //             tension: 0.4,
+    //             lineWidth: 1,
+    //             //fill: 0.4
+    //         },
+    //         shadowSize: 0
+    //     },
+    //     points: {
+    //         show: false,
+    //     },
+    //     legend: {
+    //         noColumns: 1,
+    //         position: 'nw'
+    //     },
+    //     grid: {
+    //         hoverable: true,
+    //         clickable: true,
+    //         borderColor: '#ddd',
+    //         borderWidth: 0,
+    //         labelMargin: 5,
+    //         backgroundColor: 'transparent'
+    //     },
+    //     yaxis: {
+    //         min: 0,
+    //         max: 15,
+    //         color: 'transparent',
+    //         font: {
+    //             size: 10,
+    //             color: '#fff'
+    //         }
+    //     },
+    //     xaxis: {
+    //         color: 'transparent',
+    //         font: {
+    //             size: 10,
+    //             color: '#fff'
+    //         }
+    //     }
+    // });
 
     var newCust2 = [
         [0, 10],
