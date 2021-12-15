@@ -129,6 +129,10 @@
         </div>
         <!-- #/ footer -->
     </div>
+
+    <!-- My JS -->
+    <script src="<?php echo $appRootURL ?>/public/main/js/myjs.js"></script>
+
     <!-- Common JS -->
     <script src="<?php echo $appRootURL ?>/public/assets/plugins/common/common.min.js"></script>
     <!-- Custom script -->

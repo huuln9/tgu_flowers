@@ -1,3 +1,4 @@
+<?php $accounts = json_decode($data['accounts']) ?>
 <div class="content-body">
     <div class="container">
         <div class="row page-titles">
@@ -31,20 +32,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php foreach ($accounts as $row) { ?>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+                                        <td><?php echo $row->{'id'} ?></td>
+                                        <td><?php echo $row->{'fullname'} ?></td>
+                                        <td><?php echo $row->{'email'} ?></td>
+                                        <td><?php echo $row->{'phone'} ?></td>
+                                        <td><?php echo $row->{'address'} ?></td>
                                         <td>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-success"><i class="mdi mdi-pen"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
+                                                <a href="<?php echo $appRootURL ?>/admin/accountedit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-primary"><i class="mdi mdi-pen"></i></a>
+                                                <a href="<?php echo $appRootURL ?>/admin/deleteaccount/<?php echo $row->{'id'} ?>" type="button" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
                                             </div>
                                         </td>
                                     </tr>
-
+                                    <?php } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
