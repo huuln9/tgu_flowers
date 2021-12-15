@@ -1,3 +1,4 @@
+<?php $products = json_decode($data['products']) ?>
 <div class="content-body">
     <div class="container">
         <div class="row page-titles">
@@ -33,25 +34,26 @@
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
+                                <?php foreach ($products as $row) { ?>
                                 <tbody>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>61</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+                                        <td><?php echo $row->{'id'} ?></td>
+                                        <td><?php echo $row->{'name'} ?></td>
+                                        <td><img width="100" height="100" src="<?php echo $row->{'thumbnail'} ?>"></td>
+                                        <td><?php echo $row->{'id_topic'} ?></td>
+                                        <td><?php echo $row->{'mean'} ?></td>
+                                        <td><?php echo $row->{'number_flowers'} ?></td>
+                                        <td><?php echo $row->{'unit_price'} ?></td>
+                                        <td><?php echo $row->{'inventory'} ?></td>
                                         <td>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-success"><i class="mdi mdi-pen"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="mdi mdi-delete"></i></button>
+                                                <a href="<?php echo $appRootURL ?>/admin/productedit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-success"><i class="mdi mdi-pen"></i></a>
+                                                <a href="<?php echo $appRootURL ?>/admin/deleteproduct/<?php echo $row->{'id'} ?>" type="button" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
                                             </div>
                                         </td>
                                     </tr>
-
                                 </tbody>
+                                <?php } ?>
                                 <tfoot>
                                     <tr>
                                         <th>ID</th>

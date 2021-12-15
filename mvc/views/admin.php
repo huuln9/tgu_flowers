@@ -87,13 +87,30 @@
                             </li>
                         </ul>
                     </li>
+                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-tag"></i> <span class="nav-text">Quản lý chủ đề hoa</span></a>
+                        <ul aria-expanded="false">
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/admin/topiclist"><i class="mdi mdi-tag-multiple"></i> Danh sách</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/admin/topicadd"><i class="mdi mdi-tag-plus"></i> Thêm mới</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-flower"></i> <span class="nav-text">Quản lý hoa</span></a>
                         <ul aria-expanded="false">
                             <li>
-                                <a href="<?php echo $appRootURL ?>/admin/flowerlist"><i class="mdi mdi-format-list-bulleted"></i> Danh sách</a>
+                                <a href="<?php echo $appRootURL ?>/admin/productlist"><i class="mdi mdi-format-list-bulleted"></i> Danh sách</a>
                             </li>
                             <li>
-                                <a href="<?php echo $appRootURL ?>/admin/floweradd"><i class="mdi mdi-plus-circle-outline"></i> Thêm mới</a>
+                                <a href="<?php echo $appRootURL ?>/admin/productadd"><i class="mdi mdi-plus-circle-outline"></i> Thêm mới</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-comment"></i> <span class="nav-text">Quản lý bình luận</span></a>
+                        <ul aria-expanded="false">
+                            <li>
+                                <a href="<?php echo $appRootURL ?>/admin/commentlist"><i class="mdi mdi-comment-multiple-outline"></i> Danh sách</a>
                             </li>
                         </ul>
                     </li>

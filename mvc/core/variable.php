@@ -1,3 +1,3 @@
 <?php
-$appRootURL = "http://localhost/github/tgu_flowers";
+$appRootURL = "http://localhost/github/tgu_flowers"; // dup in controller
 ?>

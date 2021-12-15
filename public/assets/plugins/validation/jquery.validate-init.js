@@ -19,6 +19,9 @@ jQuery(".form-valide").validate({
         "val-flowername": {
             required: !0
         },
+        "val-topicname": {
+            required: !0
+        },
         "val-email": {
             required: !0,
             email: !0
@@ -91,6 +94,9 @@ jQuery(".form-valide").validate({
             minlength: "Họ và tên phải có độ dài ít nhất 3 ký tự"
         },
         "val-flowername": {
+            required: "Thông tin bắt buộc không được để trống"
+        },
+        "val-topicname": {
             required: "Thông tin bắt buộc không được để trống"
         },
         "val-email": "Vui lòng nhập email hợp lệ",

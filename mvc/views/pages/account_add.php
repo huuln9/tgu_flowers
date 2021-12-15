@@ -20,6 +20,7 @@
                         <p class="text-muted m-b-15 f-s-12">Các thông tin có dấu (<code>*</code>) là bắt buộc</p>
                         <div class="form-validation">
                             <form class="form-valide" action="<?php echo $appRootURL ?>/admin/addaccount" method="post">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-username">Họ và tên <span class="text-danger">*</span>
                                     </label>

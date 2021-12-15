@@ -1,3 +1,4 @@
+<?php $topics = json_decode($data['topics']) ?>
 <div class="content-body">
     <div class="container">
         <div class="row page-titles">
@@ -19,7 +20,8 @@
                         <h4 class="card-title">Thêm mới hoa</h4>
                         <p class="text-muted m-b-15 f-s-12">Các thông tin có dấu (<code>*</code>) là bắt buộc</p>
                         <div class="form-validation">
-                            <form class="form-valide" action="#" method="post">
+                            <form class="form-valide" action="<?php echo $appRootURL ?>/admin/addproduct" method="post">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-flowername">Tên <span class="text-danger">*</span>
                                     </label>
@@ -28,21 +30,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-email">Ảnh minh họa
+                                    <label class="col-lg-4 col-form-label">Ảnh minh họa
                                     </label>
                                     <div class="col-lg-6">
-                                        <div class="fallback">
-                                            <input name="file" type="file" multiple="multiple">
-                                        </div>
+                                        <input type="text" class="form-control" name="val-thumbnail" placeholder="Nhập đường dẫn ảnh ...">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label">Chủ đề <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <select class="form-control">
-                                            <option value="AK">Alaska</option>
-                                            <option value="HI">Hawaii</option>
+                                        <select class="form-control" name="val-idtopic">
+                                            <?php foreach ($topics as $row) { ?>
+                                            <option value="<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </div>
@@ -50,7 +51,7 @@
                                     <label class="col-lg-4 col-form-label">Ý nghĩa
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control input-flat" placeholder="Nhập ý nghĩa ...">
+                                        <input type="text" class="form-control input-flat" name="val-mean" placeholder="Nhập ý nghĩa ...">
                                     </div>
                                 </div>
                                 <div class="form-group row">
