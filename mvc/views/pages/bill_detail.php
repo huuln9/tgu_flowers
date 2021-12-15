@@ -1,3 +1,8 @@
+<?php
+$billDetails = json_decode($data['billDetails']);
+$bill = $data['bill'][0];
+$customer = json_decode($data['customer']);
+?>
 <div class="content-body">
     <div class="container">
         <div class="row page-titles">
@@ -18,15 +23,15 @@
                     <div id="invoice-top">
                         <div class="invoice-logo"></div>
                         <div class="invoice-info">
-                            <h2>john doe</h2>
-                            <p>hello@example.com
-                                <br>+8801629599859
+                            <h2>TGU Flowers</h2>
+                            <p>tguflowers@gmail.com
+                                <br>2444.666.666
                             </p>
                         </div>
                         <!--End Info-->
                         <div class="title">
-                            <h4>Hóa đơn #1069</h4>
-                            <p>Ngày: February 15, 2018</p>
+                            <h4>Hóa đơn #<?php echo $bill->{'id'} ?></h4>
+                            <p>Thời điểm tạo: <?php echo $bill->{'date'} ?></p>
                         </div>
                         <!--End Title-->
                     </div>
@@ -34,11 +39,13 @@
                     <div id="invoice-mid">
                         <div class="clientlogo"></div>
                         <div class="invoice-info">
-                            <h2>Khách hàng</h2>
-                            <p>mariam@example.com
-                                <br>555-555-5555
+                            <?php foreach ($customer as $row) { ?>
+                            <h2><?php echo $row->{'fullname'} ?></h2>
+                            <p><?php echo $row->{'email'} ?>
+                                <br><?php echo $row->{'phone'} ?>
                                 <br>
                             </p>
+                            <?php } ?>
                         </div>
                         <!-- <div id="project">
                             <h2>Project Description</h2>
@@ -64,76 +71,22 @@
                                             <h2>Thành tiền</h2>
                                         </td>
                                     </tr>
+                                    <?php foreach ($billDetails as $row) { ?>
                                     <tr class="service">
                                         <td class="tableitem">
-                                            <p class="itemtext">Communication</p>
+                                            <p class="itemtext"><?php echo $row->{'id_product'} ?></p>
                                         </td>
                                         <td class="tableitem">
-                                            <p class="itemtext">5</p>
+                                            <p class="itemtext"><?php echo $row->{'quantity'} ?></p>
                                         </td>
                                         <td class="tableitem">
-                                            <p class="itemtext">$75</p>
+                                            <p class="itemtext"><?php echo number_format($row->{'unit_price'}, 0, ',', '.') ?> VND</p>
                                         </td>
                                         <td class="tableitem">
-                                            <p class="itemtext">$375.00</p>
+                                            <p class="itemtext"><?php echo number_format($row->{'unit_price'} * $row->{'quantity'}, 0, ',', '.') ?> VND</p>
                                         </td>
                                     </tr>
-                                    <tr class="service">
-                                        <td class="tableitem">
-                                            <p class="itemtext">Asset Gathering</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">3</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">$75</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">$225.00</p>
-                                        </td>
-                                    </tr>
-                                    <tr class="service">
-                                        <td class="tableitem">
-                                            <p class="itemtext">Design Development</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">5</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">$75</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">$375.00</p>
-                                        </td>
-                                    </tr>
-                                    <tr class="service">
-                                        <td class="tableitem">
-                                            <p class="itemtext">Animation</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">20</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">$75</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">$1,500.00</p>
-                                        </td>
-                                    </tr>
-                                    <tr class="service">
-                                        <td class="tableitem">
-                                            <p class="itemtext">Animation Revisions</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">10</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">$75</p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext">$750.00</p>
-                                        </td>
-                                    </tr>
+                                    <?php } ?>
                                     <tr class="tabletitle">
                                         <td></td>
                                         <td></td>
@@ -141,7 +94,16 @@
                                             <h2>Tổng cộng</h2>
                                         </td>
                                         <td class="payment">
-                                            <h2>$3,644.25</h2>
+                                            <h2>
+                                                <?php
+                                                $total = 0;
+                                                foreach ($billDetails as $row) {
+                                                    $total += $row->{'unit_price'} * $row->{'quantity'};
+                                                }
+                                                echo number_format($total, 0, ',', '.');
+                                                ?>
+                                                VND 
+                                            </h2>
                                         </td>
                                     </tr>
                                 </table>
@@ -149,11 +111,14 @@
                         </div>
                         <!--End Table-->
                         <!-- <form action="#" method="post" target="_top" class="m-t-15">
-                            <input type="image" src="../../assets/images/paypal.png" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                        </form>
+                            <button type="submit" class="btn btn-primary">Thêm mới</button>
+                        </form> -->
                         <div id="legalcopy">
-                            <p class="legal"><strong>Thank you for your business!</strong> Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices.</p>
-                        </div> -->
+                            <p class="legal"><strong>Cảm ơn bạn đã ủng hộ shop!</strong> Mong rằng bạn sẽ cảm thấy hài lòng
+                            về chất lượng sản phẩm. Nếu còn điều gì chưa hài lòng, mong bạn đừng vội đánh giá thấp shop, bạn
+                            hãy vui lòng để lại ý kiến đóng góp hoặc liên hệ theo hotline bên dưới để shop có thể hỗ trợ nhanh nhất!</p>
+                            <p>Hotline: 2444.666.666</p>
+                        </div>
                     </div>
                     <!--End InvoiceBot-->
                 </div>

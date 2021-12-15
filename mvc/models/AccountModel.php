@@ -11,8 +11,8 @@ class AccountModel extends Database {
         return json_encode($arr);
     }
 
-    public function AddAccount($fullname, $email, $password, $phone, $address) {
-        $qr = "INSERT INTO `account` VALUES(null, '$fullname', '$email', '$password', '$phone', '$address');";
+    public function AddAccount($fullname, $email, $password, $admin, $phone, $address) {
+        $qr = "INSERT INTO `account` VALUES(null, '$fullname', '$email', '$password', $admin, '$phone', '$address');";
         $this->conn->query($qr);
     }
 
@@ -27,8 +27,8 @@ class AccountModel extends Database {
         return json_encode($arr);
     }
 
-    public function UpdateAccount($id, $fullname, $email, $password, $phone, $address) {
-        $qr = "UPDATE `account` SET `fullname`='$fullname',`email`='$email',`password`='$password',`phone`='$phone',`address`='$address' WHERE `id`=$id;";
+    public function UpdateAccount($id, $fullname, $email, $password, $admin, $phone, $address) {
+        $qr = "UPDATE `account` SET `fullname`='$fullname',`email`='$email',`password`='$password',`admin`=$admin,`phone`='$phone',`address`='$address' WHERE `id`=$id;";
         $this->conn->query($qr);
     }
 

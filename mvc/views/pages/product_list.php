@@ -1,4 +1,7 @@
-<?php $products = json_decode($data['products']) ?>
+<?php 
+$products = json_decode($data['products']);
+$topics = json_decode($data['topics']);
+?>
 <div class="content-body">
     <div class="container">
         <div class="row page-titles">
@@ -40,7 +43,15 @@
                                         <td><?php echo $row->{'id'} ?></td>
                                         <td><?php echo $row->{'name'} ?></td>
                                         <td><img width="100" height="100" src="<?php echo $row->{'thumbnail'} ?>"></td>
-                                        <td><?php echo $row->{'id_topic'} ?></td>
+                                        <td>
+                                            <?php 
+                                            foreach ($topics as $topic) {
+                                                if ($topic->{'id'} == $row->{'id_topic'}) {
+                                                    echo $topic->{'name'};
+                                                }
+                                            }  
+                                            ?>
+                                        </td>
                                         <td><?php echo $row->{'mean'} ?></td>
                                         <td><?php echo $row->{'number_flowers'} ?></td>
                                         <td><?php echo $row->{'unit_price'} ?></td>

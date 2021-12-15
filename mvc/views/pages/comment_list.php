@@ -1,17 +1,17 @@
-<?php
-$bills = json_decode($data['bills']);
-$billDetails = json_decode($data['billDetails']);
+<?php 
+$comments = json_decode($data['comments']);
 $accounts = json_decode($data['accounts']);
+$products = json_decode($data['products']);
 ?>
 <div class="content-body">
     <div class="container">
         <div class="row page-titles">
             <div class="col p-0">
-                <h4>TGU Flowers, <span>Quản lý hóa đơn</span></h4>
+                <h4>TGU Flowers, <span>Quản lý bình luận</span></h4>
             </div>
             <div class="col p-0">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Hóa đơn</a>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Bình luận</a>
                     </li>
                     <li class="breadcrumb-item active">Danh sách</li>
                 </ol>
@@ -22,19 +22,19 @@ $accounts = json_decode($data['accounts']);
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Danh sách hóa đơn    </h4>
+                        <h4 class="card-title">Danh sách bình luận</h4>
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered zero-configuration">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Khách hàng</th>
-                                        <th>Thời điểm tạo</th>
-                                        <th>Thành tiền</th>
+                                        <th>Người bình luận</th>
+                                        <th>Nội dung bình luận</th>
+                                        <th>Sản phẩm</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
-                                <?php foreach ($bills as $row) { ?>
+                                <?php foreach ($comments as $row) { ?>
                                 <tbody>
                                     <tr>
                                         <td><?php echo $row->{'id'} ?></td>
@@ -47,23 +47,19 @@ $accounts = json_decode($data['accounts']);
                                             }
                                             ?>
                                         </td>
-                                        <td><?php echo $row->{'date'} ?></td>
+                                        <td><?php echo $row->{'content'} ?></td>
                                         <td>
-                                            <?php
-                                            $total = 0;
-                                            foreach ($billDetails as $billDetail) {
-                                                if ($billDetail->{'id_bill'} == $row->{'id'}) {
-                                                    $total += $billDetail->{'unit_price'} * $billDetail->{'quantity'};
+                                            <?php 
+                                            foreach ($products as $product) {
+                                                if ($product->{'id'} == $row->{'id_product'}) {
+                                                    echo $product->{'name'};
                                                 }
                                             }
-                                            echo number_format($total, 0, ',', '.');
                                             ?>
-                                            VND
                                         </td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href="<?php echo $appRootURL ?>/admin/billdetail/<?php echo $row->{'id'} ?>" type="button" class="btn btn-success"><i class="mdi mdi-eye"></i></a>
-                                                <a href="<?php echo $appRootURL ?>/admin/deletebill/<?php echo $row->{'id'} ?>" type="button" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                                <a href="<?php echo $appRootURL ?>/admin/deletecomment/<?php echo $row->{'id'} ?>" type="button" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -72,9 +68,9 @@ $accounts = json_decode($data['accounts']);
                                 <tfoot>
                                     <tr>
                                     <th>ID</th>
-                                        <th>Khách hàng</th>
-                                        <th>Thời điểm tạo</th>
-                                        <th>Thành tiền</th>
+                                        <th>Người bình luận</th>
+                                        <th>Nội dung bình luận</th>
+                                        <th>Sản phẩm</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </tfoot>

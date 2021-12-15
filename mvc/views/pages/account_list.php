@@ -26,6 +26,7 @@
                                         <th>ID</th>
                                         <th>Họ tên</th>
                                         <th>Email</th>
+                                        <th>Quyền</th>
                                         <th>Số điện thoại</th>
                                         <th>Địa chỉ</th>
                                         <th>Thao tác</th>
@@ -37,6 +38,7 @@
                                         <td><?php echo $row->{'id'} ?></td>
                                         <td><?php echo $row->{'fullname'} ?></td>
                                         <td><?php echo $row->{'email'} ?></td>
+                                        <td><?php if ($row->{'admin'} == 1) echo 'Quản trị'; else echo 'Khách' ?></td>
                                         <td><?php echo $row->{'phone'} ?></td>
                                         <td><?php echo $row->{'address'} ?></td>
                                         <td>
@@ -53,6 +55,7 @@
                                         <th>ID</th>
                                         <th>Họ tên</th>
                                         <th>Email</th>
+                                        <th>Quyền</th>
                                         <th>Số điện thoại</th>
                                         <th>Địa chỉ</th>
                                         <th>Thao tác</th>

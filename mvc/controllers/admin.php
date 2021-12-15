@@ -3,11 +3,17 @@ class Admin extends Controller {
     public $accountModel;
     public $topicModel;
     public $productModel;
+    public $commentModel;
+    public $billModel;
+    public $billDetailModel;
 
     function __construct() {
         $this->accountModel = $this->model("AccountModel");
         $this->topicModel = $this->model("TopicModel");
         $this->productModel = $this->model("ProductModel");
+        $this->commentModel = $this->model("CommentModel");
+        $this->billModel = $this->model("BillModel");
+        $this->billDetailModel = $this->model("BillDetailModel");
     }
 
     function Show() {
@@ -34,6 +40,7 @@ class Admin extends Controller {
             $_POST['val-username'],
             $_POST['val-email'],
             $_POST['val-password'],
+            $_POST['val-admin'],
             $_POST['val-phone'],
             $_POST['val-address']
         );
@@ -54,6 +61,7 @@ class Admin extends Controller {
             $_POST['val-username'],
             $_POST['val-email'],
             $_POST['val-password'],
+            $_POST['val-admin'],
             $_POST['val-phone'],
             $_POST['val-address']
         );
@@ -114,10 +122,12 @@ class Admin extends Controller {
 
     function ProductList() {
         $products = $this->productModel->GetProducts();
+        $topics = $this->topicModel->GetTopics();
 
         $this->view("admin", [
             "pages" => "product_list",
-            "products" => $products
+            "products" => $products,
+            "topics" => $topics
         ]);
     }
     function ProductAdd() {
@@ -174,15 +184,62 @@ class Admin extends Controller {
         header("Location: $this->appRootURL/admin/productlist");
     }
 
-    function BillList() {
+    function CommentList() {
+        $comments = $this->commentModel->GetComments();
+        $accounts = $this->accountModel->GetAccounts();
+        $products = $this->productModel->GetProducts();
+
         $this->view("admin", [
-            "pages" => "bill_list"
+            "pages" => "comment_list",
+            "comments" => $comments,
+            "accounts" => $accounts,
+            "products" => $products
         ]);
     }
-    function BillDetail() {
+    function DeleteComment() {
+        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
+        $id = $urlArr[count($urlArr) - 1];
+
+        $this->commentModel->DeleteComment($id);
+
+        header("Location: $this->appRootURL/admin/commentlist");
+    }
+
+    function BillList() {
+        $bills = $this->billModel->GetBills();
+        $billDetails = $this->billDetailModel->GetBillDetails();
+        $accounts = $this->accountModel->GetAccounts();
+
         $this->view("admin", [
-            "pages" => "bill_detail"
+            "pages" => "bill_list",
+            "bills" => $bills,
+            "billDetails" => $billDetails,
+            "accounts" => $accounts
         ]);
+    }
+
+    function BillDetail($billId) {
+        $billDetails = $this->billDetailModel->GetBillDetailsByBillId($billId);
+        $bill = $this->billModel->GetBill($billId);
+        $billJs = json_decode($bill);
+        $customer = $this->accountModel->GetAccount($billJs[0]->{'id_account'});
+
+        $this->view("admin", [
+            "pages" => "bill_detail",
+            "billDetails" => $billDetails,
+            "bill" => $billJs,
+            "customer" => $customer
+        ]);
+    }
+
+    function DeleteBill() {
+        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
+        $id = $urlArr[count($urlArr) - 1];
+
+        $this->billDetailModel->DeleteBillDetailsByBillId($id);
+        $this->billModel->DeleteBill($id);
+
+        header("Location: $this->appRootURL/admin/billlist");
     }
 
     function Chart() {

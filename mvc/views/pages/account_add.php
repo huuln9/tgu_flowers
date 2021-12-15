@@ -36,6 +36,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="val-email">Quyền <span class="text-danger">*</span>
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <label class="radio-inline"><input type="radio" name="val-admin" value="1"> Quản trị</label>
+                                        <span style="margin: 5px;"></span>
+                                        <label class="radio-inline"><input type="radio" name="val-admin" value="0" checked> Khách</label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-password">Mật khẩu <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
