@@ -10,12 +10,15 @@
                         <input type="text" class="form-control" name="val-email" placeholder="Email" />
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="val-password" placeholder="Mật khẩu" />
+                        <input type="password" class="form-control" id="val-password" name="val-password" placeholder="Mật khẩu" />
                     </div>
                     <div class="d-flex flex-bt">
                         <div class="form-group">
-                            <input id="remember" type="checkbox" />
-                            <label for="remember">Ghi nhớ đăng nhập</label>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" onclick="togglePassword()"> Hiển thị mật khẩu
+                                </label>
+                            </div>
                         </div>
                         <div>
                             <a href="<?php echo $appRootURL ?>/auth/register"> Quên mật khẩu? </a>
