@@ -29,12 +29,12 @@
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
-                                <?php foreach ($topics as $row) { ?>
                                 <tbody>
+                                    <?php foreach ($topics as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->{'id'} ?></td>
                                         <td><?php echo $row->{'name'} ?></td>
-                                        <td><?php echo $row->{'thumbnail'} ?></td>
+                                        <td><img width="100" height="100" src="<?php echo $row->{'thumbnail'} ?>"></td>
                                         <td>
                                             <div class="btn-group">
                                             <a href="<?php echo $appRootURL ?>/admin/topicedit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-primary"><i class="mdi mdi-pen"></i></a>
@@ -42,8 +42,8 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
-                                <?php } ?>
                                 <tfoot>
                                     <tr>
                                         <th>ID</th>

@@ -27,6 +27,17 @@ class TopicModel extends Database {
         return json_encode($arr);
     }
 
+    public function Get4Topics() {
+        $qr = "SELECT * FROM `topic` ORDER BY `id` ASC LIMIT 4;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
     public function UpdateTopic($id, $name, $thumbnail) {
         $qr = "UPDATE `topic` SET `name`='$name', `thumbnail`='$thumbnail' WHERE `id`=$id;";
         $this->conn->query($qr);

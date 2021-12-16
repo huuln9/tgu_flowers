@@ -1,3 +1,8 @@
+<?php
+$topics = json_decode($data['topics']);
+$products = json_decode($data['products']);
+
+?>
 <section id="home-section" class="hero">
     <div class="home-slider owl-carousel">
         <div class="slider-item" style="background-image: url(<?php echo $appRootURL ?>/public/home/images/bg-1.jpg)">
@@ -9,7 +14,7 @@
                             Chúng tôi chuyên cung cấp các loại hoa tươi &amp; sạch
                         </h1>
                         <h2 class="subheading mb-4">Cam kết sản phẩm chất lượng</h2>
-                        <p><a href="#" class="btn btn-primary">Đặt mua ngay</a></p>
+                        <p><a href="<?php echo $appRootURL ?>/home/shop" class="btn btn-primary">Đặt mua ngay</a></p>
                     </div>
                 </div>
             </div>
@@ -21,7 +26,7 @@
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
                     <div class="col-sm-12 ftco-animate text-center">
                         <h1 class="mb-2">100% Miễn Phí giao hàng</h1>
-                        <p><a href="#" class="btn btn-primary">Đặt mua ngay</a></p>
+                        <p><a href="<?php echo $appRootURL ?>/home/shop" class="btn btn-primary">Đặt mua ngay</a></p>
                     </div>
                 </div>
             </div>
@@ -115,36 +120,23 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-6 order-md-last align-items-stretch d-flex">
-                        <div class="
-                    category-wrap-2
-                    ftco-animate
-                    img
-                    align-self-stretch
-                    d-flex
-                  " style="background-image: url(<?php echo $appRootURL ?>/public/home/images/products/hoa.jpg)">
+                        <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(<?php echo $appRootURL ?>/public/home/images/products/hoa-5.jpg)">
                             <div class="text text-center">
                                 <h2>Hoa Tươi</h2>
                                 <p>Sản phẩm nổi bật</p>
-                                <p><a href="#" class="btn btn-primary">Mua hoa ngay</a></p>
+                                <p><a href="<?php echo $appRootURL ?>/home/shop" class="btn btn-primary">Mua hoa ngay</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="
-                    category-wrap
-                    ftco-animate
-                    img
-                    mb-4
-                    d-flex
-                    align-items-end
-                  " style="background-image: url(images/products/hoa-1.jpeg)">
+                        <div class="category-wrap ftco-animate img mb-4 d-flex  align-items-end " style="background-image: url(<?php echo $topics[0]->{'thumbnail'} ?>)">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">Sinh Nhật</a></h2>
+                                <h2 class="mb-0"><a href="#"><?php echo $topics[0]->{'name'} ?></a></h2>
                             </div>
                         </div>
-                        <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(images/products/hoa-2.webp)">
+                        <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(<?php echo $topics[1]->{'thumbnail'} ?>)">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">Hoa Cưới</a></h2>
+                                <h2 class="mb-0"><a href="#"><?php echo $topics[1]->{'name'} ?></a></h2>
                             </div>
                         </div>
                     </div>
@@ -152,14 +144,14 @@
             </div>
 
             <div class="col-md-4">
-                <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(images/products/hoa-3.jpeg)">
+                <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(<?php echo $topics[2]->{'thumbnail'} ?>)">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">Khai Trương</a></h2>
+                        <h2 class="mb-0"><a href="#"><?php echo $topics[2]->{'name'} ?></a></h2>
                     </div>
                 </div>
-                <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(images/products/hoa-4.jpeg)">
+                <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(<?php echo $topics[3]->{'thumbnail'} ?>)">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">Lãng mạn</a></h2>
+                        <h2 class="mb-0"><a href="#"><?php echo $topics[3]->{'name'} ?></a></h2>
                     </div>
                 </div>
             </div>
@@ -172,7 +164,7 @@
         <div class="row justify-content-center mb-3 pb-3">
             <div class="col-md-12 heading-section text-center ftco-animate">
                 <span class="subheading">TGU Flowers Shop</span>
-                <h2 class="mb-4">Sản Phẩm Bán Chạy</h2>
+                <h2 class="mb-4">Top Hoa Nổi Bật Nhất</h2>
                 <p>
                     Chúng tôi cam kết hoa luôn tươi mới. Sản phẩm khi giao đẹp hơn
                     ảnh.
@@ -182,30 +174,26 @@
     </div>
     <div class="container">
         <div class="row">
+            <?php foreach ($products as $row) { ?>
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="product">
-                    <a href="product.html" class="img-prod"><img class="img-fluid" src="./images/products/hoa-1.jpeg" alt="" />
-                        <span class="status">30%</span>
+                    <a href="product.html" class="img-prod"><img class="img-fluid" src="<?php echo $row->{'thumbnail'} ?>" alt="" />
+                        <!-- <span class="status">30%</span> -->
                         <div class="overlay"></div>
                     </a>
                     <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Crystal Pearl</a></h3>
+                        <h3><a href="#"><?php echo $row->{'name'} ?></a></h3>
                         <div class="d-flex">
                             <div class="pricing">
                                 <p class="price">
-                                    <span class="mr-2 price-dc">659.000</span><span class="price-sale">499.000</span>
+                                    <!-- <span class="mr-2 price-dc">659.000</span> -->
+                                    <span class="price-sale"><?php echo number_format($row->{'unit_price'}, 0, ',', '.'); ?></span> / 1 hoa
                                 </p>
                             </div>
                         </div>
                         <div class="bottom-area d-flex px-3">
                             <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
+                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
                                     <span><i class="ion-ios-cart"></i></span>
                                 </a>
                             </div>
@@ -213,206 +201,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-6.jpeg" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Rose Land</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>349.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-7.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Under The Sky Blue</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>249.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-8.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Green Garden</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>349.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-9.jpeg" alt="" />
-                        <span class="status">30%</span>
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">True Love</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price">
-                                    <span class="mr-2 price-dc">1.479.000</span><span class="price-sale">1.049.000</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-10.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Little Baby</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>169.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-11.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Combo Sweet Rosy</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>619.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-12.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Jubilant</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>1.689.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>

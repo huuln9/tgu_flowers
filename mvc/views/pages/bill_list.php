@@ -34,8 +34,8 @@ $accounts = json_decode($data['accounts']);
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
-                                <?php foreach ($bills as $row) { ?>
                                 <tbody>
+                                    <?php foreach ($bills as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->{'id'} ?></td>
                                         <td>
@@ -67,8 +67,8 @@ $accounts = json_decode($data['accounts']);
                                             </div>
                                         </td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
-                                <?php } ?>
                                 <tfoot>
                                     <tr>
                                     <th>ID</th>

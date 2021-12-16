@@ -37,8 +37,8 @@ $topics = json_decode($data['topics']);
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
-                                <?php foreach ($products as $row) { ?>
                                 <tbody>
+                                    <?php foreach ($products as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->{'id'} ?></td>
                                         <td><?php echo $row->{'name'} ?></td>
@@ -63,8 +63,8 @@ $topics = json_decode($data['topics']);
                                             </div>
                                         </td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
-                                <?php } ?>
                                 <tfoot>
                                     <tr>
                                         <th>ID</th>

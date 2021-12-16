@@ -34,8 +34,8 @@ $products = json_decode($data['products']);
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
-                                <?php foreach ($comments as $row) { ?>
                                 <tbody>
+                                    <?php foreach ($comments as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->{'id'} ?></td>
                                         <td>
@@ -63,8 +63,8 @@ $products = json_decode($data['products']);
                                             </div>
                                         </td>
                                     </tr>
+                                    <?php } ?>
                                 </tbody>
-                                <?php } ?>
                                 <tfoot>
                                     <tr>
                                     <th>ID</th>

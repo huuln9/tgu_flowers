@@ -1,10 +1,20 @@
 <?php
 class Home extends Controller {
+    public $topicModel;
+    public $productModel;
 
+    function __construct() {
+        $this->topicModel = $this->model("TopicModel");
+        $this->productModel = $this->model("ProductModel");
+    }
 
     function Show() {
+        $topics = $this->topicModel->Get4Topics();
+        $products = $this->productModel->GetTop8Products();
         $this->view("home", [
-            "pages" => "main"
+            "pages" => "main",
+            "topics" => $topics,
+            "products" => $products
         ]);
     }
 
