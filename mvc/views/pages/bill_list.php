@@ -58,7 +58,7 @@ $accounts = json_decode($data['accounts']);
                                             }
                                             echo number_format($total, 0, ',', '.');
                                             ?>
-                                            VND
+                                            đ
                                         </td>
                                         <td>
                                             <div class="btn-group">

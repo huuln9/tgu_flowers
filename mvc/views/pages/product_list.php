@@ -54,7 +54,7 @@ $topics = json_decode($data['topics']);
                                         </td>
                                         <td><?php echo $row->{'mean'} ?></td>
                                         <td><?php echo $row->{'number_flowers'} ?></td>
-                                        <td><?php echo $row->{'unit_price'} ?></td>
+                                        <td><?php echo number_format($row->{'unit_price'}, 0, ',', '.'); ?> đ</td>
                                         <td><?php echo $row->{'inventory'} ?></td>
                                         <td>
                                             <div class="btn-group">

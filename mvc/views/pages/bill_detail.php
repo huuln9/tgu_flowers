@@ -106,10 +106,10 @@ $customer = json_decode($data['customer']);
                                             <p class="itemtext"><?php echo $row->{'quantity'} ?></p>
                                         </td>
                                         <td class="tableitem">
-                                            <p class="itemtext"><?php echo number_format($row->{'unit_price'}, 0, ',', '.') ?> VND</p>
+                                            <p class="itemtext"><?php echo number_format($row->{'unit_price'}, 0, ',', '.') ?> đ</p>
                                         </td>
                                         <td class="tableitem">
-                                            <p class="itemtext"><?php echo number_format($row->{'unit_price'} * $row->{'quantity'}, 0, ',', '.') ?> VND</p>
+                                            <p class="itemtext"><?php echo number_format($row->{'unit_price'} * $row->{'quantity'}, 0, ',', '.') ?> đ</p>
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -130,7 +130,7 @@ $customer = json_decode($data['customer']);
                                                 }
                                                 echo number_format($total, 0, ',', '.');
                                                 ?>
-                                                VND 
+                                                đ 
                                             </h2>
                                         </td>
                                     </tr>
