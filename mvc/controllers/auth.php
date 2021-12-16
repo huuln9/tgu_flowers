@@ -24,7 +24,7 @@ class Auth extends Controller {
     }
 
     function Logout() {    
-        unset($_SESSION['username']);
+        unset($_SESSION['account']);
         header("Location: $this->appRootURL/auth");
     }
 }
