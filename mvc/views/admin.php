@@ -1,3 +1,4 @@
+<?php $account = $_SESSION['account'] ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,9 +57,11 @@
                             <div class="drop-down dropdown-profile animated bounceInDown">
                                 <div class="dropdown-content-body">
                                     <ul>
-                                        <li><a href="#"><i class="mdi mdi-settings"></i> <span>Cài đặt</span></a>
+                                        <li><i class="mdi mdi-account-check"></i> <span><?php echo $account->{'fullname'} ?></span>
                                         </li>
-                                        <li><a href="#"><i class="icon-power"></i> <span>Đăng xuất</span></a>
+                                        <li><a href="<?php echo $appRootURL ?>/admin/accountedit/<?php echo $account->{'id'} ?>"><i class="mdi mdi-account-edit"></i> <span>Cập nhật</span></a>
+                                        </li>
+                                        <li><a href="<?php echo $appRootURL ?>/auth/logout"><i class="icon-power"></i> <span>Đăng xuất</span></a>
                                         </li>
                                     </ul>
                                 </div>

@@ -38,6 +38,17 @@ class AccountModel extends Database {
         return json_encode($result);    
     }
 
+    public function CheckLogin($email, $password) {
+        $qr = "SELECT * FROM `account` WHERE `email`='$email' AND `password`='$password';";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
     public function UpdateAccount($id, $fullname, $email, $password, $admin, $phone, $address) {
         $qr = "UPDATE `account` SET `fullname`='$fullname',`email`='$email',`password`='$password',`admin`=$admin,`phone`='$phone',`address`='$address' WHERE `id`=$id;";
         $this->conn->query($qr);

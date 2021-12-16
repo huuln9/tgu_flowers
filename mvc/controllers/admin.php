@@ -8,6 +8,10 @@ class Admin extends Controller {
     public $billDetailModel;
 
     function __construct() {
+        if (!isset($_SESSION['account'])) {
+            header("Location: $this->appRootURL/auth");
+        }
+
         $this->accountModel = $this->model("AccountModel");
         $this->topicModel = $this->model("TopicModel");
         $this->productModel = $this->model("ProductModel");

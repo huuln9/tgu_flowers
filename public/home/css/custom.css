@@ -1,0 +1,46 @@
+.logo-image {
+  width: 250px;
+}
+.hero-wrap .slider-text .bread {
+  font-family: "Arial, sans-serif";
+}
+.product-details .price span::after,
+.product .text p.price span::after,
+.product .text p.price span.price-dc::after,
+.product .text p.price span.price-sale::after {
+  content: " VNĐ";
+}
+
+.text-i {
+  font-style: italic;
+}
+
+.navbar-nav {
+  position: relative;
+}
+
+.search-input {
+  border-radius: 8px;
+  border: 1px solid #a7a8b0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: #a7a8b0;
+  position: relative;
+  top: 10px;
+}
+.search-input input {
+  background-color: transparent;
+  padding: 0 15px;
+  outline: none;
+  border: none;
+  line-height: normal;
+  width: 100%;
+}
+.section-custom {
+  min-height: 100vh;
+}
+
+.flex-bt {
+  justify-content: space-between;
+}
