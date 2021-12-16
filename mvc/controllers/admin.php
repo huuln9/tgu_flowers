@@ -36,7 +36,7 @@ class Admin extends Controller {
         $buyer = json_decode($this->billDetailModel->SumQuantityBuy());
 
         $gifterPercent = $gifter * 100 / ($gifter + $buyer);
-        $buyerPercent = $buyer * 100 / ($gifter + $buyer);
+        $buyerPercent = 100 - $gifterPercent;
 
         $commentsNew3 = $this->commentModel->GetNew3Comments();
         $commentsTop10 = $this->commentModel->GetTop10Comments();
