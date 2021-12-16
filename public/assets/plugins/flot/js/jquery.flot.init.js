@@ -116,7 +116,7 @@ $(async function() {
     var plot = $.plot($('#flotLine1'), [{
         data: buyCustomer,
         label: 'Mua hoa',
-        color: '#4233FF'
+        color: '#AB2CE7'
     },
     {
         data: giftCustomer,

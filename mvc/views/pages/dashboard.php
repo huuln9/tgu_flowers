@@ -18,9 +18,9 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class=" card-title">Doanh thu tháng</h4>
-                        <div class="f-s-30 f-w-300 text-success">350.000 <span class="f-s-16 text-uppercase">VND</span>
+                        <div class="f-s-30 f-w-300 text-success"><?php echo number_format($data['totalByMonth'], 0, ',', '.') ?> <span class="f-s-16 text-uppercase">VND</span>
                         </div>
-                        <a href="#" class="btn btn-outline-dark btn-flat m-t-5 m-b-30 f-s-14">Chi tiết</a>
+                        <a href="<?php echo $appRootURL ?>/admin/chart" class="btn btn-outline-dark btn-flat m-t-5 m-b-30 f-s-14">Chi tiết</a>
                         <!-- <canvas id="sales-graph-top"></canvas> -->
                     </div>
                 </div>
@@ -28,20 +28,20 @@
             <div class="col-xl-4">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="f-s-30 m-b-0">6.932.000.000 <span class="f-s-16 text-uppercase">VND</span></h2>
+                        <h2 class="f-s-30 m-b-0"><?php echo number_format($data['total'], 0, ',', '.') ?> <span class="f-s-16 text-uppercase">VND</span></h2>
                         <span class="f-w-600">Tổng doanh thu</span>
                         <div class="m-t-30">
-                            <h4 class="f-w-600">2,365</h4>
-                            <h6 class="m-t-10 text-muted">Mua hoa <span class="pull-right">80%</span></h6>
+                            <h4 class="f-w-600"><?php echo number_format($data['buyer'], 0, ',', '.') ?></h4>
+                            <h6 class="m-t-10">Mua hoa <span class="pull-right"><?php echo number_format($data['buyerPercent'], 0, ',', '.') ?>%</span></h6>
                             <div class="progress m-t-15 h-6px">
-                                <div class="progress-bar bg-success wow animated progress-animated w-80pc h-6px" role="progressbar"></div>
+                                <div class="progress-bar bg-primary wow animated progress-animated w-100pc h-6px" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="m-t-20 m-b-20">
-                            <h4 class="f-w-600">1,250</h4>
-                            <h6 class="m-t-10">Tặng hoa <span class="pull-right">20%</span></h6>
+                            <h4 class="f-w-600"><?php echo number_format($data['gifter'], 0, ',', '.') ?></h4>
+                            <h6 class="m-t-10">Tặng hoa <span class="pull-right"><?php echo number_format($data['gifterPercent'], 0, ',', '.') ?>%</span></h6>
                             <div class="progress m-t-15 h-6px">
-                                <div class="progress-bar bg-danger wow animated progress-animated w-20pc h-6px" role="progressbar"></div>
+                                <div class="progress-bar bg-danger wow animated progress-animated w-100pc h-6px" role="progressbar"></div>
                             </div>
                         </div>
                     </div>
@@ -51,27 +51,28 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Ý kiến khách hàng</h4>
+                        <?php 
+                        $commentsNew3 = json_decode($data['commentsNew3']);
+                        $commentsTop10 = json_decode($data['commentsTop10']);
+                        $accounts = json_decode($data['accounts']);
+                        foreach ($commentsNew3 as $row) {
+                        ?>
                         <div class="media border-bottom-1 p-t-15 p-b-15">
                             <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/1.jpg" class="mr-3 rounded-circle" alt="">
                             <div class="media-body">
-                                <h5>John Tomas</h5>
-                                <p class="m-b-0">I shared this on my fb wall a few months back,</p>
-                            </div><span class="text-muted f-s-12">April 24, 2018</span>
+                                <h5>
+                                    <?php
+                                    foreach ($accounts as $account) {
+                                        if ($account->{'id'} == $row->{'id_account'}) {
+                                            echo $account->{'fullname'};
+                                        }
+                                    }
+                                    ?>
+                                </h5>
+                                <p class="m-b-0"><?php echo $row->{'content'} ?></p>
+                            </div><span class="text-muted f-s-12"><?php echo $row->{'time'} ?></span>
                         </div>
-                        <div class="media border-bottom-1 p-t-15 p-b-15">
-                            <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/2.jpg" class="mr-3 rounded-circle" alt="">
-                            <div class="media-body">
-                                <h5>John Tomas</h5>
-                                <p class="m-b-0">I shared this on my fb wall a few months back,</p>
-                            </div><span class="text-muted f-s-12">April 24, 2018</span>
-                        </div>
-                        <div class="media p-t-15 p-b-15">
-                            <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/3.jpg" class="mr-3 rounded-circle" alt="">
-                            <div class="media-body">
-                                <h5>John Tomas</h5>
-                                <p class="m-b-0">I shared this on my fb wall a few months back,</p>
-                            </div><span class="text-muted f-s-12">April 24, 2018</span>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -87,72 +88,31 @@
                                     <thead>
                                         <tr>
                                             <th>Top khách hàng</th>
+                                            <th>Ý kiến đóng góp</th>
                                             <th>Lượt mua</th>
                                             <th>Lượt tặng</th>
-                                            <th>Ý kiến</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach ($commentsTop10 as $row) { ?>
                                         <tr>
                                             <td>
-                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/1.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
+                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/1.jpg" class="w-40px rounded-circle m-r-10" alt="">
+                                                <?php
+                                                foreach ($accounts as $account) {
+                                                    if ($account->{'id'} == $row->{'id_account'}) {
+                                                        echo $account->{'fullname'};
+                                                    }
+                                                }
+                                                ?>
                                             </td>
-                                            <td><span>125</span>
+                                            <td><span><?php echo $row->{'times'} ?></span>
+                                            <td><span>#</span>
                                             </td>
-                                            <td>United States</td>
-                                            <td><span>84</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/2.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
-                                            </td>
-                                            <td><span>547</span>
-                                            </td>
-                                            <td>Canada</td>
-                                            <td><span>36</span>
+                                            <td>#</td>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/3.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
-                                            </td>
-                                            <td><span>557</span>
-                                            </td>
-                                            <td>Germany</td>
-                                            <td><span>55</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/4.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
-                                            </td>
-                                            <td><span>753</span>
-                                            </td>
-                                            <td>England</td>
-                                            <td><span>45</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/5.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
-                                            </td>
-                                            <td><span>453</span>
-                                            </td>
-                                            <td>China</td>
-                                            <td><span>63</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="<?php echo $appRootURL ?>/public/assets/images/avatar/6.jpg" class="w-40px rounded-circle m-r-10" alt="">Arden Karn
-                                            </td>
-                                            <td><span>658</span>
-                                            </td>
-                                            <td>Japan</td>
-                                            <td><span>38</span>
-                                            </td>
-                                        </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

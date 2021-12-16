@@ -17,8 +17,38 @@ class Admin extends Controller {
     }
 
     function Show() {
+        $month = date('m');
+
+        $billIdsByMonth = json_decode($this->billModel->GetBillIdByMonth($month));
+        
+        $totalByMonth = 0;
+        foreach ($billIdsByMonth as $billId) {
+            $rs = json_decode($this->billDetailModel->SumTotalByBillId($billId));
+            $totalByMonth += $rs;
+        }
+
+        $total = json_decode($this->billDetailModel->SumTotal());
+        $gifter = json_decode($this->billDetailModel->SumQuantityGift());
+        $buyer = json_decode($this->billDetailModel->SumQuantityBuy());
+
+        $gifterPercent = $gifter * 100 / ($gifter + $buyer);
+        $buyerPercent = $buyer * 100 / ($gifter + $buyer);
+
+        $commentsNew3 = $this->commentModel->GetNew3Comments();
+        $commentsTop10 = $this->commentModel->GetTop10Comments();
+        $accounts = $this->accountModel->GetAccounts();
+
         $this->view("admin", [
-            "pages" => "dashboard"
+            "pages" => "dashboard",
+            "totalByMonth" => $totalByMonth,
+            "total" => $total,
+            "gifter" => $gifter,
+            "buyer" => $buyer,
+            "gifterPercent" => $gifterPercent,
+            "buyerPercent" => $buyerPercent,
+            "commentsNew3" => $commentsNew3,
+            "commentsTop10" => $commentsTop10,
+            "accounts" => $accounts
         ]);
     }
 
