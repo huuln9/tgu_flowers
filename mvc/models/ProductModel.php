@@ -27,6 +27,17 @@ class ProductModel extends Database {
         return json_encode($arr);
     }
 
+    public function GetProductsByTopic($topicId) {
+        $qr = "SELECT * FROM `product` WHERE `id_topic`=$topicId;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
     public function GetTop8Products() {
         $qr = "SELECT * FROM `product` ORDER BY `unit_price` DESC LIMIT 8;";
         $rs = $this->conn->query($qr);

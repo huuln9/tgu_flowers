@@ -1,3 +1,7 @@
+<?php
+$topics = json_decode($data['topics']);
+$products = json_decode($data['products']);
+?>
 <div class="hero-wrap hero-bread" style="background-image: url('<?php echo $appRootURL ?>/public/home/images/bg-2.jpg')">
     <div class="container">
         <div class="
@@ -14,45 +18,47 @@
         </div>
     </div>
 </div>
-
+<?php
+$urlArr = explode("/", $_SERVER['REQUEST_URI']);
+$topicId = $urlArr[count($urlArr) - 1];
+?>
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
                 <ul class="product-category">
-                    <li><a href="#" class="active">Tất cả</a></li>
-                    <li><a href="#">Sinh nhật</a></li>
-                    <li><a href="#">Khai trương</a></li>
-                    <li><a href="#">Lãng mạn</a></li>
-                    <li><a href="#">Hoa cưới</a></li>
+                    <li><a href="<?php echo $appRootURL ?>/home/shop" class="<?php if ($topicId == "shop") echo "active" ?>">Tất cả</a></li>
+                    <?php foreach ($topics as $row) { ?>
+                    <li>
+                        <a href="<?php echo $appRootURL ?>/home/shop/<?php echo $row->{'id'} ?>" class="<?php if ($topicId == $row->{'id'}) echo "active" ?>">
+                            <?php echo $row->{'name'} ?>
+                        </a>
+                    </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
         <div class="row">
+            <?php foreach ($products as $row) { ?>
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-1.jpeg" alt="" />
-                        <span class="status">30%</span>
+                    <a href="#" class="img-prod"><img class="img-fluid" src="<?php echo $row->{'thumbnail'} ?>" alt="" />
+                        <!-- <span class="status">30%</span> -->
                         <div class="overlay"></div>
                     </a>
                     <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Hoa</a></h3>
+                        <h3><a href="#"><?php echo $row->{'name'} ?></a></h3>
                         <div class="d-flex">
                             <div class="pricing">
                                 <p class="price">
-                                    <span class="mr-2 price-dc">659.000</span><span class="price-sale">499.000</span>
+                                    <!-- <span class="mr-2 price-dc">659.000</span> -->
+                                    <span class="price-sale"><?php echo number_format($row->{'number_flowers'} * $row->{'unit_price'}, 0, ',', '.') ?></span>
                                 </p>
                             </div>
                         </div>
                         <div class="bottom-area d-flex px-3">
                             <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
+                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
                                     <span><i class="ion-ios-cart"></i></span>
                                 </a>
                             </div>
@@ -60,324 +66,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-3.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3>Hoa</h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>120.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-4.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Hoa</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>120.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-6.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Hoa</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>120.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-7.jpeg" alt="" />
-                        <span class="status">30%</span>
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3>Hoa</h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price">
-                                    <span class="mr-2 price-dc">120.000</span><span class="price-sale">80.000</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-8.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3>Hoa</h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>120.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-9.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3>Hoa</h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>120.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-10.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Hoa</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>120.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-11.jpeg" alt="" />
-                        <span class="status">30%</span>
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3>Hoa</h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price">
-                                    <span class="mr-2 price-dc">120.000</span><span class="price-sale">80.000</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-12.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3>Hoa</h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>120.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-1.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3>Hoa</h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>120.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="./images/products/hoa-3.jpeg" alt="" />
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3>Hoa</h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>120.000</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="
-                        buy-now
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        mx-1
-                      ">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
-        <div class="row mt-5">
+        <!-- <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
@@ -391,6 +82,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>

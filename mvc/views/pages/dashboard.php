@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class=" card-title">Doanh thu tháng</h4>
-                        <div class="f-s-30 f-w-300 text-success"><?php echo number_format($data['totalByMonth'], 0, ',', '.') ?> <span class="f-s-16 text-uppercase">VND</span>
+                        <div class="f-s-30 f-w-300 text-success"><?php echo number_format($data['totalByMonth'], 0, ',', '.') ?> <span class="f-s-16 text-uppercase">VNĐ</span>
                         </div>
                         <a href="<?php echo $appRootURL ?>/admin/chart" class="btn btn-outline-dark btn-flat m-t-5 m-b-30 f-s-14">Chi tiết</a>
                         <!-- <canvas id="sales-graph-top"></canvas> -->
@@ -28,7 +28,7 @@
             <div class="col-xl-4">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="f-s-30 m-b-0"><?php echo number_format($data['total'], 0, ',', '.') ?> <span class="f-s-16 text-uppercase">VND</span></h2>
+                        <h2 class="f-s-30 m-b-0"><?php echo number_format($data['total'], 0, ',', '.') ?> <span class="f-s-16 text-uppercase">VNĐ</span></h2>
                         <span class="f-w-600">Tổng doanh thu</span>
                         <div class="m-t-30">
                             <h4 class="f-w-600"><?php echo number_format($data['buyer'], 0, ',', '.') ?></h4>

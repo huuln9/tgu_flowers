@@ -220,7 +220,7 @@ $products = json_decode($data['products']);
                 <h2 class="mb-4">Ưu đãi mùa Giáng Sinh</h2>
                 <p>TGU Flowers Shop tri ân quý khách hàng nhân dịp lễ Giáng Sinh</p>
                 <h3><a href="#">Giảm giá</a></h3>
-                <span class="price">10% cho tất cả sản phẩm</span>
+                <span class="price">0% cho tất cả sản phẩm</span>
                 <div id="timer" class="d-flex mt-5">
                     <div class="time" id="days"></div>
                     <div class="time pl-3" id="hours"></div>

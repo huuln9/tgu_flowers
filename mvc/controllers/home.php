@@ -11,6 +11,7 @@ class Home extends Controller {
     function Show() {
         $topics = $this->topicModel->Get4Topics();
         $products = $this->productModel->GetTop8Products();
+
         $this->view("home", [
             "pages" => "main",
             "topics" => $topics,
@@ -18,9 +19,19 @@ class Home extends Controller {
         ]);
     }
 
-    function Shop() {
+    function Shop($topicId = null) {
+        $topics = $this->topicModel->GetTopics();
+
+        if ($topicId != null) {
+            $products = $this->productModel->GetProductsByTopic($topicId);
+        } else {
+            $products = $this->productModel->GetProducts();
+        }
+
         $this->view("home", [
-            "pages" => "shop"
+            "pages" => "shop",
+            "topics" => $topics,
+            "products" => $products
         ]);
     }
 
