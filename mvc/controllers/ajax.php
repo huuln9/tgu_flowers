@@ -17,10 +17,11 @@ class Ajax extends Controller {
     }
 
     function SumQuantityGiftByMonth() {
+        $year = date('Y');
         $billIdsByMonth = [];
         $giftByMonth = [];
         for ($i = 1; $i <= 12; $i++) {
-            $billIdsByMonth[$i] = json_decode($this->billModel->GetBillIdByMonth($i));
+            $billIdsByMonth[$i] = json_decode($this->billModel->GetBillIdByMonth($i, $year));
         }
 
         foreach ($billIdsByMonth as $billIds) {
@@ -40,10 +41,11 @@ class Ajax extends Controller {
     }
 
     function SumQuantityBuyByMonth() {
+        $year = date('Y');
         $billIdsByMonth = [];
         $buyByMonth = [];
         for ($i = 1; $i <= 12; $i++) {
-            $billIdsByMonth[$i] = json_decode($this->billModel->GetBillIdByMonth($i));
+            $billIdsByMonth[$i] = json_decode($this->billModel->GetBillIdByMonth($i, $year));
         }
 
         foreach ($billIdsByMonth as $billIds) {

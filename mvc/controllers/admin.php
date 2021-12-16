@@ -22,8 +22,9 @@ class Admin extends Controller {
 
     function Show() {
         $month = date('m');
+        $year = date('Y');
 
-        $billIdsByMonth = json_decode($this->billModel->GetBillIdByMonth($month));
+        $billIdsByMonth = json_decode($this->billModel->GetBillIdByMonth($month, $year));
         
         $totalByMonth = 0;
         foreach ($billIdsByMonth as $billId) {

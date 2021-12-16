@@ -22,8 +22,8 @@ class BillModel extends Database {
         return json_encode($arr);
     }
 
-    public function GetBillIdByMonth($month) {
-        $qr = "SELECT `id` FROM `bill` WHERE month(date)=$month;";
+    public function GetBillIdByMonth($month, $year) {
+        $qr = "SELECT `id` FROM `bill` WHERE MONTH(date)=$month AND YEAR(date)=$year;";
         $rs = $this->conn->query($qr);
         
         $arr = array();
