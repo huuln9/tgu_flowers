@@ -7,7 +7,9 @@ class Auth extends Controller {
     }
 
     function Show() {
-        $this->view("login");
+        $this->view("auth", [
+            "pages" => "login"
+        ]);
     }
 
     function Login() {    
@@ -25,6 +27,24 @@ class Auth extends Controller {
 
     function Logout() {    
         unset($_SESSION['account']);
+        header("Location: $this->appRootURL/auth");
+    }
+
+    function Register() {
+        $this->view("auth", [
+            "pages" => "register"
+        ]);
+    }
+    function SignUp() {
+        $this->accountModel->AddAccount(
+            $_POST['val-fullname'],
+            $_POST['val-email'],
+            $_POST['val-password'],
+            0,
+            $_POST['val-phone'],
+            ''
+        );
+
         header("Location: $this->appRootURL/auth");
     }
 }
