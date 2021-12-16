@@ -8,7 +8,7 @@ class Admin extends Controller {
     public $billDetailModel;
 
     function __construct() {
-        if (!isset($_SESSION['account'])) {
+        if (!isset($_SESSION['account']) || !isset($_SESSION['admin'])) {
             header("Location: $this->appRootURL/auth");
         }
 

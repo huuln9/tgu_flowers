@@ -4,7 +4,7 @@ class Home extends Controller {
         echo "home - say hi";
     }
 
-    function Showqd() {
+    function Show() {
 
         echo "home - show";
         // $md = $this->model("SinhVienModel");

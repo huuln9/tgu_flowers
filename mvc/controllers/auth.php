@@ -19,7 +19,12 @@ class Auth extends Controller {
 
         if (count($rs) > 0) {
             $_SESSION['account'] = $rs[0];
-            header("Location: $this->appRootURL/admin");
+            if ($rs[0]->{'admin'} == 1) {
+                $_SESSION['admin'] = 1;
+                header("Location: $this->appRootURL/admin");
+            } else {
+                header("Location: $this->appRootURL/home");
+            }
         } else {
             header("Location: $this->appRootURL/auth");
         }
@@ -27,6 +32,7 @@ class Auth extends Controller {
 
     function Logout() {    
         unset($_SESSION['account']);
+        unset($_SESSION['admin']);
         header("Location: $this->appRootURL/auth");
     }
 
