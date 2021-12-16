@@ -20,11 +20,19 @@
                         <p class="text-muted m-b-15 f-s-12">Các thông tin có dấu (<code>*</code>) là bắt buộc</p>
                         <div class="form-validation">
                             <form class="form-valide" action="<?php echo $appRootURL ?>/admin/addtopic" method="post">
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="val-topicname">Tên chủ đề <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
                                         <input type="text" class="form-control" id="val-topicname" name="val-topicname" placeholder="Nhập tên chủ đề ...">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label">Ảnh minh họa
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" name="val-thumbnail" placeholder="Nhập đường dẫn ảnh ...">
                                     </div>
                                 </div>
                                 <div class="form-group row">

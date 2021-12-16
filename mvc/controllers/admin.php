@@ -125,7 +125,7 @@ class Admin extends Controller {
         ]);
     }
     function AddTopic() {
-        $this->topicModel->AddTopic($_POST['val-topicname']);
+        $this->topicModel->AddTopic($_POST['val-topicname'], $_POST['val-thumbnail']);
 
         header("Location: $this->appRootURL/admin/topiclist");
     }
@@ -141,6 +141,7 @@ class Admin extends Controller {
         $this->topicModel->UpdateTopic(
             $_POST['val-id'],
             $_POST['val-topicname'],
+            $_POST['val-thumbnail']
         );
 
         header("Location: $this->appRootURL/admin/topiclist");

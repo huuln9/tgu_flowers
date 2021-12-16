@@ -35,6 +35,13 @@
                                         <input type="text" class="form-control" id="val-topicname" name="val-topicname" value="<?php echo $row->{'name'} ?>" placeholder="Nhập tên chủ đề ...">
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label">Ảnh minh họa
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" name="val-thumbnail"  value="<?php echo $row->{'thumbnail'} ?>" placeholder="Nhập đường dẫn ảnh ...">
+                                    </div>
+                                </div>
                                 <?php } ?>
                                 <div class="form-group row">
                                     <div class="col-lg-8 ml-auto">

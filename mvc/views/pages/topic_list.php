@@ -25,6 +25,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên chủ đề</th>
+                                        <th>Ảnh minh họa</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
@@ -33,6 +34,7 @@
                                     <tr>
                                         <td><?php echo $row->{'id'} ?></td>
                                         <td><?php echo $row->{'name'} ?></td>
+                                        <td><?php echo $row->{'thumbnail'} ?></td>
                                         <td>
                                             <div class="btn-group">
                                             <a href="<?php echo $appRootURL ?>/admin/topicedit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-primary"><i class="mdi mdi-pen"></i></a>
@@ -46,6 +48,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên chủ đề</th>
+                                        <th>Ảnh minh họa</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </tfoot>

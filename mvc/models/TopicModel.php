@@ -11,8 +11,8 @@ class TopicModel extends Database {
         return json_encode($arr);
     }
 
-    public function AddTopic($name) {
-        $qr = "INSERT INTO `topic` VALUES (null,'$name');";
+    public function AddTopic($name, $thumbnail) {
+        $qr = "INSERT INTO `topic` VALUES (null,'$name', '$thumbnail');";
         $this->conn->query($qr);
     }
 
@@ -27,8 +27,8 @@ class TopicModel extends Database {
         return json_encode($arr);
     }
 
-    public function UpdateTopic($id, $name) {
-        $qr = "UPDATE `topic` SET `name`='$name' WHERE `id`=$id;";
+    public function UpdateTopic($id, $name, $thumbnail) {
+        $qr = "UPDATE `topic` SET `name`='$name', `thumbnail`='$thumbnail' WHERE `id`=$id;";
         $this->conn->query($qr);
     }
 

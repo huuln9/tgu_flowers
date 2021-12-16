@@ -90,7 +90,7 @@
         ftco-navbar-light
       " id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="<?php echo $appRootURL ?>/home">
                 <img class="logo-image" src="<?php echo $appRootURL ?>/public/home/images/logo.png" alt="" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -214,11 +214,11 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <p>
-                        Copyright &copy;
+                        Copyright &copy; <a href="#">TGU</a>
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-                        All rights reserved
+                        , by <a href="#">Nhóm 5</a>
                     </p>
                 </div>
             </div>
