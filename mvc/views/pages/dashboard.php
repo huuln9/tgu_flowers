@@ -31,18 +31,18 @@
                         <h2 class="f-s-30 m-b-0"><?php echo number_format($data['total'], 0, ',', '.') ?> <span class="f-s-16 text-uppercase">VNĐ</span></h2>
                         <span class="f-w-600">Tổng doanh thu</span>
                         <div class="m-t-30">
-                            <h4 class="f-w-600"><?php echo number_format($data['buyer'], 0, ',', '.') ?></h4>
                             <h6 class="m-t-10">Mua hoa <span class="pull-right"><?php echo number_format($data['buyerPercent'], 0, ',', '.') ?>%</span></h6>
-                            <div class="progress m-t-15 h-6px">
+                            <div class="progress m-t-15 m-b-10 h-6px">
                                 <div class="progress-bar bg-primary wow animated progress-animated w-100pc h-6px" role="progressbar"></div>
                             </div>
+                            <h4 class="f-w-600"><?php echo $data['buyer'] ?> <small>sản phẩm</small></h4>
                         </div>
                         <div class="m-t-20 m-b-20">
-                            <h4 class="f-w-600"><?php echo number_format($data['gifter'], 0, ',', '.') ?></h4>
                             <h6 class="m-t-10">Tặng hoa <span class="pull-right"><?php echo number_format($data['gifterPercent'], 0, ',', '.') ?>%</span></h6>
-                            <div class="progress m-t-15 h-6px">
+                            <div class="progress m-t-15  m-b-10 h-6px">
                                 <div class="progress-bar bg-danger wow animated progress-animated w-100pc h-6px" role="progressbar"></div>
                             </div>
+                            <h4 class="f-w-600"><?php echo $data['gifter'] ?> <small>sản phẩm</small></h4>
                         </div>
                     </div>
                 </div>
