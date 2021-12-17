@@ -42,5 +42,10 @@ class CommentModel extends Database {
         $qr = "DELETE FROM `comment` WHERE `id_account`=$accountId;";
         $this->conn->query($qr);
     }
+
+    public function DeleteCommentByProduct($productId) {
+        $qr = "DELETE FROM `comment` WHERE `id_product`=$productId;";
+        $this->conn->query($qr);
+    }
 }
 ?>

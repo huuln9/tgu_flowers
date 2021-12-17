@@ -170,6 +170,7 @@ class Admin extends Controller {
         $productIds = json_decode($this->productModel->GetProductIdsByTopic($id));
         foreach ($productIds as $productId) {
             $this->billDetailModel->DeleteBillDetailsByProduct($productId);
+            $this->commentModel->DeleteCommentByProduct($productId);    
         }
         $this->productModel->DeleteProductByTopic($id);
         $this->topicModel->DeleteTopic($id);
@@ -237,6 +238,7 @@ class Admin extends Controller {
         $id = $urlArr[count($urlArr) - 1];
 
         $this->billDetailModel->DeleteBillDetailsByProduct($id);
+        $this->commentModel->DeleteCommentByProduct($id);
         $this->productModel->DeleteProduct($id);
 
         header("Location: $this->appRootURL/admin/productlist");
