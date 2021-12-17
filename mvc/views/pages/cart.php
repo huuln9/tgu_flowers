@@ -66,9 +66,11 @@ $total = 0;
                                 <td class="price"><?php echo number_format($row->{'unit_price'}, 0, ',', '.') ?> đ</td>
                                 <td class="quantity">
                                     <div class="input-group mb-3">
-                                        <a href="<?php echo $appRootURL ?>/home/cartdetailsub/<?php echo $row->{'id'} ?>" class="btn btn-primary py-3 "><b>-</b></a>
-                                        <input type="text" class="form-control" value="<?php echo $row->{'quantity'} ?>" min="1" disabled/>
-                                        <a href="<?php echo $appRootURL ?>/home/cartdetailadd/<?php echo $row->{'id'} ?>" class="btn btn-primary py-3 "><b>+</b></a>
+                                        <?php if ($row->{'quantity'} > 0) { ?>
+                                        <a href="<?php echo $appRootURL ?>/home/cartdetailsub/<?php echo $row->{'id'} ?>" class="btn btn-primary py-3"><b>-</b></a>
+                                        <?php } ?>
+                                        <input type="text" class="form-control" value="<?php echo $row->{'quantity'} ?>" disabled/>
+                                        <a href="<?php echo $appRootURL ?>/home/cartdetailadd/<?php echo $row->{'id'} ?>" class="btn btn-primary py-3"><b>+</b></a>
                                     </div>
                                 </td>
                                 <td class="total">
