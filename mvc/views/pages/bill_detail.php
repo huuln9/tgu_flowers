@@ -2,6 +2,7 @@
 $billDetails = json_decode($data['billDetails']);
 $bill = $data['bill'][0];
 $customer = json_decode($data['customer']);
+$products = json_decode($data['products']);
 ?>
 <div class="content-body">
     <div class="container">
@@ -47,10 +48,21 @@ $customer = json_decode($data['customer']);
                             </p>
                             <?php } ?>
                         </div>
-                        <!-- <div id="project">
-                            <h2>Project Description</h2>
-                            <p>Proin cursus, dui non tincidunt elementum, tortor ex feugiat enim, at elementum enim quam vel purus. Curabitur semper malesuada urna ut suscipit.</p>
-                        </div> -->
+                        <div id="project">
+                            <h2>Tình trạng đơn hàng</h2>
+                            <p>
+                                <?php
+                                switch ($bill->{'status'}) {
+                                    case 1:
+                                        echo "<span style='color:#0876F9'><i class='mdi mdi-check-circle-outline'></i> Đã đặt hàng, đang giao</span>";
+                                        break;
+                                    case 2:
+                                        echo "<span style='color:#0CB80F'><i class='mdi mdi-check-circle'></i> Đã thanh toán</span>";
+                                        break;
+                                }
+                                ?>
+                            </p>
+                        </div>
                     </div>
                     <!--End Invoice Mid-->
                     <div id="invoice-bot">
@@ -60,12 +72,6 @@ $customer = json_decode($data['customer']);
                                     <tr class="tabletitle">
                                         <td>
                                             <h2>Sản phẩm</h2>
-                                        </td>
-                                        <td>
-                                            <h2>Trạng thái</h2>
-                                        </td>
-                                        <td>
-                                            <h2>Loại</h2>
                                         </td>
                                         <td>
                                             <h2>Số lượng</h2>
@@ -80,27 +86,15 @@ $customer = json_decode($data['customer']);
                                     <?php foreach ($billDetails as $row) { ?>
                                     <tr class="service">
                                         <td class="tableitem">
-                                            <p class="itemtext"><?php echo $row->{'id_product'} ?></p>
-                                        </td>
-                                        <td class="tableitem">
                                             <p class="itemtext">
                                                 <?php
-                                                switch ($row->{'status'}) {
-                                                    case 1:
-                                                        echo 'Đã đặt hàng';
-                                                        break;
-                                                    case 2:
-                                                        echo 'Đã nhận hàng';
-                                                        break;
-                                                    default:
-                                                        echo '';
-                                                        break;
+                                                foreach ($products as $product) {
+                                                    if ($row->{'id_product'} == $product->{'id'}) {
+                                                        echo $product->{'name'};
+                                                    }
                                                 }
                                                 ?>
                                             </p>
-                                        </td>
-                                        <td class="tableitem">
-                                            <p class="itemtext"><?php  if ($row->{'gift'} == 1) echo 'Quà tặng'; else echo 'Mua' ?></p>
                                         </td>
                                         <td class="tableitem">
                                             <p class="itemtext"><?php echo $row->{'quantity'} ?></p>
@@ -114,8 +108,6 @@ $customer = json_decode($data['customer']);
                                     </tr>
                                     <?php } ?>
                                     <tr class="tabletitle">
-                                        <td></td>
-                                        <td></td>
                                         <td></td>
                                         <td></td>
                                         <td class="Rate">

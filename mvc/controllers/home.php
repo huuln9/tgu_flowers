@@ -54,6 +54,10 @@ class Home extends Controller {
     }
 
     function Cart() {
+        if (!isset($_SESSION['account'])) {
+            header("Location: $this->appRootURL/auth");
+        }
+
         $this->view("home", [
             "pages" => "cart"
         ]);

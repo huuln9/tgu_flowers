@@ -1,7 +1,18 @@
 <?php
 class BillModel extends Database {
     public function GetBills() {
-        $qr = "SELECT * FROM `bill`;";
+        $qr = "SELECT * FROM `bill` WHERE `status`!=0;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
+    public function GetCarts() {
+        $qr = "SELECT * FROM `bill` WHERE `status`==0;";
         $rs = $this->conn->query($qr);
         
         $arr = array();
@@ -31,6 +42,11 @@ class BillModel extends Database {
             $arr[] = $row['id'];
         }
         return json_encode($arr);
+    }
+
+    public function UpdateBillStatus($id, $status) {
+        $qr = "UPDATE `bill` SET `status`=$status WHERE `id`=$id;";
+        $this->conn->query($qr);
     }
 
     public function DeleteBill($id) {

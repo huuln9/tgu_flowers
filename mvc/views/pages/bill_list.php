@@ -30,7 +30,9 @@ $accounts = json_decode($data['accounts']);
                                         <th>ID</th>
                                         <th>Khách hàng</th>
                                         <th>Thời điểm tạo</th>
+                                        <th>Loại</th>
                                         <th>Thành tiền</th>
+                                        <th>Tình trạng</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
@@ -48,6 +50,7 @@ $accounts = json_decode($data['accounts']);
                                             ?>
                                         </td>
                                         <td><?php echo $row->{'date'} ?></td>
+                                        <td><?php  if ($row->{'gift'} == 1) echo 'Quà tặng'; else echo 'Mua' ?></td>
                                         <td>
                                             <?php
                                             $total = 0;
@@ -61,9 +64,24 @@ $accounts = json_decode($data['accounts']);
                                             đ
                                         </td>
                                         <td>
+                                            <?php
+                                            switch ($row->{'status'}) {
+                                                case 1:
+                                                    echo "<span style='color:#0876F9'><i class='mdi mdi-check-circle-outline'></i> Đã đặt hàng, đang giao</span>";
+                                                    break;
+                                                case 2:
+                                                    echo "<span style='color:#0CB80F'><i class='mdi mdi-check-circle'></i> Đã thanh toán</span>";
+                                                    break;
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
                                             <div class="btn-group">
                                                 <a href="<?php echo $appRootURL ?>/admin/billdetail/<?php echo $row->{'id'} ?>" type="button" class="btn btn-success"><i class="mdi mdi-eye"></i></a>
                                                 <a href="<?php echo $appRootURL ?>/admin/deletebill/<?php echo $row->{'id'} ?>" type="button" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                                <?php if ($row->{'status'} == 1) { ?>
+                                                <a href='<?php echo $appRootURL ?>/admin/donebill/<?php echo $row->{'id'} ?>' type='button' class='btn btn-secondary'><i class='mdi mdi-check'></i></a>
+                                                <?php } ?>
                                             </div>
                                         </td>
                                     </tr>
@@ -74,7 +92,9 @@ $accounts = json_decode($data['accounts']);
                                     <th>ID</th>
                                         <th>Khách hàng</th>
                                         <th>Thời điểm tạo</th>
+                                        <th>Loại</th>
                                         <th>Thành tiền</th>
+                                        <th>Tình trạng</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </tfoot>

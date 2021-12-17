@@ -24,8 +24,8 @@
               d-flex
               justify-content-center
               align-items-center
-            " style="background-image: url(images/tvc.jpg)">
-                <a href="https://www.youtube.com/watch?v=1lcnBx6iE_4" class="
+            " style="background-image: url(<?php echo $appRootURL ?>/public/home/images/tvc.jpg)">
+                <a href="https://www.youtube.com/watch?v=TgVuHPbNQUk" class="
                 icon
                 popup-vimeo
                 d-flex
@@ -59,14 +59,14 @@
                         Thông qua nền tảng trực tuyến, chúng tôi mong muốn đem đến cho
                         bạn trải nghiệm thật tiện lợi, dễ dàng và tràn đầy niềm vui.
                     </p>
-                    <p><a href="#" class="btn btn-primary">Đặt hoa ngay</a></p>
+                    <p><a href="<?php echo $appRootURL ?>/home/shop" class="btn btn-primary">Đặt hoa ngay</a></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+<!-- <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
     <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">
             <div class="col-md-6">
@@ -86,7 +86,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="ftco-section bg-light">
     <div class="container">

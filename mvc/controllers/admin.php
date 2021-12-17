@@ -259,12 +259,14 @@ class Admin extends Controller {
         $bill = $this->billModel->GetBill($billId);
         $billJs = json_decode($bill);
         $customer = $this->accountModel->GetAccount($billJs[0]->{'id_account'});
+        $products = $this->productModel->GetProducts();
 
         $this->view("admin", [
             "pages" => "bill_detail",
             "billDetails" => $billDetails,
             "bill" => $billJs,
-            "customer" => $customer
+            "customer" => $customer,
+            "products" => $products
         ]);
     }
 
@@ -274,6 +276,15 @@ class Admin extends Controller {
 
         $this->billDetailModel->DeleteBillDetailsByBillId($id);
         $this->billModel->DeleteBill($id);
+
+        header("Location: $this->appRootURL/admin/billlist");
+    }
+
+    function DoneBill() {
+        $urlArr = explode("/", $_SERVER['REQUEST_URI']);
+        $id = $urlArr[count($urlArr) - 1];
+
+        $this->billModel->UpdateBillStatus($id, 2);
 
         header("Location: $this->appRootURL/admin/billlist");
     }
