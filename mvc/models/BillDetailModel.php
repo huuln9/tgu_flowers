@@ -92,6 +92,14 @@ class BillDetailModel extends Database {
         return json_encode($isZero); 
     }
 
+    function CountNumCartByBillId($billId) {
+        $qr = "SELECT COUNT(`id`) as num FROM `bill_detail` WHERE `id_bill`=$billId;";
+        $rs = $this->conn->query($qr);
+        
+        $row = $rs->fetch_assoc();
+        return json_encode($row['num']); 
+    }
+
     public function DeleteBillDetailsByBillId($billId) {
         $qr = "DELETE FROM `bill_detail` WHERE `id_bill`=$billId;";
         $this->conn->query($qr);

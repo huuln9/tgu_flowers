@@ -10,6 +10,14 @@ class Home extends Controller {
         $this->productModel = $this->model("ProductModel");
         $this->billModel = $this->model("BillModel");
         $this->billDetailModel = $this->model("BillDetailModel");
+
+        $_SESSION['numCart'] = 0;
+
+        if (isset($_SESSION['account'])) {
+            $accountId = $_SESSION['account']->{'id'};
+            $carts = json_decode($this->billModel->GetCartByAccount($accountId));
+            $_SESSION['numCart'] = json_decode($this->billDetailModel->CountNumCartByBillId($carts[0]->{'id'}));
+        }
     }
 
     function Show() {

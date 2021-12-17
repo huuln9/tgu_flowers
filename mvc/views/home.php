@@ -1,3 +1,4 @@
+<?php $numCart = $_SESSION['numCart'] ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,7 +119,7 @@
                         <a href="<?php echo $appRootURL ?>/home/contact" class="nav-link">Liên Hệ</a>
                     </li>
                     <li class="nav-item cta cta-colored">
-                        <a href="<?php echo $appRootURL ?>/home/cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a>
+                        <a href="<?php echo $appRootURL ?>/home/cart" class="nav-link"><span class="icon-shopping_cart"></span>[<?php echo $numCart ?>]</a>
                     </li>
                 </ul>
             </div>
