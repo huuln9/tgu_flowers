@@ -1,4 +1,8 @@
-<?php $billDetails = json_decode($data['billDetails']) ?>
+<?php
+$billDetails = json_decode($data['billDetails']);
+$products = json_decode($data['products']);
+$total = 0;
+?>
 <div class="hero-wrap hero-bread" style="background-image: url('<?php echo $appRootURL ?>/public/home/images/bg-2.jpg')">
     <div class="container">
         <div class="
@@ -35,21 +39,45 @@
                             <?php foreach ($billDetails as $row) { ?>
                             <tr class="text-center">
                                 <td class="product-remove">
-                                    <a href="#"><span class="ion-ios-close"></span></a>
+                                    <a href="<?php echo $appRootURL ?>/home/deletecartdetail/<?php echo $row->{'id'} ?>"><span class="ion-ios-close"></span></a>
                                 </td>
                                 <td class="image-prod">
-                                    <div class="img" style=" background-image: url(images/products/hoa-1.jpeg);"></div>
+                                    <div class="img" style=" background-image: url(
+                                        <?php
+                                        foreach ($products as $product) {
+                                            if ($product->{'id'} == $row->{'id_product'}) {
+                                                echo $product->{'thumbnail'};
+                                            }
+                                        }
+                                        ?>
+                                    );"></div>
                                 </td>
                                 <td class="product-name">
-                                    <h3>Tên hoa</h3>
+                                    <h3>
+                                        <?php
+                                        foreach ($products as $product) {
+                                            if ($product->{'id'} == $row->{'id_product'}) {
+                                                echo $product->{'name'};
+                                            }
+                                        }
+                                        ?>
+                                    </h3>
                                 </td>
-                                <td class="price">149.000</td>
+                                <td class="price"><?php echo number_format($row->{'unit_price'}, 0, ',', '.') ?> đ</td>
                                 <td class="quantity">
                                     <div class="input-group mb-3">
-                                        <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100" />
+                                        <a href="<?php echo $appRootURL ?>/home/cartdetailsub/<?php echo $row->{'id'} ?>" class="btn btn-primary py-3 "><b>-</b></a>
+                                        <input type="text" class="form-control" value="<?php echo $row->{'quantity'} ?>" min="1" disabled/>
+                                        <a href="<?php echo $appRootURL ?>/home/cartdetailadd/<?php echo $row->{'id'} ?>" class="btn btn-primary py-3 "><b>+</b></a>
                                     </div>
                                 </td>
-                                <td class="total">149.000</td>
+                                <td class="total">
+                                    <?php
+                                    echo number_format($row->{'unit_price'} * $row->{'quantity'}, 0, ',', '.');
+                                    $total += $row->{'unit_price'} * $row->{'quantity'};
+                                    ?>
+                                    đ
+                                </td>
                             </tr>
                             <?php } ?>
                         </tbody>
@@ -75,20 +103,20 @@
                     <h3>Xác nhận</h3>
                     <p class="d-flex">
                         <span>Tạm tính</span>
-                        <span>200.000</span>
+                        <span><?php echo number_format($total, 0, ',', '.') ?> đ</span>
                     </p>
                     <p class="d-flex">
                         <span>Phí vận chuyển</span>
-                        <span>0</span>
+                        <span>0 đ</span>
                     </p>
                     <p class="d-flex">
                         <span>Giảm giá</span>
-                        <span>10.000</span>
+                        <span>0 đ</span>
                     </p>
                     <hr />
                     <p class="d-flex total-price">
                         <span>Tổng tiền</span>
-                        <span>190.000</span>
+                        <span><?php echo number_format($total, 0, ',', '.') ?> VNĐ</span>
                     </p>
                 </div>
                 <p>

@@ -88,6 +88,33 @@ class BillModel extends Database {
         return json_encode($arr);
     }
 
+    function CheckCartExist($accountId) {
+        $qr = "SELECT `id` FROM `bill` WHERE `id_account`=$accountId AND `status`=0;";
+        $rs = $this->conn->query($qr);
+        
+        $result = false;
+        if ($rs->num_rows > 0) {
+            $result = true;
+        }
+        return json_encode($result); 
+    }
+
+    public function AddCart($accountId) {
+        $qr = "INSERT INTO `bill`(`id`, `id_account`, `status`, `gift`) VALUES (null, $accountId, 0, 0);";
+        $this->conn->query($qr);
+    }
+
+    public function GetCartByAccount($accountId) {
+        $qr = "SELECT * FROM `bill` WHERE `status`=0 AND `id_account`=$accountId;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
     public function UpdateBillStatus($id, $status) {
         $qr = "UPDATE `bill` SET `status`=$status WHERE `id`=$id;";
         $this->conn->query($qr);

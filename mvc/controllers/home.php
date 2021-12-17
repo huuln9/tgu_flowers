@@ -65,15 +65,56 @@ class Home extends Controller {
         $accountId = $_SESSION['account']->{'id'};
         $billIds = json_decode($this->billModel->GetBillIdByAccountAndStatus($accountId, 0));
 
-        $billDetails = [];
+        $billDetails = json_encode([]);
         if (count($billIds) > 0) {
             $billDetails = $this->billDetailModel->GetBillDetailsByBillId($billIds[0]);
         }
 
+        $products = $this->productModel->GetProducts();
+
         $this->view("home", [
             "pages" => "cart",
-            "billDetails" => $billDetails
+            "billDetails" => $billDetails,
+            "products" => $products
         ]);
+    }
+
+    function AddCart($productId, $price) {
+        $accountId = $_SESSION['account']->{'id'};
+
+        $cartExist = $this->billModel->CheckCartExist($accountId);
+        if ($cartExist == "false") {
+            $this->billModel->AddCart($accountId);
+        }
+
+        $carts = json_decode($this->billModel->GetCartByAccount($accountId));
+
+        $cartDetailExist = $this->billDetailModel->CheckCartDetailExist($carts[0]->{'id'}, $productId);
+        if ($cartDetailExist == "false") {
+            $this->billDetailModel->AddCartDetail($carts[0]->{'id'}, $productId, $price);
+        } else {
+            $this->billDetailModel->UpdateCartDetail($carts[0]->{'id'}, $productId, true);
+        }
+
+        header("Location: $this->appRootURL/home/cart");
+    }
+
+    function CartDetailAdd($id) {
+        $this->billDetailModel->UpdateCartDetailDirect($id, true);
+
+        header("Location: $this->appRootURL/home/cart");
+    }
+
+    function CartDetailSub($id) {
+        $this->billDetailModel->UpdateCartDetailDirect($id, false);
+
+        header("Location: $this->appRootURL/home/cart");
+    }
+
+    function DeleteCartDetail($id) {
+        $this->billDetailModel->DeleteBillDetail($id);
+
+        header("Location: $this->appRootURL/home/cart");
     }
 
     function Checkout() {

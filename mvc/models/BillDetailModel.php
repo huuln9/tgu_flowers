@@ -46,6 +46,40 @@ class BillDetailModel extends Database {
         return json_encode($row['quantity']);
     }
 
+    function CheckCartDetailExist($billId, $productId) {
+        $qr = "SELECT `id` FROM `bill_detail` WHERE `id_bill`=$billId AND `id_product`=$productId;";
+        $rs = $this->conn->query($qr);
+        
+        $result = false;
+        if ($rs->num_rows > 0) {
+            $result = true;
+        }
+        return json_encode($result); 
+    }
+
+    function AddCartDetail($billId, $productId, $price) {
+        $qr = "INSERT INTO `bill_detail` VALUES (null, $billId, $productId, 1, $price);";
+        $this->conn->query($qr);
+    }
+
+    function UpdateCartDetail($billId, $productId, $up) {
+        if ($up) {
+            $qr = "UPDATE `bill_detail` SET `quantity`=`quantity`+1 WHERE `id_bill`=$billId AND `id_product`=$productId;";
+        } else {
+            $qr = "UPDATE `bill_detail` SET `quantity`=`quantity`-1 WHERE `id_bill`=$billId AND `id_product`=$productId;";
+        }
+        $this->conn->query($qr);
+    }
+
+    function UpdateCartDetailDirect($id, $up) {
+        if ($up) {
+            $qr = "UPDATE `bill_detail` SET `quantity`=`quantity`+1 WHERE `id`=$id;";
+        } else {
+            $qr = "UPDATE `bill_detail` SET `quantity`=`quantity`-1 WHERE `id`=$id;";
+        }
+        $this->conn->query($qr);
+    }
+
     public function DeleteBillDetailsByBillId($billId) {
         $qr = "DELETE FROM `bill_detail` WHERE `id_bill`=$billId;";
         $this->conn->query($qr);
@@ -53,6 +87,11 @@ class BillDetailModel extends Database {
 
     public function DeleteBillDetailsByProduct($productId) {
         $qr = "DELETE FROM `bill_detail` WHERE `id_product`=$productId;";
+        $this->conn->query($qr);
+    }
+
+    public function DeleteBillDetail($id) {
+        $qr = "DELETE FROM `bill_detail` WHERE `id`=$id;";
         $this->conn->query($qr);
     }
 }

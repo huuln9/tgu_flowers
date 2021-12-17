@@ -187,13 +187,13 @@ $products = json_decode($data['products']);
                             <div class="pricing">
                                 <p class="price">
                                     <!-- <span class="mr-2 price-dc">659.000</span> -->
-                                    <span class="price-sale"><?php echo number_format($row->{'unit_price'}, 0, ',', '.'); ?></span> / 1 hoa
+                                    <span class="price-sale"><?php echo number_format($row->{'number_flowers'} * $row->{'unit_price'}, 0, ',', '.'); ?></span> / <?php echo $row->{'number_flowers'} ?> hoa
                                 </p>
                             </div>
                         </div>
                         <div class="bottom-area d-flex px-3">
                             <div class="m-auto d-flex">
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                <a href="<?php echo $appRootURL ?>/home/addcart/<?php echo $row->{'id'} ?>/<?php echo $row->{'number_flowers'} * $row->{'unit_price'} ?>" class="buy-now d-flex justify-content-center align-items-center mx-1">
                                     <span><i class="ion-ios-cart"></i></span>
                                 </a>
                             </div>
