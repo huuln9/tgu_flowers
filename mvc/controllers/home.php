@@ -108,6 +108,11 @@ class Home extends Controller {
     function CartDetailSub($id) {
         $this->billDetailModel->UpdateCartDetailDirect($id, false);
 
+        $rs = json_decode($this->billDetailModel->CheckQuantityZero($id));
+        if ($rs == "true") {
+            $this->billDetailModel->DeleteBillDetail($id);
+        }
+
         header("Location: $this->appRootURL/home/cart");
     }
 

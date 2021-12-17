@@ -80,6 +80,18 @@ class BillDetailModel extends Database {
         $this->conn->query($qr);
     }
 
+    function CheckQuantityZero($id) {
+        $qr = "SELECT `quantity` FROM `bill_detail` WHERE `id`=$id;";
+        $rs = $this->conn->query($qr);
+        
+        $result = $rs->fetch_assoc();
+        $isZero = false;
+        if ($result['quantity'] == 0) {
+            $isZero = true; 
+        }
+        return json_encode($isZero); 
+    }
+
     public function DeleteBillDetailsByBillId($billId) {
         $qr = "DELETE FROM `bill_detail` WHERE `id_bill`=$billId;";
         $this->conn->query($qr);
