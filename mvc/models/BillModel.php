@@ -55,6 +55,28 @@ class BillModel extends Database {
         return json_encode($arr);
     }
 
+    public function GetBillIdByAccount($accountId) {
+        $qr = "SELECT `id` FROM `bill` WHERE `id_account`=$accountId;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row['id'];
+        }
+        return json_encode($arr);
+    }
+
+    public function GetBillIdByAccountAndStatus($accountId, $status) {
+        $qr = "SELECT `id` FROM `bill` WHERE `id_account`=$accountId AND `status`=$status;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row['id'];
+        }
+        return json_encode($arr);
+    }
+
     public function GetBillIdByGift($isGift) {
         $qr = "SELECT `id` FROM `bill` WHERE `gift`=$isGift;";
         $rs = $this->conn->query($qr);
@@ -72,7 +94,12 @@ class BillModel extends Database {
     }
 
     public function DeleteBill($id) {
-        $qr = "DELETE FROM `bill` WHERE id=$id;";
+        $qr = "DELETE FROM `bill` WHERE `id`=$id;";
+        $this->conn->query($qr);
+    }
+
+    public function DeleteBillByAccount($accountId) {
+        $qr = "DELETE FROM `bill` WHERE `id_account`=$accountId;";
         $this->conn->query($qr);
     }
 }

@@ -2,10 +2,14 @@
 class Home extends Controller {
     public $topicModel;
     public $productModel;
+    public $billModel;
+    public $billDetailModel;
 
     function __construct() {
         $this->topicModel = $this->model("TopicModel");
         $this->productModel = $this->model("ProductModel");
+        $this->billModel = $this->model("BillModel");
+        $this->billDetailModel = $this->model("BillDetailModel");
     }
 
     function Show() {
@@ -58,8 +62,17 @@ class Home extends Controller {
             header("Location: $this->appRootURL/auth");
         }
 
+        $accountId = $_SESSION['account']->{'id'};
+        $billIds = json_decode($this->billModel->GetBillIdByAccountAndStatus($accountId, 0));
+
+        $billDetails = [];
+        if (count($billIds) > 0) {
+            $billDetails = $this->billDetailModel->GetBillDetailsByBillId($billIds[0]);
+        }
+
         $this->view("home", [
-            "pages" => "cart"
+            "pages" => "cart",
+            "billDetails" => $billDetails
         ]);
     }
 

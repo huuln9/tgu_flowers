@@ -38,6 +38,17 @@ class ProductModel extends Database {
         return json_encode($arr);
     }
 
+    public function GetProductIdsByTopic($topicId) {
+        $qr = "SELECT `id` FROM `product` WHERE `id_topic`=$topicId;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row['id'];
+        }
+        return json_encode($arr);
+    }
+
     public function GetTop8Products() {
         $qr = "SELECT * FROM `product` ORDER BY `unit_price` DESC LIMIT 8;";
         $rs = $this->conn->query($qr);
@@ -55,7 +66,12 @@ class ProductModel extends Database {
     }
 
     public function DeleteProduct($id) {
-        $qr = "DELETE FROM `product` WHERE id=$id;";
+        $qr = "DELETE FROM `product` WHERE `id`=$id;";
+        $this->conn->query($qr);
+    }
+
+    public function DeleteProductByTopic($topicId) {
+        $qr = "DELETE FROM `product` WHERE `id_topic`=$topicId;";
         $this->conn->query($qr);
     }
 }

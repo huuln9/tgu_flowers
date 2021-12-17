@@ -1,3 +1,4 @@
+<?php $billDetails = json_decode($data['billDetails']) ?>
 <div class="hero-wrap hero-bread" style="background-image: url('<?php echo $appRootURL ?>/public/home/images/bg-2.jpg')">
     <div class="container">
         <div class="
@@ -31,59 +32,26 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach ($billDetails as $row) { ?>
                             <tr class="text-center">
                                 <td class="product-remove">
                                     <a href="#"><span class="ion-ios-close"></span></a>
                                 </td>
-
                                 <td class="image-prod">
-                                    <div class="img" style="
-                          background-image: url(images/products/hoa-1.jpeg);
-                        "></div>
+                                    <div class="img" style=" background-image: url(images/products/hoa-1.jpeg);"></div>
                                 </td>
-
                                 <td class="product-name">
                                     <h3>Tên hoa</h3>
                                 </td>
-
                                 <td class="price">149.000</td>
-
                                 <td class="quantity">
                                     <div class="input-group mb-3">
                                         <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100" />
                                     </div>
                                 </td>
-
                                 <td class="total">149.000</td>
                             </tr>
-                            <!-- END TR-->
-
-                            <tr class="text-center">
-                                <td class="product-remove">
-                                    <a href="#"><span class="ion-ios-close"></span></a>
-                                </td>
-
-                                <td class="image-prod">
-                                    <div class="img" style="
-                          background-image: url(images/products/hoa-10.jpeg);
-                        "></div>
-                                </td>
-
-                                <td class="product-name">
-                                    <h3>Tên Hoa</h3>
-                                </td>
-
-                                <td class="price">149.000</td>
-
-                                <td class="quantity">
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100" />
-                                    </div>
-                                </td>
-
-                                <td class="total">149.000</td>
-                            </tr>
-                            <!-- END TR-->
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

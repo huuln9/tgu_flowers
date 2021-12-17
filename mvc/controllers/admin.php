@@ -117,6 +117,12 @@ class Admin extends Controller {
         $urlArr = explode("/", $_SERVER['REQUEST_URI']);
         $id = $urlArr[count($urlArr) - 1];
 
+        $billIds = json_decode($this->billModel->GetBillIdByAccount($id));
+        foreach ($billIds as $billId) {
+            $this->billDetailModel->DeleteBillDetailsByBillId($billId);
+        }
+        $this->billModel->DeleteBillByAccount($id);
+        $this->commentModel->DeleteCommentByAccount($id);
         $this->accountModel->DeleteAccount($id);
 
         header("Location: $this->appRootURL/admin/accountlist");
@@ -161,6 +167,11 @@ class Admin extends Controller {
         $urlArr = explode("/", $_SERVER['REQUEST_URI']);
         $id = $urlArr[count($urlArr) - 1];
 
+        $productIds = json_decode($this->productModel->GetProductIdsByTopic($id));
+        foreach ($productIds as $productId) {
+            $this->billDetailModel->DeleteBillDetailsByProduct($productId);
+        }
+        $this->productModel->DeleteProductByTopic($id);
         $this->topicModel->DeleteTopic($id);
 
         header("Location: $this->appRootURL/admin/topiclist");
@@ -225,6 +236,7 @@ class Admin extends Controller {
         $urlArr = explode("/", $_SERVER['REQUEST_URI']);
         $id = $urlArr[count($urlArr) - 1];
 
+        $this->billDetailModel->DeleteBillDetailsByProduct($id);
         $this->productModel->DeleteProduct($id);
 
         header("Location: $this->appRootURL/admin/productlist");

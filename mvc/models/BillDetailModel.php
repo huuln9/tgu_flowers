@@ -47,7 +47,12 @@ class BillDetailModel extends Database {
     }
 
     public function DeleteBillDetailsByBillId($billId) {
-        $qr = "DELETE FROM `bill_detail` WHERE id_bill=$billId;";
+        $qr = "DELETE FROM `bill_detail` WHERE `id_bill`=$billId;";
+        $this->conn->query($qr);
+    }
+
+    public function DeleteBillDetailsByProduct($productId) {
+        $qr = "DELETE FROM `bill_detail` WHERE `id_product`=$productId;";
         $this->conn->query($qr);
     }
 }
