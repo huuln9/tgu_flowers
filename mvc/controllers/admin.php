@@ -36,11 +36,14 @@ class Admin extends Controller {
 
         $billIdsByGift = json_decode($this->billModel->GetBillIdByGift(1));
         $billIdsByBuy = json_decode($this->billModel->GetBillIdByGift(0));
+
+        $gifter = 0;
+        $buyer = 0;
         foreach ($billIdsByGift as $e) {
-            $gifter = json_decode($this->billDetailModel->SumQuantityByBillId($e));
+            $gifter += json_decode($this->billDetailModel->SumQuantityByBillId($e));
         }
         foreach ($billIdsByBuy as $e) {
-            $buyer = json_decode($this->billDetailModel->SumQuantityByBillId($e));
+            $buyer += json_decode($this->billDetailModel->SumQuantityByBillId($e));
         }
 
         $gifterPercent = $gifter * 100 / ($gifter + $buyer);
