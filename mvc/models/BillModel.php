@@ -44,6 +44,28 @@ class BillModel extends Database {
         return json_encode($arr);
     }
 
+    public function GetBillIdByMonthAndGift($month, $year, $gift) {
+        $qr = "SELECT `id` FROM `bill` WHERE MONTH(date)=$month AND YEAR(date)=$year AND `gift`=$gift;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row['id'];
+        }
+        return json_encode($arr);
+    }
+
+    public function GetBillIdByGift($isGift) {
+        $qr = "SELECT `id` FROM `bill` WHERE `gift`=$isGift;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row['id'];
+        }
+        return json_encode($arr);
+    }
+
     public function UpdateBillStatus($id, $status) {
         $qr = "UPDATE `bill` SET `status`=$status WHERE `id`=$id;";
         $this->conn->query($qr);
