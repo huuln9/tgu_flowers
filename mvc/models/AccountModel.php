@@ -50,8 +50,27 @@ class AccountModel extends Database {
         return json_encode($result);    
     }
 
-    public function CheckLogin($email, $password) {
-        $qr = "SELECT * FROM `account` WHERE `email`='$email' AND `password`='$password';";
+    // public function CheckLogin($email, $password) {
+    //     $qr = "SELECT * FROM `account` WHERE `email`='$email' AND `password`='$password';";
+    //     $rs = $this->conn->query($qr);
+        
+    //     $arr = array();
+    //     while ($row = $rs->fetch_assoc()) {
+    //         $arr[] = $row;
+    //     }
+    //     return json_encode($arr);
+    // }
+
+    public function GetPassword($email) {
+        $qr = "SELECT `password` FROM `account` WHERE `email`='$email';";
+        $rs = $this->conn->query($qr);
+        
+        $row = $rs->fetch_assoc();
+        return json_encode($row['password']);
+    }
+
+    public function GetAccountByEmail($email) {
+        $qr = "SELECT * FROM `account` WHERE `email`='$email';";
         $rs = $this->conn->query($qr);
         
         $arr = array();

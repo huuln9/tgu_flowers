@@ -86,10 +86,12 @@ class Admin extends Controller {
         ]);
     }
     function AddAccount() {
+        $hashed_password = password_hash($_POST['val-password'], PASSWORD_DEFAULT);
+
         $this->accountModel->AddAccount(
             $_POST['val-username'],
             $_POST['val-email'],
-            $_POST['val-password'],
+            $hashed_password,
             $_POST['val-admin'],
             $_POST['val-phone'],
             $_POST['val-address']

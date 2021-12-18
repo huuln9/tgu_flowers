@@ -12,22 +12,45 @@ class Auth extends Controller {
         ]);
     }
 
+    // function Login() {    
+    //     $resp = $this->accountModel->CheckLogin($_POST['val-email'], $_POST['val-password']);
+
+    //     $rs = json_decode($resp);
+
+    //     if (count($rs) > 0) {
+    //         $_SESSION['account'] = $rs[0];
+    //         if ($rs[0]->{'admin'} == 1) {
+    //             $_SESSION['admin'] = 1;
+    //             header("Location: $this->appRootURL/admin");
+    //         } else {
+    //             header("Location: $this->appRootURL/home");
+    //         }
+    //     } else {
+    //         header("Location: $this->appRootURL/auth");
+    //     }
+    // }
+
     function Login() {    
-        $resp = $this->accountModel->CheckLogin($_POST['val-email'], $_POST['val-password']);
+        $emailExist = $this->accountModel->CheckEmail($_POST['val-email']);
+        if ($emailExist == "true") {
+            $hashedPassword = json_decode($this->accountModel->GetPassword($_POST['val-email']));
 
-        $rs = json_decode($resp);
+            if (password_verify($_POST['val-password'], $hashedPassword)) {
+                $rs = json_decode($this->accountModel->GetAccountByEmail($_POST['val-email']));
 
-        if (count($rs) > 0) {
-            $_SESSION['account'] = $rs[0];
-            if ($rs[0]->{'admin'} == 1) {
-                $_SESSION['admin'] = 1;
-                header("Location: $this->appRootURL/admin");
+                $_SESSION['account'] = $rs[0];
+                if ($rs[0]->{'admin'} == 1) {
+                    $_SESSION['admin'] = 1;
+                    header("Location: $this->appRootURL/admin");
+                } else {
+                    header("Location: $this->appRootURL/home");
+                }
             } else {
-                header("Location: $this->appRootURL/home");
+                header("Location: $this->appRootURL/auth");
             }
         } else {
             header("Location: $this->appRootURL/auth");
-        }
+        } 
     }
 
     function Logout() {    
@@ -42,10 +65,12 @@ class Auth extends Controller {
         ]);
     }
     function SignUp() {
+        $hashed_password = password_hash($_POST['val-password'], PASSWORD_DEFAULT);
+
         $this->accountModel->AddAccount(
             $_POST['val-fullname'],
             $_POST['val-email'],
-            $_POST['val-password'],
+            $hashed_password,
             0,
             $_POST['val-phone'],
             ''
