@@ -1,3 +1,8 @@
+<?php
+if (isset($_SESSION['account'])) {
+    $account = $_SESSION['account'];
+}
+?>
 <div class="hero-wrap hero-bread" style="background-image: url('<?php echo $appRootURL ?>/public/home/images/bg-2.jpg');">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -36,24 +41,53 @@
         </div>
         <div class="row block-9">
             <div class="col-md-6 order-md-last d-flex">
-                <form action="#" class="bg-white p-5 contact-form">
+                <?php if (!isset($_SESSION['account'])) { ?>
+                <div style="height: 500px;"></div>
+                
+                <?php } ?>
+                <?php if (isset($_SESSION['account'])) { ?>
+                <form action="<?php echo $appRootURL ?>/home/editaccount" class="bg-white p-5 contact-form" method="post">
+                    <h3 class="mb-3">Cập nhật thông tin</h3>
+                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                    <input type="hidden" name="val-id" value="<?php echo $account->{'id'} ?>"/>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Tên của bạn">
+                        <label for="">Họ và tên</label>
+                        <input type="text" class="form-control" placeholder="Họ và tên" name="val-fullname" value="<?php echo $account->{'fullname'} ?>">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Địa chỉ Email">
+                        <label for="">Email</label>
+                        <input type="text" class="form-control" placeholder="Email" id="val-email" name="val-email" value="<?php echo $account->{'email'} ?>">
+                    </div>
+                    <div class="form-group row">
+                        <div class="form-check">
+                            <div id="check-email" style="color: red;"></div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Tiêu đề">
+                        <label for="">Mật khẩu</label>
+                        <input type="password" id="val-password" class="form-control" name="val-password" placeholder="Mật khẩu" value="<?php echo $account->{'password'} ?>">
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Nội dung"></textarea>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" onclick="togglePassword()"> Hiển thị mật khẩu
+                            </label>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Gửi thông tin" class="btn btn-primary py-3 px-5">
+                        <label for="">Số điện thoại</label>
+                        <input type="text" class="form-control" name="val-phone" placeholder="Số điện thoại" value="<?php echo $account->{'phone'} ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Địa chỉ</label>
+                        <textarea cols="30" rows="7" class="form-control" name="val-address" placeholder="Địa chỉ"><?php echo $account->{'address'} ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Cập nhật" class="btn btn-primary py-3 px-5">
+                        <a href="<?php echo $appRootURL ?>/home/logout" type="button" class="btn btn-primary py-3 px-5">Đăng xuất</a>
                     </div>
                 </form>
-
+                <?php } ?>
             </div>
 
             <div class="col-md-6 d-flex">

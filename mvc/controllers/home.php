@@ -4,12 +4,14 @@ class Home extends Controller {
     public $productModel;
     public $billModel;
     public $billDetailModel;
+    public $accountModel;
 
     function __construct() {
         $this->topicModel = $this->model("TopicModel");
         $this->productModel = $this->model("ProductModel");
         $this->billModel = $this->model("BillModel");
         $this->billDetailModel = $this->model("BillDetailModel");
+        $this->accountModel = $this->model("AccountModel");
 
         $_SESSION['numCart'] = 0;
 
@@ -65,6 +67,28 @@ class Home extends Controller {
         $this->view("home", [
             "pages" => "contact"
         ]);
+    }
+
+    function EditAccount() {
+        $this->accountModel->UpdateAccount(
+            $_POST['val-id'],
+            $_POST['val-fullname'],
+            $_POST['val-email'],
+            $_POST['val-password'],
+            0,
+            $_POST['val-phone'],
+            $_POST['val-address']
+        );
+
+        unset($_SESSION['account']);
+        unset($_SESSION['admin']);
+        header("Location: $this->appRootURL/auth");
+    }
+
+    function Logout() {
+        unset($_SESSION['account']);
+        unset($_SESSION['admin']);
+        header("Location: $this->appRootURL/auth");
     }
 
     function Cart() {

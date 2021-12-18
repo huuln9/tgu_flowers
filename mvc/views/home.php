@@ -234,6 +234,10 @@
         </svg>
     </div>
 
+    <!-- My JS -->
+    <script src="<?php echo $appRootURL ?>/public/main/js/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo $appRootURL ?>/public/main/js/myjs.js"></script>
+
     <script src="<?php echo $appRootURL ?>/public/home/js/jquery.min.js"></script>
     <script src="<?php echo $appRootURL ?>/public/home/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="<?php echo $appRootURL ?>/public/home/js/popper.min.js"></script>
