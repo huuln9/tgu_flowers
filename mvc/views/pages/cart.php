@@ -2,6 +2,7 @@
 $billDetails = json_decode($data['billDetails']);
 $products = json_decode($data['products']);
 $billId = json_decode($data['billId']);
+$hasPhone = $data['hasPhone'];
 $total = 0;
 ?>
 <div class="hero-wrap hero-bread" style="background-image: url('<?php echo $appRootURL ?>/public/home/images/bg-2.jpg')">
@@ -123,7 +124,7 @@ $total = 0;
                     </p>
                 </div>
                 <p>
-                    <?php if ($total > 0) { ?>
+                    <?php if ($total > 0 && $hasPhone == "true") { ?>
                     <a href="<?php echo $appRootURL ?>/home/checkout/<?php echo $billId ?>/<?php echo $total ?>" class="btn btn-primary py-3 px-4">Tiến hành thanh toán</a>
                     <?php } ?>
                 </p>

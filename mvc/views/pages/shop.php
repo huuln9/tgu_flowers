@@ -58,7 +58,7 @@ $topicId = $urlArr[count($urlArr) - 1];
                         </div>
                         <div class="bottom-area d-flex px-3">
                             <div class="m-auto d-flex">
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                <a href="<?php echo $appRootURL ?>/home/addcart/<?php echo $row->{'id'} ?>/<?php echo $row->{'number_flowers'} * $row->{'unit_price'} ?>" class="buy-now d-flex justify-content-center align-items-center mx-1">
                                     <span><i class="ion-ios-cart"></i></span>
                                 </a>
                             </div>

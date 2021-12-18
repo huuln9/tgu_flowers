@@ -38,6 +38,18 @@ class AccountModel extends Database {
         return json_encode($result);    
     }
 
+    public function CheckAccounHasPhone($id) {
+        $qr = "SELECT `phone` FROM `account` WHERE `id`=$id;";
+        $rs = $this->conn->query($qr);
+
+        $acc = $rs->fetch_assoc();
+        $result = false;
+        if ($acc['phone'] != null) {
+            $result = true;
+        }
+        return json_encode($result);    
+    }
+
     public function CheckLogin($email, $password) {
         $qr = "SELECT * FROM `account` WHERE `email`='$email' AND `password`='$password';";
         $rs = $this->conn->query($qr);

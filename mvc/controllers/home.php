@@ -109,11 +109,14 @@ class Home extends Controller {
 
         $products = $this->productModel->GetProducts();
 
+        $hasPhone = $this->accountModel->CheckAccounHasPhone($accountId);
+
         $this->view("home", [
             "pages" => "cart",
             "billDetails" => $billDetails,
             "products" => $products,
-            "billId" => $carts[0]->{'id'}
+            "billId" => $carts[0]->{'id'},
+            "hasPhone" => $hasPhone 
         ]);
     }
 
