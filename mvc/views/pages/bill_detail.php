@@ -141,6 +141,7 @@ $products = json_decode($data['products']);
                             hãy vui lòng để lại ý kiến đóng góp hoặc liên hệ theo hotline bên dưới để shop có thể hỗ trợ nhanh nhất!</p>
                             <p>Hotline: 2444.666.666</p>
                         </div>
+                        <button type="submit" class="btn btn-primary" onclick="printContent('invoice')">In hóa đơn</button>
                     </div>
                     <!--End InvoiceBot-->
                 </div>
