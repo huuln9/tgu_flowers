@@ -97,6 +97,7 @@ $(async function() {
 
     var giftCustomer = [];
     var buyCustomer = [];
+    var maxQuantity = 100;
 
     await $.post(appRootURL + "/ajax/sumquantitygiftbymonth", {}, function(data) {
         var arr = JSON.parse(data);
@@ -111,6 +112,9 @@ $(async function() {
         for (var i = 0; i < arr.length; i++) {
             buyCustomer[i] = arr[i];
         }
+    });
+    await $.post(appRootURL + "/ajax/sumquantity", {}, function(data) {
+        maxQuantity = JSON.parse(data);
     });
 
     var plot = $.plot($('#flotLine1'), [{
@@ -148,7 +152,7 @@ $(async function() {
         },
         yaxis: {
             min: 0,
-            max: 30,
+            max: maxQuantity,
             color: 'transparent',
             font: {
                 size: 10,

@@ -63,5 +63,9 @@ class Ajax extends Controller {
         }
         print_r(json_encode($monthBuy));
     }
+
+    function SumQuantity() {
+        echo $this->billDetailModel->SumQuantity();
+    }
 }
 ?>
