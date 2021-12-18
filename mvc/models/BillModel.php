@@ -66,8 +66,8 @@ class BillModel extends Database {
         return json_encode($arr);
     }
 
-    public function GetBillIdByAccountAndStatus($accountId, $status) {
-        $qr = "SELECT `id` FROM `bill` WHERE `id_account`=$accountId AND `status`=$status;";
+    public function GetBillIdByGift($isGift) {
+        $qr = "SELECT `id` FROM `bill` WHERE `gift`=$isGift;";
         $rs = $this->conn->query($qr);
         
         $arr = array();
@@ -77,8 +77,8 @@ class BillModel extends Database {
         return json_encode($arr);
     }
 
-    public function GetBillIdByGift($isGift) {
-        $qr = "SELECT `id` FROM `bill` WHERE `gift`=$isGift;";
+    public function GetBillIdByAccountAndStatus($accountId, $status) {
+        $qr = "SELECT `id` FROM `bill` WHERE `id_account`=$accountId AND `status`=$status;";
         $rs = $this->conn->query($qr);
         
         $arr = array();
@@ -117,6 +117,12 @@ class BillModel extends Database {
 
     public function UpdateBillStatus($id, $status) {
         $qr = "UPDATE `bill` SET `status`=$status WHERE `id`=$id;";
+        $this->conn->query($qr);
+    }
+
+    public function UpdateBill($id, $payment, $gift, $receiverName, $receiverAddress, $receiveTime, $message) {
+        $qr = "UPDATE `bill` SET `date`=now(),`payment`=$payment,`status`=1,`gift`=$gift,`receiver_name`='$receiverName',
+                `receiver_address`='$receiverAddress',`receive_time`='$receiveTime',`message`='$message' WHERE `id`=$id;";
         $this->conn->query($qr);
     }
 

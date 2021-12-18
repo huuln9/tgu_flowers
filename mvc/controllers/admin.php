@@ -287,14 +287,14 @@ class Admin extends Controller {
         $billDetails = $this->billDetailModel->GetBillDetailsByBillId($billId);
         $bill = $this->billModel->GetBill($billId);
         $billJs = json_decode($bill);
-        $customer = $this->accountModel->GetAccount($billJs[0]->{'id_account'});
+        $customer = json_decode($this->accountModel->GetAccount($billJs[0]->{'id_account'}));
         $products = $this->productModel->GetProducts();
 
         $this->view("admin", [
             "pages" => "bill_detail",
             "billDetails" => $billDetails,
             "bill" => $billJs,
-            "customer" => $customer,
+            "customer" => $customer[0],
             "products" => $products
         ]);
     }

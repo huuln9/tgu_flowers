@@ -1,7 +1,7 @@
 <?php
 $billDetails = json_decode($data['billDetails']);
 $bill = $data['bill'][0];
-$customer = json_decode($data['customer']);
+$customer = $data['customer'];
 $products = json_decode($data['products']);
 ?>
 <div class="content-body">
@@ -40,13 +40,11 @@ $products = json_decode($data['products']);
                     <div id="invoice-mid">
                         <div class="clientlogo"></div>
                         <div class="invoice-info">
-                            <?php foreach ($customer as $row) { ?>
-                            <h2><?php echo $row->{'fullname'} ?></h2>
-                            <p><?php echo $row->{'email'} ?>
-                                <br><?php echo $row->{'phone'} ?>
+                            <h2><?php echo $customer->{'fullname'} ?></h2>
+                            <p><?php echo $customer->{'email'} ?>
+                                <br><?php echo $customer->{'phone'} ?>
                                 <br>
                             </p>
-                            <?php } ?>
                         </div>
                         <div id="project">
                             <h2>Tình trạng đơn hàng</h2>
@@ -61,6 +59,10 @@ $products = json_decode($data['products']);
                                         break;
                                 }
                                 ?>
+                            </p>
+                            <p>
+                                Số điện thoại: <?php echo $customer->{'phone'} ?> <br>
+                                Địa chỉ: <?php echo $customer->{'address'} ?>
                             </p>
                         </div>
                     </div>

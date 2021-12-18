@@ -16,7 +16,9 @@ class Home extends Controller {
         if (isset($_SESSION['account'])) {
             $accountId = $_SESSION['account']->{'id'};
             $carts = json_decode($this->billModel->GetCartByAccount($accountId));
-            $_SESSION['numCart'] = json_decode($this->billDetailModel->CountNumCartByBillId($carts[0]->{'id'}));
+            if (count($carts) == 1) {
+                $_SESSION['numCart'] = json_decode($this->billDetailModel->CountNumCartByBillId($carts[0]->{'id'}));
+            }
         }
     }
 
@@ -76,14 +78,18 @@ class Home extends Controller {
         $billDetails = json_encode([]);
         if (count($billIds) > 0) {
             $billDetails = $this->billDetailModel->GetBillDetailsByBillId($billIds[0]);
+        } else {
+            $this->billModel->AddCart($accountId);
         }
+        $carts = json_decode($this->billModel->GetCartByAccount($accountId));
 
         $products = $this->productModel->GetProducts();
 
         $this->view("home", [
             "pages" => "cart",
             "billDetails" => $billDetails,
-            "products" => $products
+            "products" => $products,
+            "billId" => $carts[0]->{'id'}
         ]);
     }
 
@@ -130,11 +136,19 @@ class Home extends Controller {
         header("Location: $this->appRootURL/home/cart");
     }
 
-    function Checkout() {
+    function Checkout($billId, $total) {
         $this->view("home", [
-            "pages" => "checkout"
+            "pages" => "checkout",
+            "billId" => $billId,
+            "total" => $total
         ]);
     }
 
+    function Payment($billId) {
+        $this->billModel->UpdateBill($billId, $_POST['val-payment'], $_POST['val-gift'], $_POST['val-receivername'],
+            $_POST['val-receiveraddress'], $_POST['val-receivetime'], $_POST['val-message']);
+
+        header("Location: $this->appRootURL/home/cart");
+    }
 }
 ?>
