@@ -35,19 +35,29 @@ class Home extends Controller {
         ]);
     }
 
-    function Shop($topicId = null) {
+    function Shop($topicId = 0, $page = 1) {
         $topics = $this->topicModel->GetTopics();
 
-        if ($topicId != null) {
-            $products = $this->productModel->GetProductsByTopic($topicId);
+        $index = ($page - 1) * 8;
+        if ($topicId != 0) {
+            $products = $this->productModel->GetProductsByTopic($topicId, $index);
         } else {
-            $products = $this->productModel->GetProducts();
+            $products = $this->productModel->GetProductsPaginate($index);
+        }
+
+        $numProd = json_decode($this->productModel->GetNumProductsByTopic($topicId));
+        if ($numProd % 8 != 0) {
+            $numPage = floor($numProd / 8) + 1;
+        } else {
+            $numPage = $numProd / 8;
         }
 
         $this->view("home", [
             "pages" => "shop",
             "topics" => $topics,
-            "products" => $products
+            "products" => $products,
+            "numPage" => $numPage,
+            "page" => $page
         ]);
     }
 

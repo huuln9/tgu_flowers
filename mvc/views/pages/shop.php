@@ -1,6 +1,8 @@
 <?php
 $topics = json_decode($data['topics']);
 $products = json_decode($data['products']);
+$numPage = json_decode($data['numPage']);
+$page = $data['page'];
 ?>
 <div class="hero-wrap hero-bread" style="background-image: url('<?php echo $appRootURL ?>/public/home/images/bg-2.jpg')">
     <div class="container">
@@ -20,17 +22,17 @@ $products = json_decode($data['products']);
 </div>
 <?php
 $urlArr = explode("/", $_SERVER['REQUEST_URI']);
-$topicId = $urlArr[count($urlArr) - 1];
+$topicId = $urlArr[count($urlArr) - 2];
 ?>
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
                 <ul class="product-category">
-                    <li><a href="<?php echo $appRootURL ?>/home/shop" class="<?php if ($topicId == "shop") echo "active" ?>">Tất cả</a></li>
+                    <li><a href="<?php echo $appRootURL ?>/home/shop/0/1" class="<?php if ($topicId == "shop" || $topicId == 0) echo "active" ?>">Tất cả</a></li>
                     <?php foreach ($topics as $row) { ?>
                     <li>
-                        <a href="<?php echo $appRootURL ?>/home/shop/<?php echo $row->{'id'} ?>" class="<?php if ($topicId == $row->{'id'}) echo "active" ?>">
+                        <a href="<?php echo $appRootURL ?>/home/shop/<?php echo $row->{'id'} ?>/1" class="<?php if ($topicId == $row->{'id'}) echo "active" ?>">
                             <?php echo $row->{'name'} ?>
                         </a>
                     </li>
@@ -68,20 +70,18 @@ $topicId = $urlArr[count($urlArr) - 1];
             </div>
             <?php } ?>
         </div>
-        <!-- <div class="row mt-5">
+        <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
+                        <?php for ($i = 1; $i <= $numPage; $i++) { ?>
+                        <li class="<?php if ($page == $i) echo 'active' ?>">
+                            <a href="<?php echo $appRootURL ?>/home/shop/<?php echo $topicId ?>/<?php echo $i ?>"><?php echo $i ?></a>
+                        </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 </section>

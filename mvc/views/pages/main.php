@@ -14,7 +14,7 @@ $products = json_decode($data['products']);
                             Chúng tôi chuyên cung cấp các loại hoa tươi &amp; sạch
                         </h1>
                         <h2 class="subheading mb-4">Cam kết sản phẩm chất lượng</h2>
-                        <p><a href="<?php echo $appRootURL ?>/home/shop" class="btn btn-primary">Đặt mua ngay</a></p>
+                        <p><a href="<?php echo $appRootURL ?>/home/shop/0/1" class="btn btn-primary">Đặt mua ngay</a></p>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@ $products = json_decode($data['products']);
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
                     <div class="col-sm-12 ftco-animate text-center">
                         <h1 class="mb-2">100% Miễn Phí giao hàng</h1>
-                        <p><a href="<?php echo $appRootURL ?>/home/shop" class="btn btn-primary">Đặt mua ngay</a></p>
+                        <p><a href="<?php echo $appRootURL ?>/home/shop/0/1" class="btn btn-primary">Đặt mua ngay</a></p>
                     </div>
                 </div>
             </div>
@@ -124,19 +124,19 @@ $products = json_decode($data['products']);
                             <div class="text text-center">
                                 <h2>Hoa Tươi</h2>
                                 <p>Sản phẩm nổi bật</p>
-                                <p><a href="<?php echo $appRootURL ?>/home/shop" class="btn btn-primary">Mua hoa ngay</a></p>
+                                <p><a href="<?php echo $appRootURL ?>/home/shop/0/1" class="btn btn-primary">Mua hoa ngay</a></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="category-wrap ftco-animate img mb-4 d-flex  align-items-end " style="background-image: url(<?php echo $topics[0]->{'thumbnail'} ?>)">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="<?php echo $appRootURL ?>/home/shop/<?php echo $topics[0]->{'id'} ?>"><?php echo $topics[0]->{'name'} ?></a></h2>
+                                <h2 class="mb-0"><a href="<?php echo $appRootURL ?>/home/shop/<?php echo $topics[0]->{'id'} ?>/1"><?php echo $topics[0]->{'name'} ?></a></h2>
                             </div>
                         </div>
                         <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(<?php echo $topics[1]->{'thumbnail'} ?>)">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="<?php echo $appRootURL ?>/home/shop/<?php echo $topics[1]->{'id'} ?>"><?php echo $topics[1]->{'name'} ?></a></h2>
+                                <h2 class="mb-0"><a href="<?php echo $appRootURL ?>/home/shop/<?php echo $topics[1]->{'id'} ?>/1"><?php echo $topics[1]->{'name'} ?></a></h2>
                             </div>
                         </div>
                     </div>
@@ -146,12 +146,12 @@ $products = json_decode($data['products']);
             <div class="col-md-4">
                 <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(<?php echo $topics[2]->{'thumbnail'} ?>)">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="<?php echo $appRootURL ?>/home/shop/<?php echo $topics[2]->{'id'} ?>"><?php echo $topics[2]->{'name'} ?></a></h2>
+                        <h2 class="mb-0"><a href="<?php echo $appRootURL ?>/home/shop/<?php echo $topics[2]->{'id'} ?>/1"><?php echo $topics[2]->{'name'} ?></a></h2>
                     </div>
                 </div>
                 <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(<?php echo $topics[3]->{'thumbnail'} ?>)">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="<?php echo $appRootURL ?>/home/shop/<?php echo $topics[3]->{'id'} ?>"><?php echo $topics[3]->{'name'} ?></a></h2>
+                        <h2 class="mb-0"><a href="<?php echo $appRootURL ?>/home/shop/<?php echo $topics[3]->{'id'} ?>/1"><?php echo $topics[3]->{'name'} ?></a></h2>
                     </div>
                 </div>
             </div>

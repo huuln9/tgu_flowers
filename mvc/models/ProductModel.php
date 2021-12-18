@@ -10,6 +10,17 @@ class ProductModel extends Database {
         }
         return json_encode($arr);
     }
+    
+    public function GetProductsPaginate($page) {
+        $qr = "SELECT * FROM `product` LIMIT $page, 8;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
 
     public function AddProduct($name, $thumbnail, $mean, $number_flowers, $unit_price, $inventory, $id_topic) {
         $qr = "INSERT INTO `product` VALUES (null,'$name','$thumbnail','$mean',$number_flowers,$unit_price,$inventory,$id_topic);";
@@ -27,8 +38,8 @@ class ProductModel extends Database {
         return json_encode($arr);
     }
 
-    public function GetProductsByTopic($topicId) {
-        $qr = "SELECT * FROM `product` WHERE `id_topic`=$topicId;";
+    public function GetProductsByTopic($topicId, $page) {
+        $qr = "SELECT * FROM `product` WHERE `id_topic`=$topicId LIMIT $page, 8;";
         $rs = $this->conn->query($qr);
         
         $arr = array();
@@ -58,6 +69,18 @@ class ProductModel extends Database {
             $arr[] = $row;
         }
         return json_encode($arr);
+    }
+
+    public function GetNumProductsByTopic($topicId) {
+        if ($topicId == 0) {
+            $qr = "SELECT COUNT(*) as `num` FROM `product`;";
+        } else {
+            $qr = "SELECT COUNT(*) as `num` FROM `product` WHERE `id_topic`=$topicId;";
+        }
+        $rs = $this->conn->query($qr);
+ 
+        $numProd = $rs->fetch_assoc();
+        return json_encode($numProd['num']);
     }
 
     public function UpdateProduct($id, $name, $thumbnail, $mean, $number_flowers, $unit_price, $inventory, $id_topic) {
