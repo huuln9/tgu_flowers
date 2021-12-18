@@ -68,7 +68,7 @@ class Home extends Controller {
         $product = $products[0];
 
         $comments = $this->commentModel->GetCommentByProduct($id);
-        $quantity = $this->billDetailModel->SumQuantityByProdduct($id);
+        $quantity = $this->billDetailModel->SumQuantityByProduct($id);
         $otherProds = $this->productModel->Get4ProductsByTopic($product->{'id_topic'});
 
         $this->view("home", [
@@ -179,6 +179,31 @@ class Home extends Controller {
         $rs = json_decode($this->billDetailModel->CheckQuantityZero($id));
         if ($rs == "true") {
             $this->billDetailModel->DeleteBillDetail($id);
+        }
+
+        header("Location: $this->appRootURL/home/cart");
+    }
+
+    function UpdateCartDetail($id, $price) {
+        if (!isset($_SESSION['account'])) {
+            header("Location: $this->appRootURL/auth");
+        }
+
+        $num = $_POST['quantity'];
+
+        $accountId = $_SESSION['account']->{'id'};
+        $billIds = json_decode($this->billModel->GetBillIdByAccountAndStatus($accountId, 0));
+        
+        if (count($billIds) == 0) {
+            $this->billModel->AddCart($accountId);
+        }
+        $carts = json_decode($this->billModel->GetCartByAccount($accountId));
+
+        $cartDetailExist = $this->billDetailModel->CheckCartDetailExist($carts[0]->{'id'}, $id);
+        if ($cartDetailExist == "false") {
+            $this->billDetailModel->AddCartDetailByNum($carts[0]->{'id'}, $id, $num, $price);
+        } else {
+            $this->billDetailModel->UpdateCartDetailByNum($carts[0]->{'id'}, $id, $num);
         }
 
         header("Location: $this->appRootURL/home/cart");

@@ -12,7 +12,7 @@ class BillDetailModel extends Database {
     }
 
     public function GetBillDetailsByBillId($billId) {
-        $qr = "SELECT * FROM `bill_detail` WHERE id_bill=$billId;";
+        $qr = "SELECT * FROM `bill_detail` WHERE `id_bill`=$billId;";
         $rs = $this->conn->query($qr);
         
         $arr = array();
@@ -20,6 +20,14 @@ class BillDetailModel extends Database {
             $arr[] = $row;
         }
         return json_encode($arr);
+    }
+
+    public function GetBillDetailByBillAndProduct($billId, $productId) {
+        $qr = "SELECT * FROM `bill_detail` WHERE `id_bill`=$billId AND `id_product`=$productId;";
+        $rs = $this->conn->query($qr);
+        
+        $row = $rs->fetch_assoc();
+        return json_encode($row);
     }
 
     public function SumTotalByBillId($billId) {
@@ -46,7 +54,7 @@ class BillDetailModel extends Database {
         return json_encode($row['quantity']);
     }
 
-    public function SumQuantityByProdduct($productId) {
+    public function SumQuantityByProduct($productId) {
         $qr = "SELECT SUM(quantity) as `quantity` FROM `bill_detail` WHERE `id_product`=$productId;";
         $rs = $this->conn->query($qr);
         
@@ -70,6 +78,11 @@ class BillDetailModel extends Database {
         $this->conn->query($qr);
     }
 
+    function AddCartDetailByNum($billId, $productId, $num, $price) {
+        $qr = "INSERT INTO `bill_detail` VALUES (null, $billId, $productId, $num, $price);";
+        $this->conn->query($qr);
+    }
+
     function UpdateCartDetail($billId, $productId, $up) {
         if ($up) {
             $qr = "UPDATE `bill_detail` SET `quantity`=`quantity`+1 WHERE `id_bill`=$billId AND `id_product`=$productId;";
@@ -85,6 +98,11 @@ class BillDetailModel extends Database {
         } else {
             $qr = "UPDATE `bill_detail` SET `quantity`=`quantity`-1 WHERE `id`=$id;";
         }
+        $this->conn->query($qr);
+    }
+
+    function UpdateCartDetailByNum($billId, $productId, $num) {
+        $qr = "UPDATE `bill_detail` SET `quantity`=`quantity`+$num WHERE `id_bill`=$billId AND `id_product`=$productId;";
         $this->conn->query($qr);
     }
 

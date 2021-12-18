@@ -37,23 +37,14 @@ $otherProds = json_decode($data['otherProds']);
                     website.
                 </p>
                 <div class="row mt-4">
-                    <div class="w-100"></div>
                     <div class="input-group col-md-6 d-flex mb-3">
-                        <!-- <span class="input-group-btn mr-2">
-                            <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-                                <i class="ion-ios-remove"></i>
-                            </button>
-                        </span> -->
-                        <input type="number" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
-                        <!-- <span class="input-group-btn ml-2">
-                            <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                                <i class="ion-ios-add"></i>
-                            </button>
-                        </span> -->
+                        <form action="<?php echo $appRootURL ?>/home/updatecartdetail/<?php echo $product->{'id'} ?>/<?php echo $product->{'number_flowers'} * $product->{'unit_price'} ?>" method="post">
+                            <input type="number" name="quantity" class="form-control input-number" value="1">
+                            <button type="submit" style="cursor:pointer;padding:5px;margin-top:10px;width: 250px;">Thêm vào giỏ hàng</button>
+                        </form>
                     </div>
-                    <div class="w-100"></div>
                 </div>
-                <p><a href="cart.html" class="btn btn-black py-3 px-5">Thêm vào giỏ hàng</a></p>
+                <p>
             </div>
         </div>
     </div>
