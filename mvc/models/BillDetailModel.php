@@ -46,6 +46,14 @@ class BillDetailModel extends Database {
         return json_encode($row['quantity']);
     }
 
+    public function SumQuantityByProdduct($productId) {
+        $qr = "SELECT SUM(quantity) as `quantity` FROM `bill_detail` WHERE `id_product`=$productId;";
+        $rs = $this->conn->query($qr);
+        
+        $row = $rs->fetch_assoc();
+        return json_encode($row['quantity']);
+    }
+
     function CheckCartDetailExist($billId, $productId) {
         $qr = "SELECT `id` FROM `bill_detail` WHERE `id_bill`=$billId AND `id_product`=$productId;";
         $rs = $this->conn->query($qr);

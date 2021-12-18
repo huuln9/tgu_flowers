@@ -33,6 +33,17 @@ class CommentModel extends Database {
         return json_encode($arr);
     }
 
+    public function GetCommentByProduct($productId) {
+        $qr = "SELECT * FROM `comment` WHERE `id_product`=$productId;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
     public function DeleteComment($id) {
         $qr = "DELETE FROM `comment` WHERE `id`=$id;";
         $this->conn->query($qr);

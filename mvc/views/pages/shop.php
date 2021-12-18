@@ -44,7 +44,7 @@ $topicId = $urlArr[count($urlArr) - 2];
             <?php foreach ($products as $row) { ?>
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="product">
-                    <a href="#" class="img-prod"><img class="img-fluid" src="<?php echo $row->{'thumbnail'} ?>" alt="" />
+                    <a href="<?php echo $appRootURL ?>/home/product/<?php echo $row->{'id'} ?>" class="img-prod"><img class="img-fluid" src="<?php echo $row->{'thumbnail'} ?>" alt="" />
                         <!-- <span class="status">30%</span> -->
                         <div class="overlay"></div>
                     </a>

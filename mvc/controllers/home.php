@@ -5,6 +5,7 @@ class Home extends Controller {
     public $billModel;
     public $billDetailModel;
     public $accountModel;
+    public $commentModel;
 
     function __construct() {
         $this->topicModel = $this->model("TopicModel");
@@ -12,6 +13,7 @@ class Home extends Controller {
         $this->billModel = $this->model("BillModel");
         $this->billDetailModel = $this->model("BillDetailModel");
         $this->accountModel = $this->model("AccountModel");
+        $this->commentModel = $this->model("CommentModel");
 
         $_SESSION['numCart'] = 0;
 
@@ -61,9 +63,20 @@ class Home extends Controller {
         ]);
     }
 
-    function Product() {
+    function Product($id) {
+        $products = json_decode($this->productModel->GetProduct($id));
+        $product = $products[0];
+
+        $comments = $this->commentModel->GetCommentByProduct($id);
+        $quantity = $this->billDetailModel->SumQuantityByProdduct($id);
+        $otherProds = $this->productModel->Get4ProductsByTopic($product->{'id_topic'});
+
         $this->view("home", [
-            "pages" => "product"
+            "pages" => "product",
+            "product" => $product,
+            "comments" => $comments,
+            "quantity" => $quantity,
+            "otherProds" => $otherProds
         ]);
     }
 
@@ -117,7 +130,7 @@ class Home extends Controller {
         }
         $carts = json_decode($this->billModel->GetCartByAccount($accountId));
 
-        $products = $this->productModel->GetProducts();
+        $products = $this->productModel->GetProductsFromHome();
 
         $hasPhone = $this->accountModel->CheckAccounHasPhone($accountId);
 
