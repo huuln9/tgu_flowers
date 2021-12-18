@@ -121,6 +121,10 @@ class Home extends Controller {
     }
 
     function AddCart($productId, $price) {
+        if (!isset($_SESSION['account'])) {
+            header("Location: $this->appRootURL/auth");
+        }
+
         $accountId = $_SESSION['account']->{'id'};
 
         $cartExist = $this->billModel->CheckCartExist($accountId);
