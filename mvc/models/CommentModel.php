@@ -44,6 +44,11 @@ class CommentModel extends Database {
         return json_encode($arr);
     }
 
+    function AddComment($accountId, $productId, $content) {
+        $qr = "INSERT INTO `comment` VALUES (null, $accountId, $productId, '$content', current_timestamp());";
+        $this->conn->query($qr);
+    }
+
     public function DeleteComment($id) {
         $qr = "DELETE FROM `comment` WHERE `id`=$id;";
         $this->conn->query($qr);

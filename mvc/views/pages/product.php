@@ -3,12 +3,13 @@ $product = $data['product'];
 $comments = json_decode($data['comments']);
 $quantity = json_decode($data['quantity']);
 $otherProds = json_decode($data['otherProds']);
+$accounts = json_decode($data['accounts']);
 ?>
 <section class="ftco-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-5 ftco-animate">
-                <a href="images/products/hoa-1.jpeg" class="image-popup"><img src="<?php echo $product->{'thumbnail'} ?>" class="img-fluid" alt=""></a>
+                <a href="<?php echo $product->{'thumbnail'} ?>" class="image-popup"><img src="<?php echo $product->{'thumbnail'} ?>" class="img-fluid" alt=""></a>
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                 <h3><?php echo $product->{'name'} ?></h3>
@@ -39,7 +40,7 @@ $otherProds = json_decode($data['otherProds']);
                 <div class="row mt-4">
                     <div class="input-group col-md-6 d-flex mb-3">
                         <form action="<?php echo $appRootURL ?>/home/updatecartdetail/<?php echo $product->{'id'} ?>/<?php echo $product->{'number_flowers'} * $product->{'unit_price'} ?>" method="post">
-                            <input type="number" name="quantity" class="form-control input-number" value="1">
+                            <input type="number" name="quantity" class="form-control input-number" value="1" min=0 max="100">
                             <button type="submit" style="cursor:pointer;padding:5px;margin-top:10px;width: 250px;">Thêm vào giỏ hàng</button>
                         </form>
                     </div>
@@ -63,7 +64,15 @@ $otherProds = json_decode($data['otherProds']);
                             <img src="<?php echo $appRootURL ?>/public/home/images/person_1.jpg" alt="Image placeholder">
                         </div>
                         <div class="comment-body">
-                            <h6><?php echo $row->{'id_account'} ?></h6>
+                            <h6>
+                                <?php 
+                                foreach ($accounts as $account) {
+                                    if ($row->{'id_account'} == $account->{'id'}) {
+                                        echo $account->{'fullname'};
+                                    }
+                                }
+                                ?>
+                            </h6>
                             <div class="meta"><?php echo $row->{'time'} ?></div>
                             <p><?php echo $row->{'content'} ?></p>
                         </div>
@@ -72,12 +81,13 @@ $otherProds = json_decode($data['otherProds']);
                 </ul>
                 <!-- END comment-list -->
 
+                <?php if (isset($_SESSION['account'])) { ?>
                 <div class="comment-form-wrap pt-5">
                     <h6 class="mb-0">Viết đánh giá</h6>
-                    <form action="#" class="p-5">
+                    <form action="<?php echo $appRootURL ?>/home/addcomment/<?php echo $product->{'id'} ?>" class="p-5" method="post">
                         <div class="form-group">
                             <label for="message">Nội dung</label>
-                            <textarea name="" id="message" cols="30" rows="5" class="form-control"></textarea>
+                            <textarea name="val-content" id="message" cols="30" rows="5" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Đánh giá" class="btn py-3 px-4 btn-primary">
@@ -85,6 +95,7 @@ $otherProds = json_decode($data['otherProds']);
 
                     </form>
                 </div>
+                <?php } ?>
             </div>
         </div> <!-- .col-md-8 -->
 
@@ -108,12 +119,12 @@ $otherProds = json_decode($data['otherProds']);
             <?php foreach ($otherProds as $row) { ?>
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="product">
-                    <!-- <a href="#" class="img-prod"><img class="img-fluid" src="images/products/hoa-1.jpeg" alt="">
-                        <span class="status">30%</span>
+                    <a href="<?php echo $appRootURL ?>/home/product/<?php echo $row->{'id'} ?>" class="img-prod"><img class="img-fluid" src="<?php echo $row->{'thumbnail'} ?>" alt="">
+                        <!-- <span class="status">30%</span> -->
                         <div class="overlay"></div>
-                    </a> -->
+                    </a>
                     <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#"><?php $row->{'name'} ?></a></h3>
+                        <h3><a href="<?php echo $appRootURL ?>/home/product/<?php echo $row->{'id'} ?>"><?php echo $row->{'name'} ?></a></h3>
                         <div class="d-flex">
                             <div class="pricing">
                                 <p class="price">
@@ -125,7 +136,7 @@ $otherProds = json_decode($data['otherProds']);
                         </div>
                         <div class="bottom-area d-flex px-3">
                             <div class="m-auto d-flex">
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                <a href="<?php echo $appRootURL ?>/home/addcart/<?php echo $row->{'id'} ?>/<?php echo $row->{'number_flowers'} * $row->{'unit_price'} ?>" class="buy-now d-flex justify-content-center align-items-center mx-1">
                                     <span><i class="ion-ios-cart"></i></span>
                                 </a>
                             </div>

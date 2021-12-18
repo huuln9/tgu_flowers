@@ -70,14 +70,25 @@ class Home extends Controller {
         $comments = $this->commentModel->GetCommentByProduct($id);
         $quantity = $this->billDetailModel->SumQuantityByProduct($id);
         $otherProds = $this->productModel->Get4ProductsByTopic($product->{'id_topic'});
+        $accounts = $this->accountModel->GetAccounts();
 
         $this->view("home", [
             "pages" => "product",
             "product" => $product,
             "comments" => $comments,
             "quantity" => $quantity,
-            "otherProds" => $otherProds
+            "otherProds" => $otherProds,
+            "accounts" => $accounts
         ]);
+    }
+
+    function AddComment($productId) {
+        $accountId = $_SESSION['account']->{'id'};
+        $content = $_POST['val-content'];
+
+        $this->commentModel->AddComment($accountId, $productId, $content);
+
+        header("Location: $this->appRootURL/home/product/$productId");
     }
 
     function About() {
