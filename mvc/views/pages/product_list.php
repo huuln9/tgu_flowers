@@ -33,7 +33,7 @@ $topics = json_decode($data['topics']);
                                         <th>Ý nghĩa</th>
                                         <th>Số lượng hoa</th>
                                         <th>Đơn giá</th>
-                                        <th>Kho</th>
+                                        <th>Trạng thái</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </thead>
@@ -55,7 +55,7 @@ $topics = json_decode($data['topics']);
                                         <td><?php echo $row->{'mean'} ?></td>
                                         <td><?php echo $row->{'number_flowers'} ?></td>
                                         <td><?php echo number_format($row->{'unit_price'}, 0, ',', '.'); ?> đ</td>
-                                        <td><?php echo $row->{'inventory'} ?></td>
+                                        <td><?php if ($row->{'enable'}) echo "Hiện"; else echo "Ẩn" ?></td>
                                         <td>
                                             <div class="btn-group">
                                                 <a href="<?php echo $appRootURL ?>/admin/productedit/<?php echo $row->{'id'} ?>" type="button" class="btn btn-success"><i class="mdi mdi-pen"></i></a>
@@ -74,7 +74,7 @@ $topics = json_decode($data['topics']);
                                         <th>Ý nghĩa</th>
                                         <th>Số lượng hoa</th>
                                         <th>Đơn giá</th>
-                                        <th>Kho</th>
+                                        <th>Trạng thái</th>
                                         <th>Thao tác</th>
                                     </tr>
                                 </tfoot>

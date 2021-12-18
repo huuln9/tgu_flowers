@@ -69,10 +69,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="val-kho">Kho <span class="text-danger">*</span>
+                                    <label class="col-lg-4 col-form-label" for="val-email">Trạng thái <span class="text-danger">*</span>
                                     </label>
                                     <div class="col-lg-6">
-                                        <input type="text" class="form-control input-flat" id="val-kho" name="val-kho" placeholder="Nhập số lượng hoa trong kho ...">
+                                        <label class="radio-inline"><input type="radio" name="val-enable" value="1" checked> Hiện</label>
+                                        <span style="margin: 5px;"></span>
+                                        <label class="radio-inline"><input type="radio" name="val-enable" value="0"> Ẩn</label>
                                     </div>
                                 </div>
                                 <div class="form-group row">

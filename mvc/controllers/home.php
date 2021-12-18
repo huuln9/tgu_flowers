@@ -64,7 +64,7 @@ class Home extends Controller {
     }
 
     function Product($id) {
-        $products = json_decode($this->productModel->GetProduct($id));
+        $products = json_decode($this->productModel->GetProductFromHome($id));
         $product = $products[0];
 
         $comments = $this->commentModel->GetCommentByProduct($id);

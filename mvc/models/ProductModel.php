@@ -39,6 +39,17 @@ class ProductModel extends Database {
     }
 
     public function GetProduct($id) {
+        $qr = "SELECT * FROM `product` WHERE `id`=$id;";
+        $rs = $this->conn->query($qr);
+        
+        $arr = array();
+        while ($row = $rs->fetch_assoc()) {
+            $arr[] = $row;
+        }
+        return json_encode($arr);
+    }
+
+    public function GetProductFromHome($id) {
         $qr = "SELECT * FROM `product` WHERE `id`=$id AND `enable`=1;";
         $rs = $this->conn->query($qr);
         

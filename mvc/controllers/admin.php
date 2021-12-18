@@ -208,7 +208,7 @@ class Admin extends Controller {
             $_POST['val-mean'],
             $_POST['val-soluong'],
             $_POST['val-dongia'],
-            $_POST['val-kho'],
+            $_POST['val-enable'],
             $_POST['val-idtopic']
         );
 
@@ -232,7 +232,7 @@ class Admin extends Controller {
             $_POST['val-mean'],
             $_POST['val-soluong'],
             $_POST['val-dongia'],
-            $_POST['val-kho'],
+            $_POST['val-enable'],
             $_POST['val-idtopic']
         );
 
