@@ -104,11 +104,13 @@ class Home extends Controller {
     }
 
     function EditAccount() {
+        $hashed_password = password_hash($_POST['val-password'], PASSWORD_DEFAULT);
+
         $this->accountModel->UpdateAccount(
             $_POST['val-id'],
             $_POST['val-fullname'],
             $_POST['val-email'],
-            $_POST['val-password'],
+            $hashed_password,
             0,
             $_POST['val-phone'],
             $_POST['val-address']
