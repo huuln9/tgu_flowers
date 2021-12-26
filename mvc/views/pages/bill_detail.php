@@ -64,6 +64,16 @@ $products = json_decode($data['products']);
                                 Số điện thoại: <?php echo $customer->{'phone'} ?> <br>
                                 Địa chỉ: <?php echo $customer->{'address'} ?>
                             </p>
+                            <?php if ($bill->{'gift'}) { ?>
+                            <p>
+                                <hr>
+                                <span style="color: #FF33DD;"><i class="mdi mdi-gift"></i> Quà tặng: <small>Thông tin người nhận</small></span> <br>
+                                <small>Họ tên:</small> <b><?php echo $bill->{'receiver_name'} ?></b> <br>
+                                <small>Số điện thoại, địa chỉ:</small> <b><?php echo $bill->{'receiver_address'} ?></b> <br>
+                                <small>Thời gian giao:</small> <b><?php echo $bill->{'receive_time'} ?></b> <br>
+                                <small>Lời nhắn</small>: <b>"<?php echo $bill->{'message'} ?>"</b>
+                            </p>
+                            <?php } ?>
                         </div>
                     </div>
                     <!--End Invoice Mid-->
