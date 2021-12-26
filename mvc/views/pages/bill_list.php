@@ -32,6 +32,7 @@ $accounts = json_decode($data['accounts']);
                                         <th>Thời điểm tạo</th>
                                         <th>Loại</th>
                                         <th>Thành tiền</th>
+                                        <th>Hình thức thanh toán</th>
                                         <th>Tình trạng</th>
                                         <th>Thao tác</th>
                                     </tr>
@@ -64,6 +65,9 @@ $accounts = json_decode($data['accounts']);
                                             đ
                                         </td>
                                         <td>
+                                        <?php  if ($row->{'payment'} == 1) echo 'Chuyển khoản'; else echo 'Khi nhận hàng' ?>
+                                        </td>
+                                        <td>
                                             <?php
                                             switch ($row->{'status'}) {
                                                 case 1:
@@ -94,6 +98,7 @@ $accounts = json_decode($data['accounts']);
                                         <th>Thời điểm tạo</th>
                                         <th>Loại</th>
                                         <th>Thành tiền</th>
+                                        <th>Hình thức thanh toán</th>
                                         <th>Tình trạng</th>
                                         <th>Thao tác</th>
                                     </tr>
