@@ -25,7 +25,7 @@
         <div class="header">
             <div class="nav-header">
                 <div class="brand-logo">
-                    <a href="index.html">
+                    <a href="<?php echo $appRootURL ?>/admin">
                         <b><img src="<?php echo $appRootURL ?>/public/home/images/logo-2.png" alt=""></b>
                         <span class="brand-title">
                             <img src="<?php echo $appRootURL ?>/public/home/images/logo-3.png" alt="">
