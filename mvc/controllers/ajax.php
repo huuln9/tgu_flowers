@@ -68,14 +68,14 @@ class Ajax extends Controller {
         $year = date('Y');
         $month = date('m');
 
-        $billIds = $this->billModel->GetBillIdByMonth($month, $year);
+        $billIds = json_decode($this->billModel->GetBillIdByMonth($month, $year));
 
         $sumQuantityInMonth = 0;
         foreach ($billIds as $billId) {
             $sumQuantityInMonth += json_decode($this->billDetailModel->SumQuantityByBillId($billId));
         }
 
-        echo $sumQuantityInMonth;
+        echo $sumQuantityInMonth * 2.1;
     }
 }
 ?>
